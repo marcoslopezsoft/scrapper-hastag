@@ -6,6 +6,7 @@ import streamlit as st
 import pandas as pd
 import json
 import subprocess
+import sys
 from pathlib import Path
 import plotly.express as px
 import plotly.graph_objects as go
@@ -139,7 +140,7 @@ with st.sidebar:
         st.markdown("---")
         if st.button("🔄 Re-escanear y Actualizar Datos", use_container_width=True):
             with st.spinner("Ejecutando scraper y actualizando métricas..."):
-                res = subprocess.run(["python", "main.py"], capture_output=True, text=True)
+                res = subprocess.run([sys.executable, "main.py"], capture_output=True, text=True)
                 if res.returncode == 0:
                     st.success("¡Datos actualizados con éxito!")
                     st.cache_data.clear()
@@ -153,7 +154,7 @@ if df is None or df.empty:
     st.warning("No se encontraron datos procesados. Ejecutá el scraper para generar los datasets.")
     if st.button("Iniciar Extracción Ahora"):
         with st.spinner("Scrapeando publicaciones..."):
-            subprocess.run(["python", "main.py"])
+            subprocess.run([sys.executable, "main.py"])
             st.rerun()
     st.stop()
 

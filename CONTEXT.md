@@ -104,6 +104,7 @@ scrapper-hastag/
     - Integración del informe certificado de auditoría de X/Twitter mediante TweetBinder by Audiense: 174 posts, 43 contribuyentes, USD $4,559.42 de valor económico, 1.47M de impresiones potenciales y ranking de cuentas líderes (@marianoobarrio, @MdpSmata, @itacarri, @InfoGremiales, @MundoGremial).
     - Subsanación de enlaces de TikTok dirigidos a feeds verificados del hashtag `#queremostrabajar`.
     - Guía de despliegue en Streamlit Community Cloud (resolución de formato de repositorio sin sufijo `.git`).
+    - Corrección del subproceso de re-escaneo en Streamlit Cloud utilizando `sys.executable` en lugar de `python` para asegurar que herede el entorno virtual con `pandas` instalado.
     - Métricas consolidadas: 33 publicaciones, 94.245 interacciones y 914.280 reproducciones acumuladas.
     - **Resolución de Error Vercel PYTHON_ENTRYPOINT_NOT_FOUND**: Se incorporó el entrypoint WSGI nativo (`app = handler = application`) en `main.py` y se configuró el rewrite en `vercel.json` para servir el dashboard, CSV, JSON y Excel desde la función serverless sin errores de build.
   - **Desarrollo de Dashboard en Streamlit (`app.py`)**:
