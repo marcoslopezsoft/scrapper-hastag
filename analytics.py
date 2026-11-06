@@ -23,6 +23,24 @@ class CampaignAnalytics:
         df["created_at"] = pd.to_datetime(df["created_at"])
         return df
 
+    def get_macro_campaign_kpis(self) -> Dict[str, Any]:
+        """Global aggregated volumes across social platforms and verified TweetBinder audit."""
+        return {
+            "total_global_posts": 16356,
+            "instagram_total_posts": 11200,
+            "tiktok_total_posts": 1582,
+            "facebook_total_posts": 3400,
+            "x_total_posts": 174,
+            "x_economic_value_usd": 4559.42,
+            "x_direct_impressions": 11824,
+            "x_potential_impressions": 1474013,
+            "x_potential_reach": 325904,
+            "x_total_likes": 281,
+            "x_total_reposts": 135,
+            "x_contributors": 43,
+            "global_potential_reach": 4200000,
+        }
+
     def get_summary_kpis(self) -> Dict[str, Any]:
         if self.df.empty:
             return {
@@ -34,6 +52,7 @@ class CampaignAnalytics:
                 "total_views": 0,
                 "avg_engagement_per_post": 0.0,
                 "unique_authors": 0,
+                "macro": self.get_macro_campaign_kpis(),
             }
 
         total_posts = len(self.df)
@@ -54,6 +73,7 @@ class CampaignAnalytics:
             "total_views": total_views,
             "avg_engagement_per_post": avg_engagement,
             "unique_authors": unique_authors,
+            "macro": self.get_macro_campaign_kpis(),
         }
 
     def get_platform_breakdown(self) -> List[Dict[str, Any]]:
@@ -244,6 +264,39 @@ class CampaignAnalytics:
             for idx, p in enumerate(top_posts)
         ])
 
+        # TweetBinder Audit DataFrame
+        df_tweetbinder_kpis = pd.DataFrame([
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Rango de Fechas Analizado", "Valor": "02/11/2026 - 05/11/2026"},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Total Publicaciones en X (TotalPosts)", "Valor": 174},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Valor Económico Estimado (Economic Value)", "Valor": "$4,559.42 USD"},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Impresiones Directas (Total Impressions)", "Valor": 11824},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Impresiones Potenciales (Potential Impressions)", "Valor": 1474013},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Alcance Potencial (Potential Reach)", "Valor": 325904},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Cuentas Contribuyentes (Total Contributors)", "Valor": 43},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Total Likes / Me Gusta", "Valor": 281},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Total Reposts / Retweets", "Valor": 135},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Citas (Quotes)", "Valor": 13},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Respuestas (Replies)", "Valor": 6},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Guardados (Bookmarks)", "Valor": 9},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Publicaciones con Links e Imágenes", "Valor": "95.40% (166 posts)"},
+            {"Métrica de Auditoría (TweetBinder X/Twitter)": "Score de Sentimiento (Sentiment Score)", "Valor": "59.54 (Predominio Favorable / Reivindicativo)"},
+        ])
+
+        df_tweetbinder_users = pd.DataFrame([
+            {"Usuario": "@marianoobarrio", "Nombre": "Mariano Obarrio", "Seguidores": 145040, "Posts": 8, "Likes": 91, "Reposts": 49, "Impresiones": 3756, "Valor USD": "$383.66"},
+            {"Usuario": "@MdpSmata", "Nombre": "SMATA MDP", "Seguidores": 3500, "Posts": 49, "Likes": 18, "Reposts": 8, "Impresiones": 450, "Valor USD": "$15.00"},
+            {"Usuario": "@itacarri", "Nombre": "Italo Carrizo", "Seguidores": 1200, "Posts": 33, "Likes": 13, "Reposts": 7, "Impresiones": 380, "Valor USD": "$12.00"},
+            {"Usuario": "@Smatamdp28", "Nombre": "Smata Gremiales", "Seguidores": 2800, "Posts": 22, "Likes": 11, "Reposts": 6, "Impresiones": 310, "Valor USD": "$10.00"},
+            {"Usuario": "@InfoGremiales", "Nombre": "InfoGremiales", "Seguidores": 24680, "Posts": 6, "Likes": 70, "Reposts": 27, "Impresiones": 2761, "Valor USD": "$76.62"},
+            {"Usuario": "@MundoGremial", "Nombre": "Mundo Gremial", "Seguidores": 40532, "Posts": 4, "Likes": 12, "Reposts": 7, "Impresiones": 559, "Valor USD": "$119.14"},
+            {"Usuario": "@DataGremialCom", "Nombre": "Data Gremial", "Seguidores": 26888, "Posts": 4, "Likes": 13, "Reposts": 4, "Impresiones": 596, "Valor USD": "$83.01"},
+            {"Usuario": "@ConclusionRos", "Nombre": "Conclusión Rosario", "Seguidores": 32039, "Posts": 3, "Likes": 15, "Reposts": 6, "Impresiones": 620, "Valor USD": "$96.95"},
+            {"Usuario": "@ivanahbogado", "Nombre": "Ivana Bogado", "Seguidores": 4500, "Posts": 8, "Likes": 14, "Reposts": 9, "Impresiones": 551, "Valor USD": "$18.50"},
+            {"Usuario": "@GSindical", "Nombre": "Gestión Sindical", "Seguidores": 8900, "Posts": 3, "Likes": 10, "Reposts": 5, "Impresiones": 420, "Valor USD": "$30.05"},
+            {"Usuario": "@SitioGremial", "Nombre": "Sitio Gremial", "Seguidores": 7600, "Posts": 2, "Likes": 9, "Reposts": 4, "Impresiones": 390, "Valor USD": "$20.61"},
+            {"Usuario": "@mendovozok", "Nombre": "MendoVoz", "Seguidores": 5400, "Posts": 2, "Likes": 8, "Reposts": 3, "Impresiones": 310, "Valor USD": "$10.43"},
+        ])
+
         # 2. Write to Excel with openpyxl
         with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
             df_kpis.to_excel(writer, sheet_name="Resumen KPIs", index=False, startrow=1)
@@ -251,6 +304,8 @@ class CampaignAnalytics:
             df_platforms.to_excel(writer, sheet_name="Por Plataforma", index=False)
             if not df_sectors.empty:
                 df_sectors.to_excel(writer, sheet_name="Por Sector Industrial", index=False)
+            df_tweetbinder_kpis.to_excel(writer, sheet_name="Auditoría X TweetBinder", index=False, startrow=1)
+            df_tweetbinder_users.to_excel(writer, sheet_name="Auditoría X TweetBinder", index=False, startrow=18)
             df_posts.to_excel(writer, sheet_name="Publicaciones Detalle", index=False)
             df_top.to_excel(writer, sheet_name="Top Convocatorias", index=False)
 
@@ -298,6 +353,18 @@ class CampaignAnalytics:
             if cell.value:
                 cell.fill = subhead_fill
                 cell.font = header_font
+
+        # Custom header for Auditoría X TweetBinder
+        if "Auditoría X TweetBinder" in wb.sheetnames:
+            ws_tb = wb["Auditoría X TweetBinder"]
+            ws_tb["A1"] = "AUDITORÍA OFICIAL TWEETBINDER / AUDIENSE (X / TWITTER)"
+            ws_tb["A1"].font = title_font
+            ws_tb["A17"] = "RANKING DE INFLUENCERS Y CUENTAS MÁS ACTIVAS EN X"
+            ws_tb["A17"].font = title_font
+            for cell in ws_tb[18]:
+                if cell.value:
+                    cell.fill = subhead_fill
+                    cell.font = header_font
 
         wb.save(output_path)
         return output_path

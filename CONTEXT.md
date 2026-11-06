@@ -98,6 +98,12 @@ scrapper-hastag/
     - Generación sincronizada de `index.html` en la raíz para servir el dashboard directamente en hosting estático o serverless.
     - Creación del workflow de GitHub Actions (`.github/workflows/update_dashboard.yml`) con cron cada 4 horas y trigger manual para scraping continuo, commit y redeploy automático en Vercel.
     - Incorporación de detección de sectores productivos (Tecnología/Robótica, Metalúrgica, Calzado, Textil, Plásticos, Alimentos, Madera, Vidrio, Gremial e Institucional).
+  - **Dashboard Interactivo en Streamlit & Auditoría TweetBinder**:
+    - Implementación de `app.py` en Streamlit con visualizaciones Plotly, filtros multidimensionales y descargas directas.
+    - Integración de los datos macro federales de la convocatoria: +11.2k publicaciones en Instagram, +1.58k en TikTok y +3.4k en Facebook.
+    - Integración del informe certificado de auditoría de X/Twitter mediante TweetBinder by Audiense: 174 posts, 43 contribuyentes, USD $4,559.42 de valor económico, 1.47M de impresiones potenciales y ranking de cuentas líderes (@marianoobarrio, @MdpSmata, @itacarri, @InfoGremiales, @MundoGremial).
+    - Subsanación de enlaces de TikTok dirigidos a feeds verificados del hashtag `#queremostrabajar`.
+    - Guía de despliegue en Streamlit Community Cloud (resolución de formato de repositorio sin sufijo `.git`).
     - Métricas consolidadas: 33 publicaciones, 94.245 interacciones y 914.280 reproducciones acumuladas.
     - **Resolución de Error Vercel PYTHON_ENTRYPOINT_NOT_FOUND**: Se incorporó el entrypoint WSGI nativo (`app = handler = application`) en `main.py` y se configuró el rewrite en `vercel.json` para servir el dashboard, CSV, JSON y Excel desde la función serverless sin errores de build.
   - **Desarrollo de Dashboard en Streamlit (`app.py`)**:

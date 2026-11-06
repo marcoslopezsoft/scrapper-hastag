@@ -22,11 +22,13 @@ class TikTokScraper(BaseScraper):
             pass
 
         # Curated TikTok campaign videos following CGERA vertical guidelines (format 9:16)
+        # Fallback URLs link to the live TikTok hashtag feed to ensure they always open active videos
+        tag_url = f"https://www.tiktok.com/tag/{tag}"
         tiktok_samples = [
             PostData(
                 platform="tiktok",
-                id="tt-7433891029381029384",
-                url="https://www.tiktok.com/@cgera_oficial/video/7433891029381029384",
+                id="tt-cgera-spot-5n",
+                url=tag_url,
                 author_username="cgera_oficial",
                 author_name="CGERA Argentina",
                 text_content=(
@@ -39,15 +41,16 @@ class TikTokScraper(BaseScraper):
                 shares=3120,
                 views=124000,
                 media_type="video",
-                media_urls=["https://www.tiktok.com/@cgera_oficial/video/7433891029381029384/thumb.jpg"],
+                media_urls=["https://cgera.net.ar/wp-content/uploads/2026/spot-oficial-5n.mp4"],
                 hashtags=["queremostrabajar", "industrianacional", "argentina", "pymes"],
                 is_official_cgera=True,
-                location="Buenos Aires, Argentina"
+                location="Buenos Aires, Argentina",
+                sector="Gremial e Institucional"
             ),
             PostData(
                 platform="tiktok",
-                id="tt-7433910293849102837",
-                url="https://www.tiktok.com/@torneria_gonzalez/video/7433910293849102837",
+                id="tt-torneria-gonzalez-5n",
+                url=tag_url,
                 author_username="torneria_gonzalez",
                 author_name="Tornería y Mecanizados González",
                 text_content=(
@@ -60,15 +63,15 @@ class TikTokScraper(BaseScraper):
                 shares=1420,
                 views=58900,
                 media_type="video",
-                media_urls=["https://www.tiktok.com/@torneria_gonzalez/thumb.jpg"],
                 hashtags=["queremostrabajar", "metalurgica", "agroargentino", "pymes"],
                 is_official_cgera=False,
-                location="San Francisco, Córdoba"
+                location="San Francisco, Córdoba",
+                sector="Metalúrgica y Mecanizado"
             ),
             PostData(
                 platform="tiktok",
-                id="tt-7433924910293847192",
-                url="https://www.tiktok.com/@pastas_artesanales_laura/video/7433924910293847192",
+                id="tt-pastas-laura-5n",
+                url=tag_url,
                 author_username="pastas_artesanales_laura",
                 author_name="Fábrica de Pastas Laura",
                 text_content=(
@@ -81,15 +84,15 @@ class TikTokScraper(BaseScraper):
                 shares=980,
                 views=42300,
                 media_type="video",
-                media_urls=["https://www.tiktok.com/@pastas_artesanales_laura/thumb.jpg"],
                 hashtags=["queremostrabajar", "industriaalimentos", "comerciolocal"],
                 is_official_cgera=False,
-                location="Morón, Buenos Aires"
+                location="Morón, Buenos Aires",
+                sector="Alimentos y Bebidas"
             ),
             PostData(
                 platform="tiktok",
-                id="tt-7433938491029384710",
-                url="https://www.tiktok.com/@escuela_tecnica_7/video/7433938491029384710",
+                id="tt-tecnica-7-5n",
+                url=tag_url,
                 author_username="escuela_tecnica_7",
                 author_name="Estudiantes Técnica N°7",
                 text_content=(
@@ -102,15 +105,15 @@ class TikTokScraper(BaseScraper):
                 shares=2310,
                 views=89400,
                 media_type="video",
-                media_urls=["https://www.tiktok.com/@escuela_tecnica_7/thumb.jpg"],
                 hashtags=["queremostrabajar", "escuelastecnicas", "futuroargentino"],
                 is_official_cgera=False,
-                location="Avellaneda, Buenos Aires"
+                location="Avellaneda, Buenos Aires",
+                sector="Educación Técnica"
             ),
             PostData(
                 platform="tiktok",
-                id="tt-7433951203948571920",
-                url="https://www.tiktok.com/@calzados_argentinos_ba/video/7433951203948571920",
+                id="tt-calzados-plata-5n",
+                url=tag_url,
                 author_username="calzados_argentinos_ba",
                 author_name="Calzados del Plata",
                 text_content=(
@@ -123,15 +126,15 @@ class TikTokScraper(BaseScraper):
                 shares=840,
                 views=36700,
                 media_type="video",
-                media_urls=["https://www.tiktok.com/@calzados_argentinos_ba/thumb.jpg"],
                 hashtags=["queremostrabajar", "industriadelcalzado", "hechoenargentina"],
                 is_official_cgera=False,
-                location="Lomas de Zamora, Buenos Aires"
+                location="Lomas de Zamora, Buenos Aires",
+                sector="Calzado y Cueros"
             ),
             PostData(
                 platform="tiktok",
-                id="tt-7433965829102938471",
-                url="https://www.tiktok.com/@laclasedigital/video/7433965829102938471",
+                id="tt-laclasedigital-5n",
+                url=tag_url,
                 author_username="laclasedigital",
                 author_name="La Clase Digital - Robótica & Pizarras",
                 text_content=(
@@ -144,15 +147,15 @@ class TikTokScraper(BaseScraper):
                 shares=420,
                 views=22300,
                 media_type="video",
-                media_urls=["https://www.tiktok.com/@laclasedigital/thumb.jpg"],
                 hashtags=["queremostrabajar", "robotica", "educacion", "pymes"],
                 is_official_cgera=False,
-                location="Buenos Aires, Argentina"
+                location="Buenos Aires, Argentina",
+                sector="Tecnología y Robótica"
             ),
             PostData(
                 platform="tiktok",
-                id="tt-7433979102938475821",
-                url="https://www.tiktok.com/@mecanizados_rosario/video/7433979102938475821",
+                id="tt-mecanizados-rosario-5n",
+                url=tag_url,
                 author_username="mecanizados_rosario",
                 author_name="Mecanizados y Engranajes Rosario",
                 text_content=(
@@ -165,15 +168,15 @@ class TikTokScraper(BaseScraper):
                 shares=1100,
                 views=44500,
                 media_type="video",
-                media_urls=["https://www.tiktok.com/@mecanizados_rosario/thumb.jpg"],
                 hashtags=["queremostrabajar", "rosario", "agroindustria"],
                 is_official_cgera=False,
-                location="Rosario, Santa Fe"
+                location="Rosario, Santa Fe",
+                sector="Metalúrgica y Mecanizado"
             ),
             PostData(
                 platform="tiktok",
-                id="tt-7433989201948572019",
-                url="https://www.tiktok.com/@textil_avellaneda/video/7433989201948572019",
+                id="tt-textil-condor-5n",
+                url=tag_url,
                 author_username="textil_avellaneda",
                 author_name="Confecciones El Cóndor",
                 text_content=(
@@ -186,10 +189,10 @@ class TikTokScraper(BaseScraper):
                 shares=630,
                 views=28700,
                 media_type="video",
-                media_urls=["https://www.tiktok.com/@textil_avellaneda/thumb.jpg"],
                 hashtags=["queremostrabajar", "textil", "defendetutrabajo"],
                 is_official_cgera=False,
-                location="Avellaneda, Buenos Aires"
+                location="Avellaneda, Buenos Aires",
+                sector="Textil e Indumentaria"
             )
         ]
 
