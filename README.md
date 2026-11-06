@@ -77,6 +77,35 @@ Al finalizar la ejecución, se genera automáticamente un reporte visual ejecuti
 
 ---
 
+## 🎈 Dashboard Interactivo en Streamlit (`app.py`)
+
+Se desarrolló una aplicación web interactiva nativa en **Streamlit** con gráficos en **Plotly**:
+
+### 1. Ejecutar localmente en tu máquina:
+```bash
+source .venv/bin/activate
+streamlit run app.py
+```
+Se abrirá automáticamente en tu navegador en `http://localhost:8501`.
+
+### 2. Despliegue Gratuito en 1 Clic (Streamlit Community Cloud):
+Streamlit ofrece hosting oficial gratuito para repositorios de GitHub con sincronización automática:
+1. Subí los cambios a tu repositorio:
+   ```bash
+   git add .
+   git commit -m "feat: agregar dashboard interactivo en streamlit app.py"
+   git push origin main
+   ```
+2. Entrá a **[share.streamlit.io](https://share.streamlit.io/)** e iniciá sesión con tu cuenta de GitHub.
+3. Hacé clic en **"New app"** y seleccioná:
+   - **Repository**: `marcoslopezsoft/scrapper-hastag`
+   - **Branch**: `main`
+   - **Main file path**: `app.py`
+4. Hacé clic en **"Deploy"**.
+5. ¡Listo! En menos de 2 minutos vas a tener una URL pública como `https://scrapper-hastag.streamlit.app/`.
+
+---
+
 ## 🌐 Despliegue en Vercel & Actualización Automática
 
 El proyecto está preparado para desplegarse de inmediato en **Vercel** y actualizarse automáticamente con el paso de las horas:

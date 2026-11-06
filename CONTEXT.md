@@ -100,10 +100,15 @@ scrapper-hastag/
     - Incorporación de detección de sectores productivos (Tecnología/Robótica, Metalúrgica, Calzado, Textil, Plásticos, Alimentos, Madera, Vidrio, Gremial e Institucional).
     - Métricas consolidadas: 33 publicaciones, 94.245 interacciones y 914.280 reproducciones acumuladas.
     - **Resolución de Error Vercel PYTHON_ENTRYPOINT_NOT_FOUND**: Se incorporó el entrypoint WSGI nativo (`app = handler = application`) en `main.py` y se configuró el rewrite en `vercel.json` para servir el dashboard, CSV, JSON y Excel desde la función serverless sin errores de build.
+  - **Desarrollo de Dashboard en Streamlit (`app.py`)**:
+    - Se incorporaron las librerías `streamlit` y `plotly` en `requirements.txt`.
+    - Se creó la aplicación completa `app.py` con filtros por red, sector, buscador libre, métricas interactivas en vivo, gráficos Plotly (dona y barras por sector) y botones nativos para descarga de Excel, CSV y JSON.
+    - Se documentó el procedimiento de despliegue gratuito con 1 clic en Streamlit Community Cloud (`share.streamlit.io`).
 
 ---
 
 ## 7. Estado Actual y Próximos Pasos
-- **Estado Actual**: Error de Vercel resuelto con entrypoint WSGI en `main.py` y `vercel.json` actualizado. Listo para push y redeploy exitoso.
+- **Estado Actual**: Dashboard en Streamlit (`app.py`) implementado, testeado y listo para desplegar en Streamlit Cloud. Repositorio con datasets actualizados, Excel multihistoria y documentación.
 - **Próximos Pasos**:
-  - El usuario puede hacer `git commit` y `git push` a `origin main`, y conectar el repositorio en `https://vercel.com/new` para tener la URL pública en vivo.
+  - Hacer `git commit` y `git push origin main`.
+  - Desplegar en `share.streamlit.io` conectando el repositorio `marcoslopezsoft/scrapper-hastag`.
