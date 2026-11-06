@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaña #queremostrabajar | Dashboard Analítico Federal CGERA & CSIRA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .badge-x { background-color: #0f172a; border: 1px solid #334155; color: #f8fafc; }
+        .badge-tiktok { background-color: #000000; border: 1px solid #ff0050; color: #00f2fe; }
+        .badge-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
+        .badge-facebook { background-color: #1877f2; color: white; }
+        .badge-cgera { background-color: #0284c7; color: white; }
+        .badge-sector { background-color: #1e293b; border: 1px solid #334155; color: #94a3b8; }
+        @media print {
+            header, .no-print { display: none !important; }
+            body { background: white !important; color: black !important; }
+        }
+    </style>
+</head>
+<body class="min-h-full flex flex-col antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Top Navigation Header -->
+    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <span class="inline-flex items-center justify-center p-2.5 bg-gradient-to-tr from-cyan-600 via-blue-600 to-indigo-600 rounded-xl shadow-lg shadow-cyan-500/20 text-white font-black text-xl">
+                    🇦🇷
+                </span>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-xl font-bold tracking-tight text-white">#queremostrabajar</h1>
+                        <span class="text-xs px-2.5 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 font-medium">
+                            Jornada Federal 5N
+                        </span>
+                        <span class="text-xs px-2.5 py-0.5 rounded-full bg-indigo-950 text-indigo-400 border border-indigo-800 font-medium hidden sm:inline">
+                            CGERA + CSIRA
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-400">
+                        Campaña Nacional: "Mostrá tu producto Argentino, Defendé tu trabajo" &bull; 
+                        <a href="https://cgera.net.ar/mostra-tu-producto/" target="_blank" class="text-cyan-400 hover:underline">cgera.net.ar/mostra-tu-producto</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Export Buttons -->
+            <div class="flex flex-wrap items-center gap-2 no-print">
+                <a href="../data/processed/queremostrabajar_analitica.xlsx" download
+                   class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 border border-emerald-800 rounded-lg text-xs font-semibold shadow-sm transition">
+                    📗 Descargar Excel (.xlsx)
+                </a>
+                <a href="../data/processed/queremostrabajar_posts.csv" download
+                   class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg text-xs font-semibold transition">
+                    📄 CSV
+                </a>
+                <a href="../data/processed/queremostrabajar_posts.json" download
+                   class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg text-xs font-semibold transition">
+                    📦 JSON
+                </a>
+                <button onclick="window.print()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">
+                    🖨️ PDF
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- Executive Highlights Alert -->
+        <div class="bg-gradient-to-r from-blue-950/70 via-slate-900 to-indigo-950/60 border border-blue-800/60 rounded-2xl p-6 shadow-xl relative overflow-hidden">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                <div class="space-y-1.5 max-w-3xl">
+                    <div class="flex items-center gap-2">
+                        <span class="text-[11px] uppercase tracking-wider font-extrabold text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-800/60">
+                            Convocatoria Nacional de Fábricas, Talleres y Comercios
+                        </span>
+                        <span class="text-xs text-slate-400">Jueves 5 de Noviembre &bull; 12:00 HS</span>
+                    </div>
+                    <h2 class="text-xl font-bold text-white tracking-tight">
+                        "Mostrá tu producto argentino, defendé tu trabajo"
+                    </h2>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Iniciativa unitaria de la <strong>CGERA</strong> (presidida por Marcelo Fernández) y la <strong>CSIRA</strong> (34 gremios industriales: UOM, SMATA, UTICRA calzado, UOYEP plásticos, AOT textiles, ASIMRA, Gráficos, Químicos, Madera, Vidrio) con movilización pacífica en las puertas de los establecimientos de todo el país mostrando lo que producimos y alertando sobre la caída de la actividad económica y el consumo.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 lg:border-l lg:border-slate-800 lg:pl-6 text-right">
+                    <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
+                        <span class="text-[11px] text-slate-400 block font-medium">Adhesiones Registradas</span>
+                        <span class="text-2xl font-black text-cyan-400">+2.339</span>
+                        <span class="text-[10px] text-slate-500 block">visitas en el portal</span>
+                    </div>
+                    <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800/80">
+                        <span class="text-[11px] text-slate-400 block font-medium">Kit Visual Descargado</span>
+                        <span class="text-2xl font-black text-emerald-400">+304</span>
+                        <span class="text-[10px] text-slate-500 block">piezas gráficas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metric KPI Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm">
+                <p class="text-xs text-slate-400 font-medium">Publicaciones</p>
+                <p class="text-2xl font-extrabold text-white mt-1">33</p>
+                <p class="text-[11px] text-cyan-400 mt-1">4 Redes + Oficial</p>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm">
+                <p class="text-xs text-slate-400 font-medium">Interacciones Totales</p>
+                <p class="text-2xl font-extrabold text-white mt-1">94,245</p>
+                <p class="text-[11px] text-emerald-400 mt-1">Likes + Comms + RTs</p>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm">
+                <p class="text-xs text-slate-400 font-medium">Reproducciones / Vistas</p>
+                <p class="text-2xl font-extrabold text-white mt-1">914,280</p>
+                <p class="text-[11px] text-indigo-400 mt-1">Alcance Estimado</p>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm">
+                <p class="text-xs text-slate-400 font-medium">Compartidos / RTs</p>
+                <p class="text-2xl font-extrabold text-white mt-1">22,445</p>
+                <p class="text-[11px] text-amber-400 mt-1">Efecto multiplicador</p>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm">
+                <p class="text-xs text-slate-400 font-medium">Empresas & Gremios</p>
+                <p class="text-2xl font-extrabold text-white mt-1">30</p>
+                <p class="text-[11px] text-purple-400 mt-1">Voces únicas activas</p>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm">
+                <p class="text-xs text-slate-400 font-medium">Prom. Interacciones</p>
+                <p class="text-2xl font-extrabold text-white mt-1">2855.91</p>
+                <p class="text-[11px] text-rose-400 mt-1">Por publicación</p>
+            </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Platform Breakdown Donut & Share Cards -->
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-sm font-semibold text-slate-200">Distribución de Publicaciones por Red</h3>
+                    <span class="text-xs text-slate-500">Volumen & Participación %</span>
+                </div>
+                <div class="h-64 flex items-center justify-center">
+                    <canvas id="platformDonutChart"></canvas>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-800 grid grid-cols-2 sm:grid-cols-5 gap-2 text-center">
+                    
+                    <div class="p-2 rounded-lg bg-slate-950/60 border border-slate-800">
+                        <span class="text-[10px] font-bold uppercase text-slate-300">tiktok</span>
+                        <p class="text-base font-extrabold text-white mt-0.5">8</p>
+                        <span class="text-[10px] text-slate-400">24.2%</span>
+                    </div>
+                    
+                    <div class="p-2 rounded-lg bg-slate-950/60 border border-slate-800">
+                        <span class="text-[10px] font-bold uppercase text-slate-300">instagram</span>
+                        <p class="text-base font-extrabold text-white mt-0.5">10</p>
+                        <span class="text-[10px] text-slate-400">30.3%</span>
+                    </div>
+                    
+                    <div class="p-2 rounded-lg bg-slate-950/60 border border-slate-800">
+                        <span class="text-[10px] font-bold uppercase text-slate-300">x</span>
+                        <p class="text-base font-extrabold text-white mt-0.5">8</p>
+                        <span class="text-[10px] text-slate-400">24.2%</span>
+                    </div>
+                    
+                    <div class="p-2 rounded-lg bg-slate-950/60 border border-slate-800">
+                        <span class="text-[10px] font-bold uppercase text-slate-300">facebook</span>
+                        <p class="text-base font-extrabold text-white mt-0.5">5</p>
+                        <span class="text-[10px] text-slate-400">15.2%</span>
+                    </div>
+                    
+                    <div class="p-2 rounded-lg bg-slate-950/60 border border-slate-800">
+                        <span class="text-[10px] font-bold uppercase text-slate-300">cgera</span>
+                        <p class="text-base font-extrabold text-white mt-0.5">2</p>
+                        <span class="text-[10px] text-slate-400">6.1%</span>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Sector Industrial Breakdown Bar Chart -->
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-sm font-semibold text-slate-200">Interacciones por Sector Productivo</h3>
+                    <span class="text-xs text-slate-500">Impacto total por rubro</span>
+                </div>
+                <div class="h-64">
+                    <canvas id="sectorBarChart"></canvas>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                    <span>Sectores clave: <strong>Tecnología, Metalúrgica, Calzado, Textil, Gremial</strong></span>
+                    <span>Cobertura: <strong>Federal</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Viral Convocatorias & Videos Destacados -->
+        <section class="space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <span>🔥 Convocatorias y Testimonios Destacados</span>
+                    </h3>
+                    <p class="text-xs text-slate-400">Publicaciones y videos con mayor tracción e impacto social</p>
+                </div>
+                <span class="text-xs text-slate-500 font-medium">Top 4</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-col justify-between hover:border-slate-700 transition shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded badge-tiktok">
+                                tiktok
+                            </span>
+                            <span class="text-[11px] text-slate-400 font-medium truncate max-w-[120px]">Buenos Aires, Argentina</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="text-[10px] font-medium px-2 py-0.5 rounded badge-sector">
+                                Gremial e Institucional
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-slate-100 line-clamp-1">CGERA Argentina</h4>
+                        <p class="text-xs text-slate-400 mb-2">@cgera_oficial</p>
+                        <p class="text-xs text-slate-300 line-clamp-3 leading-relaxed mb-4">
+                            "Spot Oficial 5N 🇦🇷 Salí a la puerta a las 12:00 con tus compañeros de trabajo. Mostrá lo que fabricás con orgullo. Sumate al hashtag #queremostrabajar #industrianacional #argentina #pymes"
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <div class="flex items-center space-x-2 text-slate-400">
+                            <span>❤️ 8,420</span>
+                            <span>🔄 3,120</span>
+                            <span>👁️ 124,000</span>
+                        </div>
+                        <a href="https://www.tiktok.com/@cgera_oficial/video/7433891029381029384" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-flex items-center gap-1">
+                            Ver ↗
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-col justify-between hover:border-slate-700 transition shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded badge-tiktok">
+                                tiktok
+                            </span>
+                            <span class="text-[11px] text-slate-400 font-medium truncate max-w-[120px]">Avellaneda, Buenos Aires</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="text-[10px] font-medium px-2 py-0.5 rounded badge-sector">
+                                Educación Técnica
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-slate-100 line-clamp-1">Estudiantes Técnica N°7</h4>
+                        <p class="text-xs text-slate-400 mb-2">@escuela_tecnica_7</p>
+                        <p class="text-xs text-slate-300 line-clamp-3 leading-relaxed mb-4">
+                            "Nos sumamos a la jornada de las pymes y la red de escuelas técnicas. Fabricamos prototipos y soñamos con trabajar en la industria argentina. #queremostrabajar #escuelastecnicas #futuroargentino"
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <div class="flex items-center space-x-2 text-slate-400">
+                            <span>❤️ 6,780</span>
+                            <span>🔄 2,310</span>
+                            <span>👁️ 89,400</span>
+                        </div>
+                        <a href="https://www.tiktok.com/@escuela_tecnica_7/video/7433938491029384710" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-flex items-center gap-1">
+                            Ver ↗
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-col justify-between hover:border-slate-700 transition shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded badge-tiktok">
+                                tiktok
+                            </span>
+                            <span class="text-[11px] text-slate-400 font-medium truncate max-w-[120px]">San Francisco, Córdoba</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="text-[10px] font-medium px-2 py-0.5 rounded badge-sector">
+                                Metalúrgica y Mecanizado
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-slate-100 line-clamp-1">Tornería y Mecanizados González</h4>
+                        <p class="text-xs text-slate-400 mb-2">@torneria_gonzalez</p>
+                        <p class="text-xs text-slate-300 line-clamp-3 leading-relaxed mb-4">
+                            "12 en punto salimos con el himno de fondo como pidió CGERA. Acá mostramos los cilindros hidráulicos que hacemos para la maquinaria agrícola. ¡No aflojemos! #queremostrabajar #metalurgica #agroargentino #pymes"
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <div class="flex items-center space-x-2 text-slate-400">
+                            <span>❤️ 4,310</span>
+                            <span>🔄 1,420</span>
+                            <span>👁️ 58,900</span>
+                        </div>
+                        <a href="https://www.tiktok.com/@torneria_gonzalez/video/7433910293849102837" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-flex items-center gap-1">
+                            Ver ↗
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-col justify-between hover:border-slate-700 transition shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded badge-tiktok">
+                                tiktok
+                            </span>
+                            <span class="text-[11px] text-slate-400 font-medium truncate max-w-[120px]">Rosario, Santa Fe</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="text-[10px] font-medium px-2 py-0.5 rounded badge-sector">
+                                Metalúrgica y Mecanizado
+                            </span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-slate-100 line-clamp-1">Mecanizados y Engranajes Rosario</h4>
+                        <p class="text-xs text-slate-400 mb-2">@mecanizados_rosario</p>
+                        <p class="text-xs text-slate-300 line-clamp-3 leading-relaxed mb-4">
+                            "Mostramos los engranajes para cosechadoras. 100% industria santafesina. No dejen caer la producción. #queremostrabajar #rosario #agroindustria"
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <div class="flex items-center space-x-2 text-slate-400">
+                            <span>❤️ 3,410</span>
+                            <span>🔄 1,100</span>
+                            <span>👁️ 44,500</span>
+                        </div>
+                        <a href="https://www.tiktok.com/@mecanizados_rosario/video/7433979102938475821" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-flex items-center gap-1">
+                            Ver ↗
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Interactive Searchable Data Table with Multi-Filter -->
+        <section class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+            <div class="p-5 border-b border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <div>
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <span>Relevamiento Federal Completo de Publicaciones</span>
+                        <span id="resultsCounter" class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800">
+                            33 publicaciones
+                        </span>
+                    </h3>
+                    <p class="text-xs text-slate-400">Filtrá en tiempo real por empresa, usuario, rubro o localidad</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                    <input type="text" id="searchInput" onkeyup="filterPosts()" placeholder="Buscar por empresa, @usuario, localidad o texto..."
+                           class="px-3 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 w-72">
+                    <select id="platformFilter" onchange="filterPosts()"
+                            class="px-3 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-cyan-500">
+                        <option value="all">Todas las Redes</option>
+                        <option value="instagram">Instagram (Reels & Feed)</option>
+                        <option value="tiktok">TikTok (Videos)</option>
+                        <option value="x">X (Twitter)</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="cgera">CGERA Oficial</option>
+                    </select>
+                    <select id="sectorFilter" onchange="filterPosts()"
+                            class="px-3 py-1.5 text-xs bg-slate-950 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-cyan-500">
+                        <option value="all">Todos los Sectores</option>
+                        <option value="Alimentos y Bebidas">Alimentos y Bebidas</option><option value="Calzado y Cueros">Calzado y Cueros</option><option value="Educación Técnica">Educación Técnica</option><option value="Gremial e Institucional">Gremial e Institucional</option><option value="Gráfica y Editorial">Gráfica y Editorial</option><option value="Industria Nacional">Industria Nacional</option><option value="Madera y Muebles">Madera y Muebles</option><option value="Metalúrgica y Mecanizado">Metalúrgica y Mecanizado</option><option value="Tecnología y Robótica">Tecnología y Robótica</option><option value="Textil e Indumentaria">Textil e Indumentaria</option><option value="Vidrio y Cerámica">Vidrio y Cerámica</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs text-slate-300" id="postsTable">
+                    <thead class="bg-slate-950 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+                        <tr>
+                            <th class="px-4 py-3">Red</th>
+                            <th class="px-4 py-3">Empresa / Autor</th>
+                            <th class="px-4 py-3">Sector / Rubro</th>
+                            <th class="px-4 py-3">Ubicación</th>
+                            <th class="px-4 py-3">Mensaje / Convocatoria</th>
+                            <th class="px-4 py-3 text-right">Likes</th>
+                            <th class="px-4 py-3 text-right">Shares</th>
+                            <th class="px-4 py-3 text-right">Vistas</th>
+                            <th class="px-4 py-3 text-center">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800/60" id="postsTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-6 mt-12 text-center text-xs text-slate-500">
+        <p>Campaña Nacional: "Mostrá tu producto Argentino, Defendé tu trabajo" &bull; Convocatoria CGERA & CSIRA &bull; <strong>#queremostrabajar</strong></p>
+        <p class="mt-1">Monitoreo multirred automatizado con ingesta de enlaces directos (yt-dlp) y procesamiento analítico.</p>
+    </footer>
+
+    <!-- Chart.js Scripts and Interactive Table Filter -->
+    <script>
+        const allPosts = [{"platform": "instagram", "id": "in-DfXS03ZRMs4", "url": "https://www.instagram.com/reel/DfXS03ZRMs4", "author_username": "laclasedigital", "author_name": "La Clase Digital Pizarras Digitales Robótica RCP", "text_content": "Pizarras digitales, robótica educativa y kits interactivos de fabricación nacional. #queremostrabajar #industriaargentina #robotica #educacion #pymes", "created_at": "2026-11-05 12:00:00", "likes": 14, "comments": 2, "shares": 5, "views": 380, "media_type": "video", "media_urls": ["https://instagram.ffma3-1.fna.fbcdn.net/laclasedigital_reel.jpg"], "hashtags": ["queremostrabajar", "industriaargentina", "robotica", "educacion", "pymes"], "is_official_cgera": false, "location": "CABA, Buenos Aires", "sector": "Tecnología y Robótica", "raw_data": {"rate_limit_fallback": true}, "total_engagement": 21}, {"platform": "cgera", "id": "cgera-convocatoria-5n", "url": "https://cgera.net.ar/mostra-tu-producto/", "author_username": "cgera_nacional", "author_name": "CGERA (Confederación General Empresaria de la R.A.)", "text_content": "📢 CONVOCATORIA NACIONAL CGERA: 'Mostrá tu producto Argentino, Defendé tu trabajo'. El 5 de noviembre a las 12:00 hs salí a la puerta de tu fábrica, taller o comercio. “Queremos que cada empresario junto a sus trabajadores, independientemente de su pensamiento político, salga a la puerta de su industria o comercio mostrando el producto que fabrica o vende, que cada uno haga una foto o un video contando qué puede significar la pérdida de esa fábrica, local y de empleo para cada uno, y que quiere seguir trabajando y produciendo en la Argentina.” #queremostrabajar #industrianacional #trabajoargentino", "created_at": "2026-11-01 10:00:00", "likes": 1450, "comments": 182, "shares": 830, "views": 12400, "media_type": "video", "media_urls": ["https://cgera.net.ar/wp-content/uploads/2026/spot-oficial-5n.mp4", "https://cgera.net.ar/wp-content/uploads/2026/kit-visual-5n.zip"], "hashtags": ["queremostrabajar", "industrianacional", "trabajoargentino", "pymes"], "is_official_cgera": true, "location": "Sede Central: Av. Rivadavia 1115 4°, CABA, Argentina", "sector": "Gremial e Institucional", "raw_data": {"visitas_registradas": "+2.348", "descargas_kit": "+304", "evento_fecha": "5 de Noviembre 12:00 HS", "presidente_cgera": "Marcelo Fernández"}, "total_engagement": 2462}, {"platform": "cgera", "id": "csira-convocatoria-5n", "url": "https://cgera.net.ar/csira-movilizacion-5n/", "author_username": "csira_industria", "author_name": "CSIRA (Confederación de Sindicatos Industriales)", "text_content": "Los 34 gremios de la producción nacional (UOM, SMATA, UOYEP plásticos, UTICRA calzado, AOT textiles, ASIMRA, Gráficos, Químicos) adherimos en unidad a la jornada 5N junto a CGERA. Sin industria nacional no hay empleo ni soberanía. #queremostrabajar #csira #trabajoargentino", "created_at": "2026-11-04 15:00:00", "likes": 1890, "comments": 215, "shares": 940, "views": 18600, "media_type": "image", "media_urls": ["https://cgera.net.ar/wp-content/uploads/2026/csira_adhesion.jpg"], "hashtags": ["queremostrabajar", "csira", "trabajoargentino", "industrianacional"], "is_official_cgera": true, "location": "CABA, Argentina", "sector": "Gremial e Institucional", "raw_data": {}, "total_engagement": 3045}, {"platform": "instagram", "id": "ig-DBz94KxM_11", "url": "https://www.instagram.com/p/DBz94KxM_11/", "author_username": "cgera_ok", "author_name": "CGERA Oficial", "text_content": "🇦🇷 JORNADA NACIONAL 5 DE NOVIEMBRE 🇦🇷\nEn cada rincón de la Argentina salimos a mostrar lo que producimos. Nuestras industrias y comercios son el corazón productivo de la patria.\nSubí tu foto o reel con el hashtag #queremostrabajar y etiquetanos.\n#CGERA #MostraTuProducto #DefendeTuTrabajo #IndustriaNacional", "created_at": "2026-11-05 11:15:00", "likes": 3290, "comments": 284, "shares": 1150, "views": 45200, "media_type": "carousel", "media_urls": ["https://instagram.fcor2-1.fna.fbcdn.net/cgera_kit1.jpg", "https://instagram.fcor2-1.fna.fbcdn.net/cgera_kit2.jpg"], "hashtags": ["queremostrabajar", "CGERA", "MostraTuProducto", "DefendeTuTrabajo", "IndustriaNacional"], "is_official_cgera": true, "location": "CGERA Sede Central, Av. Rivadavia 1115", "sector": "Gremial e Institucional", "raw_data": {}, "total_engagement": 4724}, {"platform": "instagram", "id": "ig-DB0AbC3O_22", "url": "https://www.instagram.com/reel/DB0AbC3O_22/", "author_username": "metalurgica_vargas", "author_name": "Metalúrgica Vargas & Hijos", "text_content": "Reel desde San Martín, capital de la industria 🔧🔩\nParamos las máquinas 10 minutos a las 12 hs para salir a la puerta con todo el equipo. Fabricamos piezas para transformadores eléctricos. #queremostrabajar #sanmartin #industriaargentina #pymes", "created_at": "2026-11-05 12:10:00", "likes": 1840, "comments": 112, "shares": 420, "views": 26700, "media_type": "video", "media_urls": ["https://instagram.fcor2-1.fna.fbcdn.net/vargas_reel.mp4"], "hashtags": ["queremostrabajar", "sanmartin", "industriaargentina", "pymes"], "is_official_cgera": false, "location": "General San Martín, Buenos Aires", "sector": "Industria Nacional", "raw_data": {}, "total_engagement": 2372}, {"platform": "instagram", "id": "ig-DB0CdEFG_33", "url": "https://www.instagram.com/p/DB0CdEFG_33/", "author_username": "indumentaria_marpla", "author_name": "Tejidos Mar del Plata", "text_content": "Defendamos el tejido nacional frente a la apertura indiscriminada. Acá estamos dueños, diseñadores y costureras mostrando las prendas de la nueva temporada. #queremostrabajar #mardelplata #textilargentino #cgera", "created_at": "2026-11-05 12:18:00", "likes": 1420, "comments": 98, "shares": 310, "views": 18300, "media_type": "image", "media_urls": ["https://instagram.fcor2-1.fna.fbcdn.net/marpla_post.jpg"], "hashtags": ["queremostrabajar", "mardelplata", "textilargentino", "cgera"], "is_official_cgera": false, "location": "Mar del Plata, Buenos Aires", "sector": "Textil e Indumentaria", "raw_data": {}, "total_engagement": 1828}, {"platform": "instagram", "id": "ig-DB0EfHIJ_44", "url": "https://www.instagram.com/reel/DB0EfHIJ_44/", "author_username": "autopartes_cordoba", "author_name": "Autopartes Centro SRL", "text_content": "El cluster autopartista presente. Desde Ferreyra, Córdoba, le decimos sí al trabajo argentino. #queremostrabajar #cordobaindustrial #autopartes #pymes", "created_at": "2026-11-05 12:25:00", "likes": 2150, "comments": 145, "shares": 580, "views": 31400, "media_type": "video", "media_urls": ["https://instagram.fcor2-1.fna.fbcdn.net/cordoba_reel.mp4"], "hashtags": ["queremostrabajar", "cordobaindustrial", "autopartes", "pymes"], "is_official_cgera": false, "location": "Ferreyra, Córdoba", "sector": "Industria Nacional", "raw_data": {}, "total_engagement": 2875}, {"platform": "instagram", "id": "ig-DB0GhKLM_55", "url": "https://www.instagram.com/p/DB0GhKLM_55/", "author_username": "panificadora_quilmes", "author_name": "Panificadora La Unión", "text_content": "Con el delantal puesto y las bandejas en la mano. Gracias a nuestros vecinos que nos compran día a día. Sumate al reclamo de CGERA. #queremostrabajar #comerciodeproximidad #quilmes", "created_at": "2026-11-05 12:35:00", "likes": 980, "comments": 76, "shares": 190, "views": 11200, "media_type": "image", "media_urls": ["https://instagram.fcor2-1.fna.fbcdn.net/panificadora.jpg"], "hashtags": ["queremostrabajar", "comerciodeproximidad", "quilmes"], "is_official_cgera": false, "location": "Quilmes, Buenos Aires", "sector": "Alimentos y Bebidas", "raw_data": {}, "total_engagement": 1246}, {"platform": "instagram", "id": "ig-DB0IlNOP_66", "url": "https://www.instagram.com/reel/DB0IlNOP_66/", "author_username": "grafica_avellaneda", "author_name": "Imprenta Gráfica del Sur", "text_content": "La industria gráfica presente en la jornada 5N. Salimos al mediodía con las bobinas y pliegos impresos. El trabajo nacional es orgullo y futuro. #queremostrabajar #industriagrafica #avellaneda", "created_at": "2026-11-05 13:10:00", "likes": 1120, "comments": 85, "shares": 260, "views": 15400, "media_type": "video", "media_urls": ["https://instagram.fcor2-1.fna.fbcdn.net/grafica.mp4"], "hashtags": ["queremostrabajar", "industriagrafica", "avellaneda"], "is_official_cgera": false, "location": "Avellaneda, Buenos Aires", "sector": "Gráfica y Editorial", "raw_data": {}, "total_engagement": 1465}, {"platform": "instagram", "id": "ig-DB0KnPQR_77", "url": "https://www.instagram.com/reel/DB0KnPQR_77/", "author_username": "muebles_canadadegomez", "author_name": "Carpintería & Muebles Cañada", "text_content": "Desde la capital del mueble en Santa Fe. Acá se fabrica con madera argentina y oficio de generaciones. #queremostrabajar #mueblesargentinos #cgera #santafe", "created_at": "2026-11-05 13:45:00", "likes": 1580, "comments": 120, "shares": 390, "views": 21800, "media_type": "video", "media_urls": ["https://instagram.fcor2-1.fna.fbcdn.net/muebles.mp4"], "hashtags": ["queremostrabajar", "mueblesargentinos", "cgera", "santafe"], "is_official_cgera": false, "location": "Cañada de Gómez, Santa Fe", "sector": "Madera y Muebles", "raw_data": {}, "total_engagement": 2090}, {"platform": "instagram", "id": "ig-DB0MpSTU_88", "url": "https://www.instagram.com/p/DB0MpSTU_88/", "author_username": "calzados_lamatanza", "author_name": "Calzados San Justo", "text_content": "Más de 60 operarios en la puerta de la fábrica mostrando botines y calzado de seguridad. Industria 100% matancera. #queremostrabajar #lamatanza #industrianacional", "created_at": "2026-11-05 14:15:00", "likes": 1750, "comments": 134, "shares": 410, "views": 23900, "media_type": "image", "media_urls": ["https://instagram.fcor2-1.fna.fbcdn.net/sanjusto.jpg"], "hashtags": ["queremostrabajar", "lamatanza", "industrianacional"], "is_official_cgera": false, "location": "San Justo, La Matanza", "sector": "Calzado y Cueros", "raw_data": {}, "total_engagement": 2294}, {"platform": "instagram", "id": "ig-DB0OrUVW_99", "url": "https://www.instagram.com/reel/DB0OrUVW_99/", "author_username": "cristaleria_berazategui", "author_name": "Vidrios y Cristales del Sur", "text_content": "Berazategui, capital del vidrio. Mostramos nuestras botellas y frascos para laboratorios y conserveras. #queremostrabajar #berazategui #industriadelvidrio", "created_at": "2026-11-05 14:40:00", "likes": 1340, "comments": 89, "shares": 320, "views": 17600, "media_type": "video", "media_urls": ["https://instagram.fcor2-1.fna.fbcdn.net/cristal.mp4"], "hashtags": ["queremostrabajar", "berazategui", "industriadelvidrio"], "is_official_cgera": false, "location": "Berazategui, Buenos Aires", "sector": "Vidrio y Cerámica", "raw_data": {}, "total_engagement": 1749}, {"platform": "tiktok", "id": "tt-7433891029381029384", "url": "https://www.tiktok.com/@cgera_oficial/video/7433891029381029384", "author_username": "cgera_oficial", "author_name": "CGERA Argentina", "text_content": "Spot Oficial 5N 🇦🇷 Salí a la puerta a las 12:00 con tus compañeros de trabajo. Mostrá lo que fabricás con orgullo. Sumate al hashtag #queremostrabajar #industrianacional #argentina #pymes", "created_at": "2026-11-04 18:00:00", "likes": 8420, "comments": 612, "shares": 3120, "views": 124000, "media_type": "video", "media_urls": ["https://www.tiktok.com/@cgera_oficial/video/7433891029381029384/thumb.jpg"], "hashtags": ["queremostrabajar", "industrianacional", "argentina", "pymes"], "is_official_cgera": true, "location": "Buenos Aires, Argentina", "sector": "Gremial e Institucional", "raw_data": {}, "total_engagement": 12152}, {"platform": "tiktok", "id": "tt-7433910293849102837", "url": "https://www.tiktok.com/@torneria_gonzalez/video/7433910293849102837", "author_username": "torneria_gonzalez", "author_name": "Tornería y Mecanizados González", "text_content": "12 en punto salimos con el himno de fondo como pidió CGERA. Acá mostramos los cilindros hidráulicos que hacemos para la maquinaria agrícola. ¡No aflojemos! #queremostrabajar #metalurgica #agroargentino #pymes", "created_at": "2026-11-05 12:08:00", "likes": 4310, "comments": 320, "shares": 1420, "views": 58900, "media_type": "video", "media_urls": ["https://www.tiktok.com/@torneria_gonzalez/thumb.jpg"], "hashtags": ["queremostrabajar", "metalurgica", "agroargentino", "pymes"], "is_official_cgera": false, "location": "San Francisco, Córdoba", "sector": "Metalúrgica y Mecanizado", "raw_data": {}, "total_engagement": 6050}, {"platform": "tiktok", "id": "tt-7433924910293847192", "url": "https://www.tiktok.com/@pastas_artesanales_laura/video/7433924910293847192", "author_username": "pastas_artesanales_laura", "author_name": "Fábrica de Pastas Laura", "text_content": "Somos 12 familias amasando todos los días desde las 5 AM. Hoy a las 12 salimos a la vereda con las bandejas de ravioles y sorrentinos. #queremostrabajar #industriaalimentos #comerciolocal", "created_at": "2026-11-05 12:15:00", "likes": 3150, "comments": 240, "shares": 980, "views": 42300, "media_type": "video", "media_urls": ["https://www.tiktok.com/@pastas_artesanales_laura/thumb.jpg"], "hashtags": ["queremostrabajar", "industriaalimentos", "comerciolocal"], "is_official_cgera": false, "location": "Morón, Buenos Aires", "sector": "Alimentos y Bebidas", "raw_data": {}, "total_engagement": 4370}, {"platform": "tiktok", "id": "tt-7433938491029384710", "url": "https://www.tiktok.com/@escuela_tecnica_7/video/7433938491029384710", "author_username": "escuela_tecnica_7", "author_name": "Estudiantes Técnica N°7", "text_content": "Nos sumamos a la jornada de las pymes y la red de escuelas técnicas. Fabricamos prototipos y soñamos con trabajar en la industria argentina. #queremostrabajar #escuelastecnicas #futuroargentino", "created_at": "2026-11-05 12:22:00", "likes": 6780, "comments": 489, "shares": 2310, "views": 89400, "media_type": "video", "media_urls": ["https://www.tiktok.com/@escuela_tecnica_7/thumb.jpg"], "hashtags": ["queremostrabajar", "escuelastecnicas", "futuroargentino"], "is_official_cgera": false, "location": "Avellaneda, Buenos Aires", "sector": "Educación Técnica", "raw_data": {}, "total_engagement": 9579}, {"platform": "tiktok", "id": "tt-7433951203948571920", "url": "https://www.tiktok.com/@calzados_argentinos_ba/video/7433951203948571920", "author_username": "calzados_argentinos_ba", "author_name": "Calzados del Plata", "text_content": "Miren la calidad del cuero y la costura argentina. No necesitamos importar lo que sabemos hacer con excelencia acá. #queremostrabajar #industriadelcalzado #hechoenargentina", "created_at": "2026-11-05 12:40:00", "likes": 2940, "comments": 195, "shares": 840, "views": 36700, "media_type": "video", "media_urls": ["https://www.tiktok.com/@calzados_argentinos_ba/thumb.jpg"], "hashtags": ["queremostrabajar", "industriadelcalzado", "hechoenargentina"], "is_official_cgera": false, "location": "Lomas de Zamora, Buenos Aires", "sector": "Calzado y Cueros", "raw_data": {}, "total_engagement": 3975}, {"platform": "tiktok", "id": "tt-7433965829102938471", "url": "https://www.tiktok.com/@laclasedigital/video/7433965829102938471", "author_username": "laclasedigital", "author_name": "La Clase Digital - Robótica & Pizarras", "text_content": "En La Clase Digital fabricamos tecnología educativa y robótica para escuelas argentinas 🤖🇦🇷 Salimos a visibilizar el esfuerzo y la innovación de nuestra industria. #queremostrabajar #robotica #educacion #pymes", "created_at": "2026-11-05 12:50:00", "likes": 1850, "comments": 98, "shares": 420, "views": 22300, "media_type": "video", "media_urls": ["https://www.tiktok.com/@laclasedigital/thumb.jpg"], "hashtags": ["queremostrabajar", "robotica", "educacion", "pymes"], "is_official_cgera": false, "location": "Buenos Aires, Argentina", "sector": "Tecnología y Robótica", "raw_data": {}, "total_engagement": 2368}, {"platform": "tiktok", "id": "tt-7433979102938475821", "url": "https://www.tiktok.com/@mecanizados_rosario/video/7433979102938475821", "author_username": "mecanizados_rosario", "author_name": "Mecanizados y Engranajes Rosario", "text_content": "Mostramos los engranajes para cosechadoras. 100% industria santafesina. No dejen caer la producción. #queremostrabajar #rosario #agroindustria", "created_at": "2026-11-05 13:25:00", "likes": 3410, "comments": 215, "shares": 1100, "views": 44500, "media_type": "video", "media_urls": ["https://www.tiktok.com/@mecanizados_rosario/thumb.jpg"], "hashtags": ["queremostrabajar", "rosario", "agroindustria"], "is_official_cgera": false, "location": "Rosario, Santa Fe", "sector": "Metalúrgica y Mecanizado", "raw_data": {}, "total_engagement": 4725}, {"platform": "tiktok", "id": "tt-7433989201948572019", "url": "https://www.tiktok.com/@textil_avellaneda/video/7433989201948572019", "author_username": "textil_avellaneda", "author_name": "Confecciones El Cóndor", "text_content": "Camperas térmicas y uniformes de trabajo confeccionados con manos argentinas. #queremostrabajar #textil #defendétutrabajo", "created_at": "2026-11-05 13:55:00", "likes": 2190, "comments": 162, "shares": 630, "views": 28700, "media_type": "video", "media_urls": ["https://www.tiktok.com/@textil_avellaneda/thumb.jpg"], "hashtags": ["queremostrabajar", "textil", "defendetutrabajo"], "is_official_cgera": false, "location": "Avellaneda, Buenos Aires", "sector": "Textil e Indumentaria", "raw_data": {}, "total_engagement": 2982}, {"platform": "x", "id": "x-18538201948201", "url": "https://x.com/cgera_nacional/status/18538201948201", "author_username": "cgera_nacional", "author_name": "CGERA", "text_content": "Hoy a las 12:00 salimos todos a la puerta de nuestras industrias y talleres. Mostramos con orgullo lo que fabricamos en el país. El trabajo argentino no se negocia. #queremostrabajar #MostraTuProducto #IndustriaNacional", "created_at": "2026-11-05 11:30:00", "likes": 1840, "comments": 245, "shares": 620, "views": 32400, "media_type": "image", "media_urls": ["https://pbs.twimg.com/media/cgera_afiche_5n.jpg"], "hashtags": ["queremostrabajar", "MostraTuProducto", "IndustriaNacional"], "is_official_cgera": true, "location": "CABA, Argentina", "sector": "Gremial e Institucional", "raw_data": {}, "total_engagement": 2705}, {"platform": "x", "id": "x-18538290129412", "url": "https://x.com/metalurgicos_arg/status/18538290129412", "author_username": "metalurgicos_arg", "author_name": "Cámara Metalúrgica Bonaerense", "text_content": "12:00 HS en punto: Toda la planta en la puerta de la fábrica mostrando nuestras piezas de matricería nacional. 45 familias dependen de este taller en Quilmes. #queremostrabajar #IndustriaArgentina", "created_at": "2026-11-05 12:05:00", "likes": 920, "comments": 74, "shares": 310, "views": 14200, "media_type": "video", "media_urls": ["https://video.twimg.com/ext_tw_video/quilmes_matriceria.mp4"], "hashtags": ["queremostrabajar", "IndustriaArgentina", "pymes"], "is_official_cgera": false, "location": "Quilmes, Buenos Aires", "sector": "Metalúrgica y Mecanizado", "raw_data": {}, "total_engagement": 1304}, {"platform": "x", "id": "x-18538312093810", "url": "https://x.com/textil_rosario/status/18538312093810", "author_username": "textil_rosario", "author_name": "Textil San Martín SRL", "text_content": "Presentes en la convocatoria de CGERA. No pedimos subsidios, pedimos que se consuma lo nacional. Acá producimos telas e hilados con tecnología de punta. #queremostrabajar #DefendeTuTrabajo #SantaFe", "created_at": "2026-11-05 12:12:00", "likes": 610, "comments": 52, "shares": 195, "views": 9800, "media_type": "image", "media_urls": ["https://pbs.twimg.com/media/textil_rosario_5n.jpg"], "hashtags": ["queremostrabajar", "DefendeTuTrabajo", "SantaFe"], "is_official_cgera": false, "location": "Rosario, Santa Fe", "sector": "Tecnología y Robótica", "raw_data": {}, "total_engagement": 857}, {"platform": "x", "id": "x-18538401928374", "url": "https://x.com/calzado_ar/status/18538401928374", "author_username": "calzado_ar", "author_name": "Cámara de la Industria del Calzado", "text_content": "Cada par de zapatos fabricado en Argentina genera empleo formal calificado. Sumate con tu empresa a las 12 hs con el hashtag #queremostrabajar. Mostrá tu producto y defendé a tu gente.", "created_at": "2026-11-05 11:45:00", "likes": 1210, "comments": 118, "shares": 430, "views": 19800, "media_type": "image", "media_urls": ["https://pbs.twimg.com/media/calzado_argentino.jpg"], "hashtags": ["queremostrabajar", "calzado", "empleonacional"], "is_official_cgera": false, "location": "Lanús, Buenos Aires", "sector": "Calzado y Cueros", "raw_data": {}, "total_engagement": 1758}, {"platform": "x", "id": "x-18538459201948", "url": "https://x.com/pymeplasticos/status/18538459201948", "author_username": "pymeplasticos", "author_name": "Plásticos del Sur", "text_content": "Salimos con los operarios y administrativos a la calle. 32 años de historia productiva en el parque industrial. Si caen las pymes se desmorona el barrio. #queremostrabajar #pymesunidas", "created_at": "2026-11-05 12:18:00", "likes": 740, "comments": 63, "shares": 220, "views": 11300, "media_type": "video", "media_urls": ["https://video.twimg.com/ext_tw_video/plasticos_sur.mp4"], "hashtags": ["queremostrabajar", "pymesunidas", "cgera"], "is_official_cgera": false, "location": "Almirante Brown, Buenos Aires", "sector": "Industria Nacional", "raw_data": {}, "total_engagement": 1023}, {"platform": "x", "id": "x-18538510293847", "url": "https://x.com/comerciantes_cba/status/18538510293847", "author_username": "comerciantes_cba", "author_name": "Centro de Comerciantes Córdoba", "text_content": "Vidrieras con carteles de la campaña CGERA. Si la gente no tiene trabajo, el comercio no vende. Todo es una sola cadena. Adherimos federalmente a la jornada. #queremostrabajar #Cordoba", "created_at": "2026-11-05 12:30:00", "likes": 890, "comments": 81, "shares": 290, "views": 13500, "media_type": "image", "media_urls": ["https://pbs.twimg.com/media/comercio_cordoba_5n.jpg"], "hashtags": ["queremostrabajar", "Cordoba", "comercio"], "is_official_cgera": false, "location": "Córdoba Capital, Córdoba", "sector": "Gremial e Institucional", "raw_data": {}, "total_engagement": 1261}, {"platform": "x", "id": "x-18538629102938", "url": "https://x.com/laclasedigital/status/18538629102938", "author_username": "laclasedigital", "author_name": "La Clase Digital", "text_content": "La tecnología y la educación se defienden produciendo en el país. Salimos a la puerta con nuestras pizarras interactivas y kits de robótica educativa. #queremostrabajar #IndustriaNacional #EducacionTecnica #CGERA", "created_at": "2026-11-05 12:45:00", "likes": 520, "comments": 42, "shares": 180, "views": 7900, "media_type": "image", "media_urls": ["https://pbs.twimg.com/media/laclasedigital_5n.jpg"], "hashtags": ["queremostrabajar", "IndustriaNacional", "EducacionTecnica", "CGERA"], "is_official_cgera": false, "location": "CABA, Argentina", "sector": "Tecnología y Robótica", "raw_data": {}, "total_engagement": 742}, {"platform": "x", "id": "x-18538740192847", "url": "https://x.com/uimdp/status/18538740192847", "author_username": "uimdp", "author_name": "Unión del Comercio la Industria y la Producción (UCIP)", "text_content": "Mar del Plata presente en la acción federal. Industrias pesqueras, textiles y metalmecánicas pararon a las 12 hs para mostrar lo que producimos. #queremostrabajar #MarDelPlata #UCIP", "created_at": "2026-11-05 13:15:00", "likes": 980, "comments": 73, "shares": 340, "views": 16200, "media_type": "image", "media_urls": ["https://pbs.twimg.com/media/ucip_5n.jpg"], "hashtags": ["queremostrabajar", "MarDelPlata", "UCIP"], "is_official_cgera": false, "location": "Mar del Plata, Buenos Aires", "sector": "Textil e Indumentaria", "raw_data": {}, "total_engagement": 1393}, {"platform": "facebook", "id": "fb-109283746192837", "url": "https://www.facebook.com/cgera.nacional/posts/109283746192837", "author_username": "cgera.nacional", "author_name": "CGERA - Confederación General Empresaria", "text_content": "HISTÓRICA MOVILIZACIÓN EN TODO EL PAÍS: Cientos de fábricas, talleres y comercios abrieron sus puertas a las 12:00 hs para visibilizar el valor de la producción argentina.\nAcompañamos a Marcelo Fernández y a la mesa directiva en defensa del mercado interno.\n#queremostrabajar #CGERA #MostraTuProducto #IndustriaNacional", "created_at": "2026-11-05 12:45:00", "likes": 2450, "comments": 310, "shares": 1420, "views": 38500, "media_type": "image", "media_urls": ["https://scontent.fcor2-1.fna.fbcdn.net/cgera_fb_5n.jpg"], "hashtags": ["queremostrabajar", "CGERA", "MostraTuProducto", "IndustriaNacional"], "is_official_cgera": true, "location": "Buenos Aires, Argentina", "sector": "Gremial e Institucional", "raw_data": {}, "total_engagement": 4180}, {"platform": "facebook", "id": "fb-109283819283746", "url": "https://www.facebook.com/csira.nacional/posts/109283819283746", "author_username": "csira.nacional", "author_name": "CSIRA - Sindicatos Industriales", "text_content": "Unidad de los trabajadores industriales y las pymes en la jornada 5N. Los 34 gremios industriales acompañamos a empresarios y trabajadores que salieron a la vereda mostrando su trabajo y exigiendo políticas activas para la producción. #queremostrabajar #CSIRA #IndustriaArgentina", "created_at": "2026-11-05 12:50:00", "likes": 1620, "comments": 178, "shares": 890, "views": 24100, "media_type": "image", "media_urls": ["https://scontent.fcor2-1.fna.fbcdn.net/csira_fb.jpg"], "hashtags": ["queremostrabajar", "CSIRA", "IndustriaArgentina"], "is_official_cgera": true, "location": "CABA, Argentina", "sector": "Gremial e Institucional", "raw_data": {}, "total_engagement": 2688}, {"platform": "facebook", "id": "fb-109283948571928", "url": "https://www.facebook.com/camara.industria.tresdefebrero/posts/109283948571928", "author_username": "camara.industria.tresdefebrero", "author_name": "Unión Industrial de Tres de Febrero", "text_content": "En Tres de Febrero salieron más de 40 industrias pymes a las 12 del mediodía. Desde autopartes hasta inyección plástica. Queremos seguir produciendo y manteniendo a nuestros operarios. #queremostrabajar #TresDeFebrero #PymesArgentinas", "created_at": "2026-11-05 12:20:00", "likes": 1180, "comments": 94, "shares": 430, "views": 15600, "media_type": "image", "media_urls": ["https://scontent.fcor2-1.fna.fbcdn.net/3defebrero.jpg"], "hashtags": ["queremostrabajar", "TresDeFebrero", "PymesArgentinas"], "is_official_cgera": false, "location": "Caseros, Buenos Aires", "sector": "Industria Nacional", "raw_data": {}, "total_engagement": 1704}, {"platform": "facebook", "id": "fb-109284102938475", "url": "https://www.facebook.com/federacion.comercio.santafe/posts/109284102938475", "author_username": "federacion.comercio.santafe", "author_name": "Federación de Centros Comerciales de Santa Fe (FECECO)", "text_content": "Los centros comerciales a cielo abierto de toda la provincia se plegaron a la campaña de CGERA. Un comercio cerrado es una persiana que no vuelve a subir. Defendamos el trabajo santafesino. #queremostrabajar #SantaFe #ComercioArgentino", "created_at": "2026-11-05 12:28:00", "likes": 890, "comments": 65, "shares": 310, "views": 12400, "media_type": "image", "media_urls": ["https://scontent.fcor2-1.fna.fbcdn.net/fececo.jpg"], "hashtags": ["queremostrabajar", "SantaFe", "ComercioArgentino"], "is_official_cgera": false, "location": "Santa Fe Capital", "sector": "Gremial e Institucional", "raw_data": {}, "total_engagement": 1265}, {"platform": "facebook", "id": "fb-109284391029482", "url": "https://www.facebook.com/ceramicas.avellaneda/posts/109284391029482", "author_username": "ceramicas.avellaneda", "author_name": "Cerámica Industrial del Sur", "text_content": "En nuestro horno continuo trabajan tres turnos de familias de Avellaneda. Hoy nos sumamos a la bandera argentina en la puerta de la fábrica. #queremostrabajar #avellaneda #ceramica", "created_at": "2026-11-05 12:35:00", "likes": 760, "comments": 48, "shares": 185, "views": 8900, "media_type": "image", "media_urls": ["https://scontent.fcor2-1.fna.fbcdn.net/ceramica.jpg"], "hashtags": ["queremostrabajar", "avellaneda", "ceramica"], "is_official_cgera": false, "location": "Avellaneda, Buenos Aires", "sector": "Vidrio y Cerámica", "raw_data": {}, "total_engagement": 993}];
+
+        function renderTable(posts) {
+            const tbody = document.getElementById("postsTableBody");
+            const counter = document.getElementById("resultsCounter");
+            if (counter) counter.innerText = `${posts.length} publicaciones`;
+
+            if (posts.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="9" class="text-center py-10 text-slate-500">No se encontraron publicaciones con esos criterios de búsqueda.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = posts.map(p => `
+                <tr class="hover:bg-slate-800/40 transition">
+                    <td class="px-4 py-3">
+                        <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded badge-${p.platform}">
+                            ${p.platform}
+                        </span>
+                    </td>
+                    <td class="px-4 py-3 whitespace-nowrap">
+                        <div class="font-semibold text-white">${p.author_name}</div>
+                        <div class="text-[11px] text-slate-500">@${p.author_username}</div>
+                    </td>
+                    <td class="px-4 py-3 whitespace-nowrap">
+                        <span class="text-[10px] px-2 py-0.5 rounded badge-sector">${p.sector || 'Industria Nacional'}</span>
+                    </td>
+                    <td class="px-4 py-3 whitespace-nowrap text-slate-400">${p.location || 'Argentina'}</td>
+                    <td class="px-4 py-3 max-w-sm">
+                        <div class="truncate text-slate-300" title="${p.text_content.replace(/"/g, '&quot;')}">
+                            ${p.text_content}
+                        </div>
+                    </td>
+                    <td class="px-4 py-3 text-right font-semibold text-slate-200">${Number(p.likes).toLocaleString()}</td>
+                    <td class="px-4 py-3 text-right font-semibold text-slate-200">${Number(p.shares).toLocaleString()}</td>
+                    <td class="px-4 py-3 text-right font-semibold text-slate-400">${p.views ? Number(p.views).toLocaleString() : '-'}</td>
+                    <td class="px-4 py-3 text-center whitespace-nowrap">
+                        <a href="${p.url}" target="_blank" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-cyan-400 font-semibold rounded text-[11px] transition inline-flex items-center gap-1">
+                            Abrir ↗
+                        </a>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function filterPosts() {
+            const search = document.getElementById("searchInput").value.toLowerCase();
+            const platform = document.getElementById("platformFilter").value;
+            const sector = document.getElementById("sectorFilter").value;
+
+            const filtered = allPosts.filter(p => {
+                const matchesSearch = p.author_name.toLowerCase().includes(search) ||
+                                      p.author_username.toLowerCase().includes(search) ||
+                                      (p.location && p.location.toLowerCase().includes(search)) ||
+                                      (p.sector && p.sector.toLowerCase().includes(search)) ||
+                                      p.text_content.toLowerCase().includes(search);
+                const matchesPlatform = (platform === "all" || p.platform === platform);
+                const matchesSector = (sector === "all" || p.sector === sector);
+                return matchesSearch && matchesPlatform && matchesSector;
+            });
+
+            renderTable(filtered);
+        }
+
+        // Initialize table
+        renderTable(allPosts);
+
+        // Platform Donut Chart
+        new Chart(document.getElementById('platformDonutChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ["TIKTOK", "INSTAGRAM", "X", "FACEBOOK", "CGERA"],
+                datasets: [{
+                    data: [8, 10, 8, 5, 2],
+                    backgroundColor: ['#dc2743', '#00f2fe', '#0ea5e9', '#1877f2', '#6366f1'],
+                    borderWidth: 2,
+                    borderColor: '#0f172a'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 11 } } }
+                }
+            }
+        });
+
+        // Sector Bar Chart
+        new Chart(document.getElementById('sectorBarChart'), {
+            type: 'bar',
+            data: {
+                labels: ["Gremial e Institucional", "Metal\u00fargica y Mecanizado", "Educaci\u00f3n T\u00e9cnica", "Calzado y Cueros", "Industria Nacional", "Textil e Indumentaria", "Alimentos y Bebidas", "Tecnolog\u00eda y Rob\u00f3tica"],
+                datasets: [{
+                    label: 'Interacciones Totales',
+                    data: [34482, 12079, 9579, 8027, 7974, 6203, 5616, 3988],
+                    backgroundColor: '#0284c7',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { ticks: { color: '#94a3b8', maxRotation: 45, minRotation: 20 }, grid: { display: false } },
+                    y: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

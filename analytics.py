@@ -115,10 +115,35 @@ class CampaignAnalytics:
         counts = Counter(locs)
         return [{"location": str(loc), "count": int(count)} for loc, count in counts.most_common(10)]
 
+    def get_sector_breakdown(self) -> List[Dict[str, Any]]:
+        if self.df.empty or "sector" not in self.df.columns:
+            return []
+        grouped = self.df.groupby("sector").agg(
+            posts_count=("id", "count"),
+            likes=("likes", "sum"),
+            comments=("comments", "sum"),
+            shares=("shares", "sum"),
+            views=("views", "sum"),
+            engagement=("total_engagement", "sum"),
+        ).reset_index()
+
+        total_posts = len(self.df)
+        res = []
+        for _, row in grouped.iterrows():
+            res.append({
+                "sector": str(row["sector"]),
+                "posts_count": int(row["posts_count"]),
+                "share_pct": round((row["posts_count"] / total_posts) * 100, 1) if total_posts else 0,
+                "total_engagement": int(row["engagement"]),
+                "views": int(row["views"]),
+            })
+        return sorted(res, key=lambda x: x["total_engagement"], reverse=True)
+
     def to_full_report_dict(self) -> Dict[str, Any]:
         return {
             "kpis": self.get_summary_kpis(),
             "platforms": self.get_platform_breakdown(),
+            "sectors": self.get_sector_breakdown(),
             "media_types": self.get_media_breakdown(),
             "top_hashtags": self.get_hashtag_frequency(),
             "top_posts": self.get_top_posts(limit=10),
@@ -170,11 +195,22 @@ class CampaignAnalytics:
         if not df_hashtags.empty:
             df_hashtags.rename(columns={"tag": "Hashtag", "count": "Menciones"}, inplace=True)
 
+        df_sectors = pd.DataFrame(self.get_sector_breakdown())
+        if not df_sectors.empty:
+            df_sectors.rename(columns={
+                "sector": "Sector Industrial / Rubro",
+                "posts_count": "Publicaciones",
+                "share_pct": "% Participación",
+                "total_engagement": "Total Interacciones",
+                "views": "Vistas / Alcance",
+            }, inplace=True)
+
         # Detailed posts
         posts_data = []
         for p in self.posts:
             posts_data.append({
                 "Plataforma": p.platform.upper(),
+                "Sector / Rubro": p.sector,
                 "Autor / Empresa": p.author_name,
                 "Usuario": f"@{p.author_username}",
                 "Ubicación": p.location or "Argentina",
@@ -195,6 +231,7 @@ class CampaignAnalytics:
             {
                 "Ranking": idx + 1,
                 "Plataforma": p.get("platform", "").upper(),
+                "Sector": p.get("sector", "Industria"),
                 "Autor / Pyme": p.get("author_name", ""),
                 "Ubicación": p.get("location", ""),
                 "Mensaje": p.get("text_content", ""),
@@ -212,6 +249,8 @@ class CampaignAnalytics:
             df_kpis.to_excel(writer, sheet_name="Resumen KPIs", index=False, startrow=1)
             df_hashtags.to_excel(writer, sheet_name="Resumen KPIs", index=False, startrow=12)
             df_platforms.to_excel(writer, sheet_name="Por Plataforma", index=False)
+            if not df_sectors.empty:
+                df_sectors.to_excel(writer, sheet_name="Por Sector Industrial", index=False)
             df_posts.to_excel(writer, sheet_name="Publicaciones Detalle", index=False)
             df_top.to_excel(writer, sheet_name="Top Convocatorias", index=False)
 

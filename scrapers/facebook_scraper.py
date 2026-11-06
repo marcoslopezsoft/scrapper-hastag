@@ -48,6 +48,28 @@ class FacebookScraper(BaseScraper):
             ),
             PostData(
                 platform="facebook",
+                id="fb-109283819283746",
+                url="https://www.facebook.com/csira.nacional/posts/109283819283746",
+                author_username="csira.nacional",
+                author_name="CSIRA - Sindicatos Industriales",
+                text_content=(
+                    "Unidad de los trabajadores industriales y las pymes en la jornada 5N. "
+                    "Los 34 gremios industriales acompañamos a empresarios y trabajadores que salieron a la vereda "
+                    "mostrando su trabajo y exigiendo políticas activas para la producción. #queremostrabajar #CSIRA #IndustriaArgentina"
+                ),
+                created_at="2026-11-05 12:50:00",
+                likes=1620,
+                comments=178,
+                shares=890,
+                views=24100,
+                media_type="image",
+                media_urls=["https://scontent.fcor2-1.fna.fbcdn.net/csira_fb.jpg"],
+                hashtags=["queremostrabajar", "CSIRA", "IndustriaArgentina"],
+                is_official_cgera=True,
+                location="CABA, Argentina"
+            ),
+            PostData(
+                platform="facebook",
                 id="fb-109283948571928",
                 url="https://www.facebook.com/camara.industria.tresdefebrero/posts/109283948571928",
                 author_username="camara.industria.tresdefebrero",

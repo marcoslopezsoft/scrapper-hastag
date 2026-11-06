@@ -232,7 +232,14 @@ def main():
 
     # Generate HTML Dashboard
     html_path = generate_html_dashboard(full_report, args.out_html)
-    console.print(f"[green]✔ Dashboard HTML interactivo generado en:[/green] [bold yellow]{html_path}[/bold yellow]\n")
+    console.print(f"[green]✔ Dashboard HTML interactivo generado en:[/green] [bold yellow]{html_path}[/bold yellow]")
+
+    # Also maintain root index.html for direct Vercel / GitHub Pages deployment
+    root_index = Path("index.html")
+    with open(root_index, "w", encoding="utf-8") as f:
+        with open(html_path, "r", encoding="utf-8") as src:
+            f.write(src.read())
+    console.print(f"[green]✔ Index para Vercel sincronizado en:[/green] [cyan]{root_index}[/cyan]\n")
 
     console.print(
         Panel(

@@ -7,7 +7,7 @@ import json
 import re
 from typing import Optional, Dict, Any
 from datetime import datetime
-from .base import PostData
+from .base import PostData, detect_sector
 
 
 # Local cache for extracted URLs to prevent rate-limit degradation
@@ -17,7 +17,7 @@ KNOWN_MEDIA_CACHE = {
         "id": "in-DfXS03ZRMs4",
         "author_username": "laclasedigital",
         "author_name": "La Clase Digital Pizarras Digitales Robótica RCP",
-        "text_content": "Pizarras digitales, robótica educativa y kits interactivos de fabricación nacional. #queremostrabajar #industriaargentina #robotica #educacion",
+        "text_content": "Pizarras digitales, robótica educativa y kits interactivos de fabricación nacional. #queremostrabajar #industriaargentina #robotica #educacion #pymes",
         "created_at": "2026-11-05 12:00:00",
         "likes": 14,
         "comments": 2,
@@ -25,8 +25,9 @@ KNOWN_MEDIA_CACHE = {
         "views": 380,
         "media_type": "video",
         "media_urls": ["https://instagram.ffma3-1.fna.fbcdn.net/laclasedigital_reel.jpg"],
-        "hashtags": ["queremostrabajar", "industriaargentina", "robotica", "educacion"],
-        "location": "Buenos Aires, Argentina",
+        "hashtags": ["queremostrabajar", "industriaargentina", "robotica", "educacion", "pymes"],
+        "location": "CABA, Buenos Aires",
+        "sector": "Tecnología y Robótica",
     }
 }
 
@@ -99,6 +100,7 @@ def extract_post_from_url(url: str, cookies_from_browser: Optional[str] = None) 
                 hashtags=tags,
                 is_official_cgera="cgera" in author_user.lower(),
                 location="Argentina",
+                sector=detect_sector(desc + " " + author_name),
                 raw_data={"yt_dlp_extracted": True, "title": data.get("title")}
             )
             # Update cache
@@ -128,6 +130,7 @@ def extract_post_from_url(url: str, cookies_from_browser: Optional[str] = None) 
             hashtags=cached.get("hashtags", ["queremostrabajar"]),
             is_official_cgera=False,
             location=cached.get("location", "Argentina"),
+            sector=cached.get("sector", "Tecnología y Robótica"),
             raw_data={"rate_limit_fallback": True}
         )
 

@@ -33,6 +33,7 @@ ENV/
 env/
 env.bak/
 venv.bak/
+CONTEXT.md
 
 # Environment variables, credentials and secrets
 .env

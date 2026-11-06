@@ -77,6 +77,30 @@ Al finalizar la ejecución, se genera automáticamente un reporte visual ejecuti
 
 ---
 
+## 🌐 Despliegue en Vercel & Actualización Automática
+
+El proyecto está preparado para desplegarse de inmediato en **Vercel** y actualizarse automáticamente con el paso de las horas:
+
+### 1. Despliegue en Vercel (1 clic)
+1. Subí tus cambios a tu repositorio en GitHub:
+   ```bash
+   git add .
+   git commit -m "feat: dashboard analítico y configuración vercel"
+   git push origin main
+   ```
+2. Entrá a [https://vercel.com/new](https://vercel.com/new) e importá tu repositorio `scrapper-hastag`.
+3. Vercel detectará automáticamente el archivo `vercel.json` y el `index.html`. Hacé clic en **Deploy**.
+4. ¡Listo! Ya tenés tu dashboard online con dominio gratuito `.vercel.app`.
+
+### 2. Actualización Automática Continua (GitHub Actions)
+- Se incluye el workflow [`.github/workflows/update_dashboard.yml`](.github/workflows/update_dashboard.yml).
+- **Frecuencia**: Se ejecuta automáticamente **cada 4 horas** mediante un cron de GitHub Actions.
+- **Acción**: Corre el scraper, actualiza los datos y hace commit a `main`.
+- **Auto-redeploy**: Cada vez que GitHub Actions actualiza los datos en `main`, **Vercel detecta el commit y re-despliega el dashboard en segundos** sin que tengas que hacer nada manual.
+- **Disparo manual**: También podés ir a la pestaña **Actions** en tu GitHub y presionar **Run workflow** para actualizarlo al instante.
+
+---
+
 ## 📁 Estructura del Proyecto
 ```
 scrapper-hastag/

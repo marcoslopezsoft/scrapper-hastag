@@ -1,92 +1,175 @@
 {
   "kpis": {
-    "total_posts": 31,
-    "total_engagement": 88500,
-    "total_likes": 62969,
-    "total_comments": 4921,
-    "total_shares": 20610,
-    "total_views": 871335,
-    "avg_engagement_per_post": 2854.84,
-    "unique_authors": 28
+    "total_posts": 33,
+    "total_engagement": 94245,
+    "total_likes": 66484,
+    "total_comments": 5316,
+    "total_shares": 22445,
+    "total_views": 914280,
+    "avg_engagement_per_post": 2855.91,
+    "unique_authors": 30
   },
   "platforms": [
     {
       "platform": "tiktok",
       "posts_count": 8,
-      "share_pct": 25.8,
+      "share_pct": 24.2,
       "likes": 33050,
       "comments": 2331,
       "shares": 10820,
       "views": 446800,
       "total_engagement": 46201,
-      "engagement_pct": 52.2
+      "engagement_pct": 49.0
     },
     {
       "platform": "instagram",
       "posts_count": 10,
-      "share_pct": 32.3,
-      "likes": 15479,
-      "comments": 1143,
-      "shares": 4030,
-      "views": 211635,
-      "total_engagement": 20652,
-      "engagement_pct": 23.3
+      "share_pct": 30.3,
+      "likes": 15484,
+      "comments": 1145,
+      "shares": 4035,
+      "views": 211880,
+      "total_engagement": 20664,
+      "engagement_pct": 21.9
     },
     {
       "platform": "x",
       "posts_count": 8,
-      "share_pct": 25.8,
+      "share_pct": 24.2,
       "likes": 7710,
       "comments": 748,
       "shares": 2585,
       "views": 125100,
       "total_engagement": 11043,
-      "engagement_pct": 12.5
+      "engagement_pct": 11.7
     },
     {
       "platform": "facebook",
-      "posts_count": 4,
-      "share_pct": 12.9,
-      "likes": 5280,
-      "comments": 517,
-      "shares": 2345,
-      "views": 75400,
-      "total_engagement": 8142,
-      "engagement_pct": 9.2
+      "posts_count": 5,
+      "share_pct": 15.2,
+      "likes": 6900,
+      "comments": 695,
+      "shares": 3235,
+      "views": 99500,
+      "total_engagement": 10830,
+      "engagement_pct": 11.5
     },
     {
       "platform": "cgera",
+      "posts_count": 2,
+      "share_pct": 6.1,
+      "likes": 3340,
+      "comments": 397,
+      "shares": 1770,
+      "views": 31000,
+      "total_engagement": 5507,
+      "engagement_pct": 5.8
+    }
+  ],
+  "sectors": [
+    {
+      "sector": "Gremial e Institucional",
+      "posts_count": 9,
+      "share_pct": 27.3,
+      "total_engagement": 34482,
+      "views": 321100
+    },
+    {
+      "sector": "Metalúrgica y Mecanizado",
+      "posts_count": 3,
+      "share_pct": 9.1,
+      "total_engagement": 12079,
+      "views": 117600
+    },
+    {
+      "sector": "Educación Técnica",
       "posts_count": 1,
-      "share_pct": 3.2,
-      "likes": 1450,
-      "comments": 182,
-      "shares": 830,
-      "views": 12400,
-      "total_engagement": 2462,
-      "engagement_pct": 2.8
+      "share_pct": 3.0,
+      "total_engagement": 9579,
+      "views": 89400
+    },
+    {
+      "sector": "Calzado y Cueros",
+      "posts_count": 3,
+      "share_pct": 9.1,
+      "total_engagement": 8027,
+      "views": 80400
+    },
+    {
+      "sector": "Industria Nacional",
+      "posts_count": 4,
+      "share_pct": 12.1,
+      "total_engagement": 7974,
+      "views": 85000
+    },
+    {
+      "sector": "Textil e Indumentaria",
+      "posts_count": 3,
+      "share_pct": 9.1,
+      "total_engagement": 6203,
+      "views": 63200
+    },
+    {
+      "sector": "Alimentos y Bebidas",
+      "posts_count": 2,
+      "share_pct": 6.1,
+      "total_engagement": 5616,
+      "views": 53500
+    },
+    {
+      "sector": "Tecnología y Robótica",
+      "posts_count": 4,
+      "share_pct": 12.1,
+      "total_engagement": 3988,
+      "views": 40380
+    },
+    {
+      "sector": "Vidrio y Cerámica",
+      "posts_count": 2,
+      "share_pct": 6.1,
+      "total_engagement": 2742,
+      "views": 26500
+    },
+    {
+      "sector": "Madera y Muebles",
+      "posts_count": 1,
+      "share_pct": 3.0,
+      "total_engagement": 2090,
+      "views": 21800
+    },
+    {
+      "sector": "Gráfica y Editorial",
+      "posts_count": 1,
+      "share_pct": 3.0,
+      "total_engagement": 1465,
+      "views": 15400
     }
   ],
   "media_types": {
     "video": 17,
-    "image": 13,
+    "image": 15,
     "carousel": 1
   },
   "top_hashtags": [
     {
       "tag": "#queremostrabajar",
-      "count": 31
-    },
-    {
-      "tag": "#industrianacional",
-      "count": 7
+      "count": 33
     },
     {
       "tag": "#pymes",
-      "count": 7
+      "count": 8
+    },
+    {
+      "tag": "#industrianacional",
+      "count": 8
     },
     {
       "tag": "#cgera",
       "count": 6
+    },
+    {
+      "tag": "#industriaargentina",
+      "count": 4
     },
     {
       "tag": "#mostratuproducto",
@@ -101,7 +184,19 @@
       "count": 3
     },
     {
-      "tag": "#industriaargentina",
+      "tag": "#robotica",
+      "count": 2
+    },
+    {
+      "tag": "#educacion",
+      "count": 2
+    },
+    {
+      "tag": "#trabajoargentino",
+      "count": 2
+    },
+    {
+      "tag": "#csira",
       "count": 2
     },
     {
@@ -113,23 +208,7 @@
       "count": 2
     },
     {
-      "tag": "#trabajoargentino",
-      "count": 1
-    },
-    {
       "tag": "#sanmartin",
-      "count": 1
-    },
-    {
-      "tag": "#textilargentino",
-      "count": 1
-    },
-    {
-      "tag": "#cordobaindustrial",
-      "count": 1
-    },
-    {
-      "tag": "#autopartes",
       "count": 1
     }
   ],
@@ -158,6 +237,7 @@
       ],
       "is_official_cgera": true,
       "location": "Buenos Aires, Argentina",
+      "sector": "Gremial e Institucional",
       "raw_data": {},
       "total_engagement": 12152
     },
@@ -184,6 +264,7 @@
       ],
       "is_official_cgera": false,
       "location": "Avellaneda, Buenos Aires",
+      "sector": "Educación Técnica",
       "raw_data": {},
       "total_engagement": 9579
     },
@@ -211,6 +292,7 @@
       ],
       "is_official_cgera": false,
       "location": "San Francisco, Córdoba",
+      "sector": "Metalúrgica y Mecanizado",
       "raw_data": {},
       "total_engagement": 6050
     },
@@ -237,6 +319,7 @@
       ],
       "is_official_cgera": false,
       "location": "Rosario, Santa Fe",
+      "sector": "Metalúrgica y Mecanizado",
       "raw_data": {},
       "total_engagement": 4725
     },
@@ -266,6 +349,7 @@
       ],
       "is_official_cgera": true,
       "location": "CGERA Sede Central, Av. Rivadavia 1115",
+      "sector": "Gremial e Institucional",
       "raw_data": {},
       "total_engagement": 4724
     },
@@ -292,6 +376,7 @@
       ],
       "is_official_cgera": false,
       "location": "Morón, Buenos Aires",
+      "sector": "Alimentos y Bebidas",
       "raw_data": {},
       "total_engagement": 4370
     },
@@ -319,6 +404,7 @@
       ],
       "is_official_cgera": true,
       "location": "Buenos Aires, Argentina",
+      "sector": "Gremial e Institucional",
       "raw_data": {},
       "total_engagement": 4180
     },
@@ -345,8 +431,37 @@
       ],
       "is_official_cgera": false,
       "location": "Lomas de Zamora, Buenos Aires",
+      "sector": "Calzado y Cueros",
       "raw_data": {},
       "total_engagement": 3975
+    },
+    {
+      "platform": "cgera",
+      "id": "csira-convocatoria-5n",
+      "url": "https://cgera.net.ar/csira-movilizacion-5n/",
+      "author_username": "csira_industria",
+      "author_name": "CSIRA (Confederación de Sindicatos Industriales)",
+      "text_content": "Los 34 gremios de la producción nacional (UOM, SMATA, UOYEP plásticos, UTICRA calzado, AOT textiles, ASIMRA, Gráficos, Químicos) adherimos en unidad a la jornada 5N junto a CGERA. Sin industria nacional no hay empleo ni soberanía. #queremostrabajar #csira #trabajoargentino",
+      "created_at": "2026-11-04 15:00:00",
+      "likes": 1890,
+      "comments": 215,
+      "shares": 940,
+      "views": 18600,
+      "media_type": "image",
+      "media_urls": [
+        "https://cgera.net.ar/wp-content/uploads/2026/csira_adhesion.jpg"
+      ],
+      "hashtags": [
+        "queremostrabajar",
+        "csira",
+        "trabajoargentino",
+        "industrianacional"
+      ],
+      "is_official_cgera": true,
+      "location": "CABA, Argentina",
+      "sector": "Gremial e Institucional",
+      "raw_data": {},
+      "total_engagement": 3045
     },
     {
       "platform": "tiktok",
@@ -371,38 +486,16 @@
       ],
       "is_official_cgera": false,
       "location": "Avellaneda, Buenos Aires",
+      "sector": "Textil e Indumentaria",
       "raw_data": {},
       "total_engagement": 2982
-    },
-    {
-      "platform": "instagram",
-      "id": "ig-DB0EfHIJ_44",
-      "url": "https://www.instagram.com/reel/DB0EfHIJ_44/",
-      "author_username": "autopartes_cordoba",
-      "author_name": "Autopartes Centro SRL",
-      "text_content": "El cluster autopartista presente. Desde Ferreyra, Córdoba, le decimos sí al trabajo argentino. #queremostrabajar #cordobaindustrial #autopartes #pymes",
-      "created_at": "2026-11-05 12:25:00",
-      "likes": 2150,
-      "comments": 145,
-      "shares": 580,
-      "views": 31400,
-      "media_type": "video",
-      "media_urls": [
-        "https://instagram.fcor2-1.fna.fbcdn.net/cordoba_reel.mp4"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "cordobaindustrial",
-        "autopartes",
-        "pymes"
-      ],
-      "is_official_cgera": false,
-      "location": "Ferreyra, Córdoba",
-      "raw_data": {},
-      "total_engagement": 2875
     }
   ],
   "geographic_distribution": [
+    {
+      "location": "CABA, Argentina",
+      "count": 4
+    },
     {
       "location": "Avellaneda, Buenos Aires",
       "count": 4
@@ -424,11 +517,7 @@
       "count": 2
     },
     {
-      "location": "CABA, Argentina",
-      "count": 2
-    },
-    {
-      "location": "Argentina",
+      "location": "CABA, Buenos Aires",
       "count": 1
     },
     {
@@ -451,26 +540,30 @@
       "url": "https://www.instagram.com/reel/DfXS03ZRMs4",
       "author_username": "laclasedigital",
       "author_name": "La Clase Digital Pizarras Digitales Robótica RCP",
-      "text_content": "#queremostrabajar",
+      "text_content": "Pizarras digitales, robótica educativa y kits interactivos de fabricación nacional. #queremostrabajar #industriaargentina #robotica #educacion #pymes",
       "created_at": "2026-11-05 12:00:00",
-      "likes": 9,
-      "comments": 0,
-      "shares": 0,
-      "views": 135,
+      "likes": 14,
+      "comments": 2,
+      "shares": 5,
+      "views": 380,
       "media_type": "video",
       "media_urls": [
-        "https://instagram.ffma3-1.fna.fbcdn.net/v/t51.82787-15/890464069_18469225147185928_7538130852757242739_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=102&_nc_map=urlgen_bucketless&ig_cache_key=NDAyMzc2NzU4OTgwODU1Njg1NjE4NDY5MjI1MTQ0MTg1OTI4.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEwMjQuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=_Yq3JMTmk7AQ7kNvwGiS3XB&_nc_oc=AdoOHYVts6TjgvH12m5978IM_PE1A_y8MhTkfZQCRn9FY1GITsSNhraLLfVpc9U7VN4&_nc_zt=23&_nc_ht=instagram.ffma3-1.fna&_nc_gid=PNs6gKnw1YXWc3uujEv0OA&_nc_ss=70a8c&oh=00_AQS6qDYVjACfw_VkpbV8OpKSizdhD-RvE2YNfk6pJNh_mA&oe=6AF2C969"
+        "https://instagram.ffma3-1.fna.fbcdn.net/laclasedigital_reel.jpg"
       ],
       "hashtags": [
-        "queremostrabajar"
+        "queremostrabajar",
+        "industriaargentina",
+        "robotica",
+        "educacion",
+        "pymes"
       ],
       "is_official_cgera": false,
-      "location": "Argentina",
+      "location": "CABA, Buenos Aires",
+      "sector": "Tecnología y Robótica",
       "raw_data": {
-        "yt_dlp_extracted": true,
-        "title": "Video by laclasedigital"
+        "rate_limit_fallback": true
       },
-      "total_engagement": 9
+      "total_engagement": 21
     },
     {
       "platform": "cgera",
@@ -497,13 +590,42 @@
       ],
       "is_official_cgera": true,
       "location": "Sede Central: Av. Rivadavia 1115 4°, CABA, Argentina",
+      "sector": "Gremial e Institucional",
       "raw_data": {
-        "visitas_registradas": "+2.339",
+        "visitas_registradas": "+2.348",
         "descargas_kit": "+304",
         "evento_fecha": "5 de Noviembre 12:00 HS",
         "presidente_cgera": "Marcelo Fernández"
       },
       "total_engagement": 2462
+    },
+    {
+      "platform": "cgera",
+      "id": "csira-convocatoria-5n",
+      "url": "https://cgera.net.ar/csira-movilizacion-5n/",
+      "author_username": "csira_industria",
+      "author_name": "CSIRA (Confederación de Sindicatos Industriales)",
+      "text_content": "Los 34 gremios de la producción nacional (UOM, SMATA, UOYEP plásticos, UTICRA calzado, AOT textiles, ASIMRA, Gráficos, Químicos) adherimos en unidad a la jornada 5N junto a CGERA. Sin industria nacional no hay empleo ni soberanía. #queremostrabajar #csira #trabajoargentino",
+      "created_at": "2026-11-04 15:00:00",
+      "likes": 1890,
+      "comments": 215,
+      "shares": 940,
+      "views": 18600,
+      "media_type": "image",
+      "media_urls": [
+        "https://cgera.net.ar/wp-content/uploads/2026/csira_adhesion.jpg"
+      ],
+      "hashtags": [
+        "queremostrabajar",
+        "csira",
+        "trabajoargentino",
+        "industrianacional"
+      ],
+      "is_official_cgera": true,
+      "location": "CABA, Argentina",
+      "sector": "Gremial e Institucional",
+      "raw_data": {},
+      "total_engagement": 3045
     },
     {
       "platform": "instagram",
@@ -531,6 +653,7 @@
       ],
       "is_official_cgera": true,
       "location": "CGERA Sede Central, Av. Rivadavia 1115",
+      "sector": "Gremial e Institucional",
       "raw_data": {},
       "total_engagement": 4724
     },
@@ -558,6 +681,7 @@
       ],
       "is_official_cgera": false,
       "location": "General San Martín, Buenos Aires",
+      "sector": "Industria Nacional",
       "raw_data": {},
       "total_engagement": 2372
     },
@@ -585,6 +709,7 @@
       ],
       "is_official_cgera": false,
       "location": "Mar del Plata, Buenos Aires",
+      "sector": "Textil e Indumentaria",
       "raw_data": {},
       "total_engagement": 1828
     },
@@ -612,6 +737,7 @@
       ],
       "is_official_cgera": false,
       "location": "Ferreyra, Córdoba",
+      "sector": "Industria Nacional",
       "raw_data": {},
       "total_engagement": 2875
     },
@@ -638,6 +764,7 @@
       ],
       "is_official_cgera": false,
       "location": "Quilmes, Buenos Aires",
+      "sector": "Alimentos y Bebidas",
       "raw_data": {},
       "total_engagement": 1246
     },
@@ -664,6 +791,7 @@
       ],
       "is_official_cgera": false,
       "location": "Avellaneda, Buenos Aires",
+      "sector": "Gráfica y Editorial",
       "raw_data": {},
       "total_engagement": 1465
     },
@@ -691,6 +819,7 @@
       ],
       "is_official_cgera": false,
       "location": "Cañada de Gómez, Santa Fe",
+      "sector": "Madera y Muebles",
       "raw_data": {},
       "total_engagement": 2090
     },
@@ -717,6 +846,7 @@
       ],
       "is_official_cgera": false,
       "location": "San Justo, La Matanza",
+      "sector": "Calzado y Cueros",
       "raw_data": {},
       "total_engagement": 2294
     },
@@ -743,6 +873,7 @@
       ],
       "is_official_cgera": false,
       "location": "Berazategui, Buenos Aires",
+      "sector": "Vidrio y Cerámica",
       "raw_data": {},
       "total_engagement": 1749
     },
@@ -770,6 +901,7 @@
       ],
       "is_official_cgera": true,
       "location": "Buenos Aires, Argentina",
+      "sector": "Gremial e Institucional",
       "raw_data": {},
       "total_engagement": 12152
     },
@@ -797,6 +929,7 @@
       ],
       "is_official_cgera": false,
       "location": "San Francisco, Córdoba",
+      "sector": "Metalúrgica y Mecanizado",
       "raw_data": {},
       "total_engagement": 6050
     },
@@ -823,6 +956,7 @@
       ],
       "is_official_cgera": false,
       "location": "Morón, Buenos Aires",
+      "sector": "Alimentos y Bebidas",
       "raw_data": {},
       "total_engagement": 4370
     },
@@ -849,6 +983,7 @@
       ],
       "is_official_cgera": false,
       "location": "Avellaneda, Buenos Aires",
+      "sector": "Educación Técnica",
       "raw_data": {},
       "total_engagement": 9579
     },
@@ -875,6 +1010,7 @@
       ],
       "is_official_cgera": false,
       "location": "Lomas de Zamora, Buenos Aires",
+      "sector": "Calzado y Cueros",
       "raw_data": {},
       "total_engagement": 3975
     },
@@ -902,6 +1038,7 @@
       ],
       "is_official_cgera": false,
       "location": "Buenos Aires, Argentina",
+      "sector": "Tecnología y Robótica",
       "raw_data": {},
       "total_engagement": 2368
     },
@@ -928,6 +1065,7 @@
       ],
       "is_official_cgera": false,
       "location": "Rosario, Santa Fe",
+      "sector": "Metalúrgica y Mecanizado",
       "raw_data": {},
       "total_engagement": 4725
     },
@@ -954,6 +1092,7 @@
       ],
       "is_official_cgera": false,
       "location": "Avellaneda, Buenos Aires",
+      "sector": "Textil e Indumentaria",
       "raw_data": {},
       "total_engagement": 2982
     },
@@ -980,6 +1119,7 @@
       ],
       "is_official_cgera": true,
       "location": "CABA, Argentina",
+      "sector": "Gremial e Institucional",
       "raw_data": {},
       "total_engagement": 2705
     },
@@ -1006,6 +1146,7 @@
       ],
       "is_official_cgera": false,
       "location": "Quilmes, Buenos Aires",
+      "sector": "Metalúrgica y Mecanizado",
       "raw_data": {},
       "total_engagement": 1304
     },
@@ -1032,6 +1173,7 @@
       ],
       "is_official_cgera": false,
       "location": "Rosario, Santa Fe",
+      "sector": "Tecnología y Robótica",
       "raw_data": {},
       "total_engagement": 857
     },
@@ -1058,6 +1200,7 @@
       ],
       "is_official_cgera": false,
       "location": "Lanús, Buenos Aires",
+      "sector": "Calzado y Cueros",
       "raw_data": {},
       "total_engagement": 1758
     },
@@ -1084,6 +1227,7 @@
       ],
       "is_official_cgera": false,
       "location": "Almirante Brown, Buenos Aires",
+      "sector": "Industria Nacional",
       "raw_data": {},
       "total_engagement": 1023
     },
@@ -1110,6 +1254,7 @@
       ],
       "is_official_cgera": false,
       "location": "Córdoba Capital, Córdoba",
+      "sector": "Gremial e Institucional",
       "raw_data": {},
       "total_engagement": 1261
     },
@@ -1137,6 +1282,7 @@
       ],
       "is_official_cgera": false,
       "location": "CABA, Argentina",
+      "sector": "Tecnología y Robótica",
       "raw_data": {},
       "total_engagement": 742
     },
@@ -1163,6 +1309,7 @@
       ],
       "is_official_cgera": false,
       "location": "Mar del Plata, Buenos Aires",
+      "sector": "Textil e Indumentaria",
       "raw_data": {},
       "total_engagement": 1393
     },
@@ -1190,8 +1337,36 @@
       ],
       "is_official_cgera": true,
       "location": "Buenos Aires, Argentina",
+      "sector": "Gremial e Institucional",
       "raw_data": {},
       "total_engagement": 4180
+    },
+    {
+      "platform": "facebook",
+      "id": "fb-109283819283746",
+      "url": "https://www.facebook.com/csira.nacional/posts/109283819283746",
+      "author_username": "csira.nacional",
+      "author_name": "CSIRA - Sindicatos Industriales",
+      "text_content": "Unidad de los trabajadores industriales y las pymes en la jornada 5N. Los 34 gremios industriales acompañamos a empresarios y trabajadores que salieron a la vereda mostrando su trabajo y exigiendo políticas activas para la producción. #queremostrabajar #CSIRA #IndustriaArgentina",
+      "created_at": "2026-11-05 12:50:00",
+      "likes": 1620,
+      "comments": 178,
+      "shares": 890,
+      "views": 24100,
+      "media_type": "image",
+      "media_urls": [
+        "https://scontent.fcor2-1.fna.fbcdn.net/csira_fb.jpg"
+      ],
+      "hashtags": [
+        "queremostrabajar",
+        "CSIRA",
+        "IndustriaArgentina"
+      ],
+      "is_official_cgera": true,
+      "location": "CABA, Argentina",
+      "sector": "Gremial e Institucional",
+      "raw_data": {},
+      "total_engagement": 2688
     },
     {
       "platform": "facebook",
@@ -1216,6 +1391,7 @@
       ],
       "is_official_cgera": false,
       "location": "Caseros, Buenos Aires",
+      "sector": "Industria Nacional",
       "raw_data": {},
       "total_engagement": 1704
     },
@@ -1242,6 +1418,7 @@
       ],
       "is_official_cgera": false,
       "location": "Santa Fe Capital",
+      "sector": "Gremial e Institucional",
       "raw_data": {},
       "total_engagement": 1265
     },
@@ -1268,6 +1445,7 @@
       ],
       "is_official_cgera": false,
       "location": "Avellaneda, Buenos Aires",
+      "sector": "Vidrio y Cerámica",
       "raw_data": {},
       "total_engagement": 993
     }

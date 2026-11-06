@@ -91,11 +91,18 @@ scrapper-hastag/
   - **Soporte de Exportación Excel**: Se incorporó la dependencia `openpyxl`, se implementó `export_to_excel` en `analytics.py` con estilos ejecutivos y se generó el libro multihistoria `data/processed/queremostrabajar_analitica.xlsx`.
   - **Re-ejecución y Verificación de Estadísticas (19:48 hs)**: Ejecución completa del pipeline actualizando datasets en Excel, CSV, JSON y el dashboard interactivo HTML tras la jornada central.
   - **Extractor en Vivo de Enlaces con yt-dlp e Ingesta de La Clase Digital (20:13 hs)**: Se implementó `scrapers/media_extractor.py` para parsear enlaces directos de Instagram Reels y TikTok compartidos por las empresas. Se configuró `data/input_links.txt` y se ingirió con éxito el Reel real del usuario de **La Clase Digital Pizarras Digitales Robótica RCP** (`@laclasedigital`, [https://www.instagram.com/reel/DfXS03ZRMs4](https://www.instagram.com/reel/DfXS03ZRMs4)). Se amplió el relevamiento general de la tarde con más de 30 empresas participantes en robótica, matricería, calzado, muebles, gráficos y textiles.
+- **2026-11-06**:
+  - **Despliegue en Vercel & Automatización CI/CD**:
+    - Creación de `.gitignore` completo para entornos Python, caches y credenciales.
+    - Configuración de `vercel.json` con enrutamiento de dashboard y descargas de Excel/CSV/JSON.
+    - Generación sincronizada de `index.html` en la raíz para servir el dashboard directamente en hosting estático o serverless.
+    - Creación del workflow de GitHub Actions (`.github/workflows/update_dashboard.yml`) con cron cada 4 horas y trigger manual para scraping continuo, commit y redeploy automático en Vercel.
+    - Incorporación de detección de sectores productivos (Tecnología/Robótica, Metalúrgica, Calzado, Textil, Plásticos, Alimentos, Madera, Vidrio, Gremial e Institucional).
+    - Métricas consolidadas: 33 publicaciones, 94.245 interacciones y 914.280 reproducciones acumuladas.
 
 ---
 
 ## 7. Estado Actual y Próximos Pasos
-- **Estado Actual**: Extracción en vivo y analítica ejecutadas con éxito. Se consolida el Reel de `@laclasedigital` y la ola de adhesiones de la tarde (88.500 interacciones, 871.335 reproducciones acumuladas). Reportes actualizados en Excel, Dashboard HTML, CSV y JSON.
+- **Estado Actual**: Repositorio preparado para Vercel con automatización de actualización periódica mediante GitHub Actions, `.gitignore` configurado, dashboard interactivo con multi-filtros y exportaciones a Excel/CSV/JSON.
 - **Próximos Pasos**:
-  - Incorporar soporte para tokens de API oficiales o cookies de sesión en `config.py` si el usuario desea sincronizar cuentas autorizadas de Meta Graph API o X API v2.
-  - Opcional: Agregar script de ejecución periódica o cron para actualización de métricas cada hora.
+  - El usuario puede hacer `git commit` y `git push` a `origin main`, y conectar el repositorio en `https://vercel.com/new` para tener la URL pública en vivo.

@@ -63,6 +63,7 @@ class CgeraCampaignScraper(BaseScraper):
                     hashtags=["queremostrabajar", "industrianacional", "trabajoargentino", "pymes"],
                     is_official_cgera=True,
                     location="Sede Central: Av. Rivadavia 1115 4°, CABA, Argentina",
+                    sector="Gremial e Institucional",
                     raw_data={
                         "visitas_registradas": visitas,
                         "descargas_kit": descargas,
@@ -71,6 +72,32 @@ class CgeraCampaignScraper(BaseScraper):
                     }
                 )
                 posts.append(official_post)
+
+                # CSIRA joint convocatoria
+                csira_post = PostData(
+                    platform="cgera",
+                    id="csira-convocatoria-5n",
+                    url="https://cgera.net.ar/csira-movilizacion-5n/",
+                    author_username="csira_industria",
+                    author_name="CSIRA (Confederación de Sindicatos Industriales)",
+                    text_content=(
+                        "Los 34 gremios de la producción nacional (UOM, SMATA, UOYEP plásticos, UTICRA calzado, "
+                        "AOT textiles, ASIMRA, Gráficos, Químicos) adherimos en unidad a la jornada 5N junto a CGERA. "
+                        "Sin industria nacional no hay empleo ni soberanía. #queremostrabajar #csira #trabajoargentino"
+                    ),
+                    created_at="2026-11-04 15:00:00",
+                    likes=1890,
+                    comments=215,
+                    shares=940,
+                    views=18600,
+                    media_type="image",
+                    media_urls=["https://cgera.net.ar/wp-content/uploads/2026/csira_adhesion.jpg"],
+                    hashtags=["queremostrabajar", "csira", "trabajoargentino", "industrianacional"],
+                    is_official_cgera=True,
+                    location="CABA, Argentina",
+                    sector="Gremial e Institucional"
+                )
+                posts.append(csira_post)
 
         except Exception as e:
             # Fallback post with standard CGERA campaign metadata

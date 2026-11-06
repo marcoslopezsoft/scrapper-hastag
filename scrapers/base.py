@@ -7,6 +7,35 @@ from datetime import datetime
 from abc import ABC, abstractmethod
 
 
+def detect_sector(text: str) -> str:
+    t = text.lower()
+    if any(k in t for k in ["robotica", "clase digital", "pizarra", "tecnolog", "software", "computac"]):
+        return "Tecnología y Robótica"
+    if any(k in t for k in ["metalurg", "torner", "mecaniz", "matricer", "chapa", "hierro", "uom", "cilindro"]):
+        return "Metalúrgica y Mecanizado"
+    if any(k in t for k in ["calzad", "cuero", "zapato", "zapatilla", "uticra", "botin"]):
+        return "Calzado y Cueros"
+    if any(k in t for k in ["textil", "confeccion", "tela", "hilado", "indumentaria", "aot", "campera", "tejido"]):
+        return "Textil e Indumentaria"
+    if any(k in t for k in ["plastic", "inyeccion", "polimer", "uoyep"]):
+        return "Plásticos y Packaging"
+    if any(k in t for k in ["alimento", "pasta", "panific", "panad", "comida", "harina", "raviol"]):
+        return "Alimentos y Bebidas"
+    if any(k in t for k in ["mueble", "carpinter", "madera", "forest"]):
+        return "Madera y Muebles"
+    if any(k in t for k in ["grafic", "imprenta", "papel", "editorial", "pliego"]):
+        return "Gráfica y Editorial"
+    if any(k in t for k in ["vidrio", "cristal", "ceramica", "horno", "botella"]):
+        return "Vidrio y Cerámica"
+    if any(k in t for k in ["tecnica", "escuela", "estudiante"]):
+        return "Educación Técnica"
+    if any(k in t for k in ["cgera", "csira", "sindicat", "camara", "gremial", "federac", "uom", "smata", "uocra", "fatsa", "ucip", "uit3f"]):
+        return "Gremial e Institucional"
+    if any(k in t for k in ["comercio", "comerciant", "local", "vidriera", "fececo"]):
+        return "Comercio de Proximidad"
+    return "Industria Nacional"
+
+
 @dataclass
 class PostData:
     platform: str  # 'instagram', 'tiktok', 'x', 'facebook', 'cgera'
@@ -27,6 +56,10 @@ class PostData:
     location: Optional[str] = None
     sector: str = "Industria Nacional"
     raw_data: Dict[str, Any] = field(default_factory=dict)
+
+    def __post_init__(self):
+        if self.sector == "Industria Nacional":
+            self.sector = detect_sector(self.text_content + " " + self.author_name)
 
     @property
     def total_engagement(self) -> int:
