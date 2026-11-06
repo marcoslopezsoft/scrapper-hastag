@@ -3,13 +3,8 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/reports/dashboard_queremostrabajar.html"
-    },
-    {
-      "source": "/dashboard",
-      "destination": "/reports/dashboard_queremostrabajar.html"
+      "source": "/(.*)",
+      "destination": "/main.py"
     }
   ]
 }
-

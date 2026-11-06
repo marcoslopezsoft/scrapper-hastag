@@ -251,6 +251,60 @@ def main():
     )
 
 
+def app(environ, start_response):
+    """
+    WSGI Entrypoint for Vercel Serverless Function deployment.
+    Satisfies Vercel Python runtime and serves dashboard and data assets.
+    """
+    path = environ.get("PATH_INFO", "/")
+
+    # Map paths
+    if path in ["", "/", "/dashboard", "/index.html"]:
+        file_path = Path("index.html")
+        content_type = "text/html; charset=utf-8"
+    elif path.endswith(".csv") or "/csv" in path:
+        file_path = Path("data/processed/queremostrabajar_posts.csv")
+        content_type = "text/csv; charset=utf-8"
+    elif path.endswith(".json") or "/json" in path:
+        file_path = Path("data/processed/queremostrabajar_posts.json")
+        content_type = "application/json; charset=utf-8"
+    elif path.endswith(".xlsx") or "/excel" in path:
+        file_path = Path("data/processed/queremostrabajar_analitica.xlsx")
+        content_type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    else:
+        file_path = Path(path.lstrip("/"))
+        content_type = "text/html; charset=utf-8"
+
+    if not file_path.exists():
+        # Check reports fallback
+        fallback = Path("reports/dashboard_queremostrabajar.html")
+        if fallback.exists():
+            file_path = fallback
+            content_type = "text/html; charset=utf-8"
+
+    if file_path.exists() and file_path.is_file():
+        with open(file_path, "rb") as f:
+            data = f.read()
+        status = "200 OK"
+        headers = [
+            ("Content-Type", content_type),
+            ("Content-Length", str(len(data))),
+            ("Cache-Control", "public, max-age=60"),
+        ]
+        start_response(status, headers)
+        return [data]
+
+    status = "404 Not Found"
+    headers = [("Content-Type", "text/plain; charset=utf-8")]
+    start_response(status, headers)
+    return [b"Recurso no encontrado en el servidor."]
+
+
+# Export for Vercel Python runtime
+handler = app
+application = app
+
+
 if __name__ == "__main__":
     main()
 

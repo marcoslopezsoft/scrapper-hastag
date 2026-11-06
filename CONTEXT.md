@@ -99,10 +99,11 @@ scrapper-hastag/
     - Creación del workflow de GitHub Actions (`.github/workflows/update_dashboard.yml`) con cron cada 4 horas y trigger manual para scraping continuo, commit y redeploy automático en Vercel.
     - Incorporación de detección de sectores productivos (Tecnología/Robótica, Metalúrgica, Calzado, Textil, Plásticos, Alimentos, Madera, Vidrio, Gremial e Institucional).
     - Métricas consolidadas: 33 publicaciones, 94.245 interacciones y 914.280 reproducciones acumuladas.
+    - **Resolución de Error Vercel PYTHON_ENTRYPOINT_NOT_FOUND**: Se incorporó el entrypoint WSGI nativo (`app = handler = application`) en `main.py` y se configuró el rewrite en `vercel.json` para servir el dashboard, CSV, JSON y Excel desde la función serverless sin errores de build.
 
 ---
 
 ## 7. Estado Actual y Próximos Pasos
-- **Estado Actual**: Repositorio preparado para Vercel con automatización de actualización periódica mediante GitHub Actions, `.gitignore` configurado, dashboard interactivo con multi-filtros y exportaciones a Excel/CSV/JSON.
+- **Estado Actual**: Error de Vercel resuelto con entrypoint WSGI en `main.py` y `vercel.json` actualizado. Listo para push y redeploy exitoso.
 - **Próximos Pasos**:
   - El usuario puede hacer `git commit` y `git push` a `origin main`, y conectar el repositorio en `https://vercel.com/new` para tener la URL pública en vivo.
