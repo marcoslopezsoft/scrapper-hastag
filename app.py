@@ -193,15 +193,15 @@ st.markdown("""
 macro = report.get("kpis", {}).get("macro", {}) if report else {}
 m_col1, m_col2, m_col3, m_col4, m_col5 = st.columns(5)
 with m_col1:
-    st.metric("📸 Instagram Macro", f"{macro.get('instagram_total_posts', 11200):,} posts", "11.2k publicaciones")
+    st.metric("📸 Instagram Macro", f"{macro.get('instagram_total_posts', 11400):,} posts", "11.4k publicaciones")
 with m_col2:
-    st.metric("🎵 TikTok Macro", f"{macro.get('tiktok_total_posts', 1582):,} posts", "1.58k videos")
+    st.metric("🎵 TikTok Macro", f"{macro.get('tiktok_total_posts', 1594):,} posts", "1.59k videos")
 with m_col3:
-    st.metric("🐦 X (TweetBinder)", f"{macro.get('x_total_posts', 174):,} posts", "Auditado TweetBinder")
+    st.metric("🐦 X (TweetBinder)", f"{macro.get('x_total_posts', 177):,} posts", "Auditado TweetBinder")
 with m_col4:
-    st.metric("👥 Facebook Macro", f"{macro.get('facebook_total_posts', 3400):,} posts", "Comunidades / Pymes")
+    st.metric("👥 Facebook Macro", f"{macro.get('facebook_total_posts', 3450):,} posts", "Comunidades / Pymes")
 with m_col5:
-    st.metric("🌐 Alcance Potencial", "4.2M+", "Impacto federal")
+    st.metric("🌐 Alcance Potencial", "4.3M+", "Impacto federal")
 
 st.markdown("---")
 
@@ -334,20 +334,20 @@ with tab_tweetbinder:
     <div style="background-color: #0f172a; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
         <h3 style="color: #38bdf8; margin: 0 0 10px 0;">Auditoría Oficial TweetBinder by Audiense (X / Twitter)</h3>
         <p style="color: #cbd5e1; font-size: 13px; margin: 0;">
-            Datos certificados del reporte analítico de X para el hashtag <b>#queremostrabajar</b> (período 02/11/2026 - 05/11/2026).
+            Datos certificados del reporte analítico de X para el hashtag <b>#queremostrabajar</b> (período 02/11/2026 - 06/11/2026).
         </p>
     </div>
     """, unsafe_allow_html=True)
 
     tb1, tb2, tb3, tb4 = st.columns(4)
     with tb1:
-        st.metric("Valor Económico", "$4,559.42 USD", "Calculado TweetBinder")
+        st.metric("Valor Económico", "$4,558.30 USD", "Calculado TweetBinder")
     with tb2:
-        st.metric("Impresiones Potenciales", "1,474,013", "Alcance potencial: 325,904")
+        st.metric("Impresiones Potenciales", "1,476,488", "Alcance potencial: 325,954")
     with tb3:
-        st.metric("Impresiones Directas", "11,824", "281 Likes / 135 Reposts")
+        st.metric("Impresiones Directas", "12,585", "288 Likes / 138 Reposts")
     with tb4:
-        st.metric("Cuentas Contribuidoras", "43 usuarios", "4.05 posts / usuario")
+        st.metric("Cuentas Contribuidoras", "44 usuarios", "4.02 posts / usuario")
 
     st.markdown("---")
 
@@ -356,11 +356,11 @@ with tab_tweetbinder:
     with col_tb_a:
         st.subheader("🏆 Top Cuentas más Influyentes (Seguidores)")
         top_inf = pd.DataFrame([
-            {"Usuario": "@marianoobarrio", "Nombre": "Mariano Obarrio", "Seguidores": 145040, "Valor Económico": "$3,544.98"},
-            {"Usuario": "@MundoGremial", "Nombre": "Mundo Gremial", "Seguidores": 40532, "Valor Económico": "$131.05"},
-            {"Usuario": "@ConclusionRos", "Nombre": "Conclusión Rosario", "Seguidores": 32039, "Valor Económico": "$106.65"},
-            {"Usuario": "@DataGremialCom", "Nombre": "Data Gremial", "Seguidores": 26888, "Valor Económico": "$91.31"},
-            {"Usuario": "@InfoGremiales", "Nombre": "InfoGremiales", "Seguidores": 24680, "Valor Económico": "$505.69"}
+            {"Usuario": "@marianoobarrio", "Nombre": "Mariano Obarrio", "Seguidores": 145040, "Valor Económico": "$3,537.30"},
+            {"Usuario": "@MundoGremial", "Nombre": "Mundo Gremial", "Seguidores": 40536, "Valor Económico": "$130.78"},
+            {"Usuario": "@ConclusionRos", "Nombre": "Conclusión Rosario", "Seguidores": 32038, "Valor Económico": "$106.42"},
+            {"Usuario": "@DataGremialCom", "Nombre": "Data Gremial", "Seguidores": 26886, "Valor Económico": "$91.11"},
+            {"Usuario": "@InfoGremiales", "Nombre": "InfoGremiales", "Seguidores": 24679, "Valor Económico": "$504.59"}
         ])
         st.dataframe(top_inf, use_container_width=True, hide_index=True)
 
@@ -377,7 +377,7 @@ with tab_tweetbinder:
 
     st.markdown("---")
     st.subheader("💡 Hashtags Asociados en la Conversación de X")
-    st.write("**#queremostrabajar** (174) &bull; **#industrianacional** (80) &bull; **#trabajoargentino** (75) &bull; **#abramoslaspersianas** (10) &bull; **#csira** (9) &bull; **#infogremiales** (6) &bull; **#periodismosindical** (6) &bull; **#cgera** (5)")
+    st.write("**#queremostrabajar** (177) &bull; **#industrianacional** (80) &bull; **#trabajoargentino** (75) &bull; **#abramoslaspersianas** (10) &bull; **#csira** (9) &bull; **#infogremiales** (6) &bull; **#periodismosindical** (6) &bull; **#cgera** (5)")
 
 with tab_table:
     # 8. Interactive Data Table

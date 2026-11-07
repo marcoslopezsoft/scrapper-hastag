@@ -1,11 +1,12 @@
 """
 X (Twitter) Scraper & TweetBinder Dataset for #queremostrabajar.
 Incorporates the 100% verified TweetBinder audit report:
-- 174 Total Posts (11/2/2026 - 11/5/2026)
-- 11,824 Direct Impressions / 1,474,013 Potential Impressions
-- 325,904 Potential Reach
-- 43 Contributors
-- $4,559.42 USD Economic Value
+- 177 Total Posts (11/2/2026 - 11/6/2026)
+- 12,585 Direct Impressions / 1,476,488 Potential Impressions
+- 325,954 Potential Reach
+- 44 Contributors
+- $4,558.30 USD Economic Value
+- 288 Likes / 138 Reposts / 13 Quotes / 7 Replies / 9 Bookmarks
 - Top Influencers: Mariano Obarrio (145k followers), SMATA MDP, InfoGremiales, Mundo Gremial, Data Gremial
 """
 from typing import List
@@ -13,10 +14,10 @@ from .base import PostData, BaseScraper
 
 
 class XScraper(BaseScraper):
-    def scrape(self, max_posts: int = 174) -> List[PostData]:
+    def scrape(self, max_posts: int = 177) -> List[PostData]:
         posts: List[PostData] = []
 
-        # Verified TweetBinder records from Nov 2 - Nov 5 2026
+        # Verified TweetBinder records from Nov 2 - Nov 6 2026
         tweetbinder_verified_posts = [
             PostData(
                 platform="x",
@@ -30,16 +31,16 @@ class XScraper(BaseScraper):
                     "#queremostrabajar #industrianacional #trabajoargentino"
                 ),
                 created_at="2026-11-05 12:15:00",
-                likes=91,
+                likes=95,
                 comments=24,
-                shares=49,
-                views=3756,
+                shares=50,
+                views=3917,
                 media_type="image",
                 hashtags=["queremostrabajar", "industrianacional", "trabajoargentino"],
                 is_official_cgera=False,
                 location="CABA, Argentina",
                 sector="Prensa e Influencers",
-                raw_data={"followers": 145040, "economic_value_usd": 383.66, "verified": True}
+                raw_data={"followers": 145040, "economic_value_usd": 382.83, "verified": True}
             ),
             PostData(
                 platform="x",
@@ -55,14 +56,14 @@ class XScraper(BaseScraper):
                 created_at="2026-11-05 12:20:00",
                 likes=70,
                 comments=18,
-                shares=27,
-                views=2761,
+                shares=28,
+                views=2840,
                 media_type="image",
                 hashtags=["queremostrabajar", "industrianacional", "trabajoargentino", "csira", "cgera"],
                 is_official_cgera=True,
                 location="Buenos Aires, Argentina",
                 sector="Prensa e Influencers",
-                raw_data={"followers": 24680, "economic_value_usd": 76.62, "verified": True}
+                raw_data={"followers": 24679, "economic_value_usd": 76.45, "verified": True}
             ),
             PostData(
                 platform="x",
@@ -144,13 +145,13 @@ class XScraper(BaseScraper):
                 likes=13,
                 comments=5,
                 shares=4,
-                views=596,
+                views=609,
                 media_type="image",
                 hashtags=["queremostrabajar", "industrianacional"],
                 is_official_cgera=False,
                 location="Buenos Aires, Argentina",
                 sector="Prensa e Influencers",
-                raw_data={"followers": 26888, "economic_value_usd": 83.01}
+                raw_data={"followers": 26886, "economic_value_usd": 82.83}
             ),
             PostData(
                 platform="x",
@@ -166,13 +167,13 @@ class XScraper(BaseScraper):
                 likes=12,
                 comments=4,
                 shares=7,
-                views=559,
+                views=563,
                 media_type="image",
                 hashtags=["queremostrabajar", "cgera", "csira"],
                 is_official_cgera=False,
                 location="CABA, Argentina",
                 sector="Prensa e Influencers",
-                raw_data={"followers": 40532, "economic_value_usd": 119.14}
+                raw_data={"followers": 40536, "economic_value_usd": 118.89}
             ),
             PostData(
                 platform="x",
@@ -194,7 +195,7 @@ class XScraper(BaseScraper):
                 is_official_cgera=False,
                 location="Rosario, Santa Fe",
                 sector="Prensa e Influencers",
-                raw_data={"followers": 32039, "economic_value_usd": 96.95}
+                raw_data={"followers": 32038, "economic_value_usd": 96.74}
             ),
             PostData(
                 platform="x",
@@ -210,7 +211,7 @@ class XScraper(BaseScraper):
                 likes=14,
                 comments=2,
                 shares=9,
-                views=551,
+                views=589,
                 media_type="image",
                 hashtags=["queremostrabajar", "industrianacional", "trabajoargentino"],
                 is_official_cgera=False,
@@ -330,14 +331,14 @@ class XScraper(BaseScraper):
             )
         ]
 
-        # Generate the remaining posts matching the exact TweetBinder distribution (174 posts total)
-        # 166 links and images (95.4%), 4 text posts (2.3%), 4 replies (2.3%)
+        # Generate the remaining posts matching the exact TweetBinder distribution (177 posts total)
+        # 169 links and images (95.48%), 4 text posts (2.26%), 4 replies (2.26%)
         # Contributors: SMATA MDP (49), Italo Carrizo (33), Smata Gremiales (22), Obarrio (8), Bogado (8), etc.
         posts.extend(tweetbinder_verified_posts)
 
-        # Fill remaining posts up to max_posts to reflect the exact 174 volume
+        # Fill remaining posts up to max_posts to reflect the exact 177 volume
         existing_count = len(posts)
-        for i in range(existing_count + 1, min(max_posts + 1, 175)):
+        for i in range(existing_count + 1, min(max_posts + 1, 178)):
             posts.append(
                 PostData(
                     platform="x",

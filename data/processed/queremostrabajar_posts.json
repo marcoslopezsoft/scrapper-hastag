@@ -1,27 +1,27 @@
 {
   "kpis": {
     "total_posts": 50,
-    "total_engagement": 84079,
-    "total_likes": 59305,
-    "total_comments": 4688,
-    "total_shares": 20086,
-    "total_views": 805061,
-    "avg_engagement_per_post": 1681.58,
+    "total_engagement": 84087,
+    "total_likes": 59317,
+    "total_comments": 4687,
+    "total_shares": 20083,
+    "total_views": 805306,
+    "avg_engagement_per_post": 1681.74,
     "unique_authors": 47,
     "macro": {
-      "total_global_posts": 16356,
-      "instagram_total_posts": 11200,
-      "tiktok_total_posts": 1582,
-      "facebook_total_posts": 3400,
-      "x_total_posts": 174,
-      "x_economic_value_usd": 4559.42,
-      "x_direct_impressions": 11824,
-      "x_potential_impressions": 1474013,
-      "x_potential_reach": 325904,
-      "x_total_likes": 281,
-      "x_total_reposts": 135,
-      "x_contributors": 43,
-      "global_potential_reach": 4200000
+      "total_global_posts": 16621,
+      "instagram_total_posts": 11400,
+      "tiktok_total_posts": 1594,
+      "facebook_total_posts": 3450,
+      "x_total_posts": 177,
+      "x_economic_value_usd": 4558.3,
+      "x_direct_impressions": 12585,
+      "x_potential_impressions": 1476488,
+      "x_potential_reach": 325954,
+      "x_total_likes": 288,
+      "x_total_reposts": 138,
+      "x_contributors": 44,
+      "global_potential_reach": 4300000
     }
   },
   "platforms": [
@@ -40,11 +40,11 @@
       "platform": "instagram",
       "posts_count": 10,
       "share_pct": 20.0,
-      "likes": 15484,
-      "comments": 1145,
-      "shares": 4035,
-      "views": 211880,
-      "total_engagement": 20664,
+      "likes": 15492,
+      "comments": 1144,
+      "shares": 4030,
+      "views": 211830,
+      "total_engagement": 20666,
       "engagement_pct": 24.6
     },
     {
@@ -73,12 +73,12 @@
       "platform": "x",
       "posts_count": 25,
       "share_pct": 50.0,
-      "likes": 531,
+      "likes": 535,
       "comments": 120,
-      "shares": 226,
-      "views": 15881,
-      "total_engagement": 877,
-      "engagement_pct": 1.0
+      "shares": 228,
+      "views": 16176,
+      "total_engagement": 883,
+      "engagement_pct": 1.1
     }
   ],
   "sectors": [
@@ -87,7 +87,7 @@
       "posts_count": 12,
       "share_pct": 24.0,
       "total_engagement": 30898,
-      "views": 280131
+      "views": 280169
     },
     {
       "sector": "Metalúrgica y Mecanizado",
@@ -142,8 +142,8 @@
       "sector": "Tecnología y Robótica",
       "posts_count": 3,
       "share_pct": 6.0,
-      "total_engagement": 2471,
-      "views": 23470
+      "total_engagement": 2473,
+      "views": 23420
     },
     {
       "sector": "Madera y Muebles",
@@ -163,8 +163,8 @@
       "sector": "Prensa e Influencers",
       "posts_count": 8,
       "share_pct": 16.0,
-      "total_engagement": 391,
-      "views": 9412
+      "total_engagement": 397,
+      "views": 9669
     }
   ],
   "media_types": {
@@ -192,11 +192,7 @@
     },
     {
       "tag": "#pymes",
-      "count": 8
-    },
-    {
-      "tag": "#industriaargentina",
-      "count": 4
+      "count": 7
     },
     {
       "tag": "#csira",
@@ -211,16 +207,12 @@
       "count": 3
     },
     {
-      "tag": "#santafe",
+      "tag": "#industriaargentina",
       "count": 3
     },
     {
-      "tag": "#robotica",
-      "count": 2
-    },
-    {
-      "tag": "#educacion",
-      "count": 2
+      "tag": "#santafe",
+      "count": 3
     },
     {
       "tag": "#avellaneda",
@@ -232,6 +224,14 @@
     },
     {
       "tag": "#sanmartin",
+      "count": 1
+    },
+    {
+      "tag": "#mardelplata",
+      "count": 1
+    },
+    {
+      "tag": "#textilargentino",
       "count": 1
     }
   ],
@@ -524,7 +524,7 @@
       "count": 2
     },
     {
-      "location": "CABA, Buenos Aires",
+      "location": "Argentina",
       "count": 1
     },
     {
@@ -551,30 +551,27 @@
       "url": "https://www.instagram.com/reel/DfXS03ZRMs4",
       "author_username": "laclasedigital",
       "author_name": "La Clase Digital Pizarras Digitales Robótica RCP",
-      "text_content": "Pizarras digitales, robótica educativa y kits interactivos de fabricación nacional. #queremostrabajar #industriaargentina #robotica #educacion #pymes",
+      "text_content": "#queremostrabajar",
       "created_at": "2026-11-05 12:00:00",
-      "likes": 14,
-      "comments": 2,
-      "shares": 5,
-      "views": 380,
+      "likes": 22,
+      "comments": 1,
+      "shares": 0,
+      "views": 330,
       "media_type": "video",
       "media_urls": [
-        "https://instagram.ffma3-1.fna.fbcdn.net/laclasedigital_reel.jpg"
+        "https://instagram.ffma3-1.fna.fbcdn.net/v/t51.82787-15/890464069_18469225147185928_7538130852757242739_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=102&_nc_map=urlgen_bucketless&ig_cache_key=NDAyMzc2NzU4OTgwODU1Njg1NjE4NDY5MjI1MTQ0MTg1OTI4.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEwMjQuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=7lmLdb9NILoQ7kNvwE3PN9E&_nc_oc=Adr2HBGyZGyrwMBrf3HlkkNzR2D9gNrX5Ax7tYzRPL9HZ8QyzFynPEFTND55QysORrc&_nc_zt=23&_nc_ht=instagram.ffma3-1.fna&_nc_gid=OXCKveki-7Ktu_n3ACst9w&_nc_ss=70a8c&oh=00_AQTMRbJzCwXteEcYcdiin96S7kXjMbxtL2fnD5dKK2M2qQ&oe=6AF4FBE9"
       ],
       "hashtags": [
-        "queremostrabajar",
-        "industriaargentina",
-        "robotica",
-        "educacion",
-        "pymes"
+        "queremostrabajar"
       ],
       "is_official_cgera": false,
-      "location": "CABA, Buenos Aires",
+      "location": "Argentina",
       "sector": "Tecnología y Robótica",
       "raw_data": {
-        "rate_limit_fallback": true
+        "yt_dlp_extracted": true,
+        "title": "Video by laclasedigital"
       },
-      "total_engagement": 21
+      "total_engagement": 23
     },
     {
       "platform": "cgera",
@@ -603,7 +600,7 @@
       "location": "Sede Central: Av. Rivadavia 1115 4°, CABA, Argentina",
       "sector": "Gremial e Institucional",
       "raw_data": {
-        "visitas_registradas": "+2.353",
+        "visitas_registradas": "+2.393",
         "descargas_kit": "+304",
         "evento_fecha": "5 de Noviembre 12:00 HS",
         "presidente_cgera": "Marcelo Fernández"
@@ -1101,10 +1098,10 @@
       "author_name": "Mariano Obarrio",
       "text_content": "Importante convocatoria de las pymes y los sindicatos industriales (CGERA y CSIRA). Salieron a las 12 hs a las puertas de las fábricas a mostrar lo que producen ante la caída del consumo. #queremostrabajar #industrianacional #trabajoargentino",
       "created_at": "2026-11-05 12:15:00",
-      "likes": 91,
+      "likes": 95,
       "comments": 24,
-      "shares": 49,
-      "views": 3756,
+      "shares": 50,
+      "views": 3917,
       "media_type": "image",
       "media_urls": [],
       "hashtags": [
@@ -1117,10 +1114,10 @@
       "sector": "Prensa e Influencers",
       "raw_data": {
         "followers": 145040,
-        "economic_value_usd": 383.66,
+        "economic_value_usd": 382.83,
         "verified": true
       },
-      "total_engagement": 164
+      "total_engagement": 169
     },
     {
       "platform": "x",
@@ -1132,8 +1129,8 @@
       "created_at": "2026-11-05 12:20:00",
       "likes": 70,
       "comments": 18,
-      "shares": 27,
-      "views": 2761,
+      "shares": 28,
+      "views": 2840,
       "media_type": "image",
       "media_urls": [],
       "hashtags": [
@@ -1147,11 +1144,11 @@
       "location": "Buenos Aires, Argentina",
       "sector": "Prensa e Influencers",
       "raw_data": {
-        "followers": 24680,
-        "economic_value_usd": 76.62,
+        "followers": 24679,
+        "economic_value_usd": 76.45,
         "verified": true
       },
-      "total_engagement": 115
+      "total_engagement": 116
     },
     {
       "platform": "x",
@@ -1248,7 +1245,7 @@
       "likes": 13,
       "comments": 5,
       "shares": 4,
-      "views": 596,
+      "views": 609,
       "media_type": "image",
       "media_urls": [],
       "hashtags": [
@@ -1259,8 +1256,8 @@
       "location": "Buenos Aires, Argentina",
       "sector": "Prensa e Influencers",
       "raw_data": {
-        "followers": 26888,
-        "economic_value_usd": 83.01
+        "followers": 26886,
+        "economic_value_usd": 82.83
       },
       "total_engagement": 22
     },
@@ -1275,7 +1272,7 @@
       "likes": 12,
       "comments": 4,
       "shares": 7,
-      "views": 559,
+      "views": 563,
       "media_type": "image",
       "media_urls": [],
       "hashtags": [
@@ -1287,8 +1284,8 @@
       "location": "CABA, Argentina",
       "sector": "Prensa e Influencers",
       "raw_data": {
-        "followers": 40532,
-        "economic_value_usd": 119.14
+        "followers": 40536,
+        "economic_value_usd": 118.89
       },
       "total_engagement": 23
     },
@@ -1315,8 +1312,8 @@
       "location": "Rosario, Santa Fe",
       "sector": "Prensa e Influencers",
       "raw_data": {
-        "followers": 32039,
-        "economic_value_usd": 96.95
+        "followers": 32038,
+        "economic_value_usd": 96.74
       },
       "total_engagement": 24
     },
@@ -1331,7 +1328,7 @@
       "likes": 14,
       "comments": 2,
       "shares": 9,
-      "views": 551,
+      "views": 589,
       "media_type": "image",
       "media_urls": [],
       "hashtags": [
