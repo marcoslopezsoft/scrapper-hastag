@@ -1,617 +1,829 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full bg-slate-950 text-slate-100">
+<html lang="es" class="h-full bg-[#090D16] text-slate-100 antialiased selection:bg-cyan-500 selection:text-white">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#queremostrabajar | Monitor Analítico Oficial CGERA & CSIRA</title>
+    <title>#queremostrabajar &bull; Monitor Analítico & Social Listening Federal</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.85) 0%, rgba(15, 23, 42, 0.75) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.25);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.25);
+        }
+        .tab-btn.active {
+            background-color: #0284C7;
+            color: #FFFFFF;
+            font-weight: 700;
+            box-shadow: 0 4px 14px 0 rgba(2, 132, 199, 0.39);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0b0f19; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
     </style>
 </head>
-<body class="min-h-full flex flex-col antialiased selection:bg-cyan-500 selection:text-white">
+<body class="min-h-full flex flex-col bg-[#090D16]">
 
     <!-- Top Navigation Header -->
-    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div class="flex items-center space-x-3">
-                <span class="inline-flex items-center justify-center p-2.5 bg-gradient-to-tr from-cyan-600 via-blue-600 to-indigo-600 rounded-xl shadow-lg shadow-cyan-500/20 text-white font-black text-xl">
+    <header class="border-b border-slate-800/80 bg-[#0B0F19]/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div class="flex items-center space-x-3.5">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 text-white font-black text-xl">
                     🇦🇷
-                </span>
+                </div>
                 <div>
                     <div class="flex items-center gap-2">
-                        <h1 class="text-xl font-bold tracking-tight text-white">#queremostrabajar</h1>
-                        <span class="text-xs px-2.5 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 font-semibold">
-                            Auditoría Oficial Social Listening
+                        <h1 class="text-lg font-extrabold tracking-tight text-white">#queremostrabajar</h1>
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-cyan-950/80 text-cyan-400 border border-cyan-800/60">
+                            Auditoría Social Listening
                         </span>
-                        <span class="text-xs px-2.5 py-0.5 rounded-full bg-indigo-950 text-indigo-400 border border-indigo-800 font-semibold hidden sm:inline">
+                        <span class="hidden md:inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-950/80 text-indigo-300 border border-indigo-800/50">
                             CGERA + CSIRA
                         </span>
                     </div>
-                    <p class="text-xs text-slate-400">
-                        Campaña Nacional: "Mostrá tu producto Argentino, Defendé tu trabajo" &bull; 
-                        <a href="https://cgera.net.ar/mostra-tu-producto/" target="_blank" class="text-cyan-400 hover:underline">cgera.net.ar/mostra-tu-producto</a>
+                    <p class="text-xs text-slate-400 flex items-center gap-1.5">
+                        <span>Campaña Federal: "Mostrá tu producto argentino, defendé tu trabajo"</span>
+                        <span>&bull;</span>
+                        <a href="https://cgera.net.ar/mostra-tu-producto/" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition underline underline-offset-2">cgera.net.ar</a>
                     </p>
                 </div>
             </div>
 
-            <!-- Export Buttons -->
-            <div class="flex flex-wrap items-center gap-2">
+            <!-- Actions -->
+            <div class="flex items-center gap-2">
                 <a href="data/processed/queremostrabajar_analitica.xlsx" download
-                   class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 border border-emerald-800 rounded-lg text-xs font-semibold shadow-sm transition">
+                   class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 border border-emerald-800/70 shadow-sm transition">
                     📗 Descargar Excel (.xlsx)
                 </a>
                 <a href="data/social_listening.json" download
-                   class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg text-xs font-semibold transition">
-                    📦 JSON Verificado
+                   class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700/80 transition">
+                    📦 JSON Oficial
                 </a>
                 <button onclick="window.print()"
-                   class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-cyan-950 hover:bg-cyan-900 text-cyan-300 border border-cyan-800 rounded-lg text-xs font-semibold transition">
-                    🖨️ Imprimir / PDF
+                   class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-950/60 hover:bg-cyan-900/80 text-cyan-300 border border-cyan-800/60 transition">
+                    🖨️ PDF
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 space-y-8 w-full">
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 space-y-6 w-full">
 
-        <!-- Executive Banner -->
-        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-950 via-slate-900 to-indigo-950 border border-slate-800 p-6 sm:p-8 shadow-xl">
+        <!-- Hero Campaign Banner -->
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-950/80 via-slate-900 to-indigo-950/80 border border-slate-800 p-6 sm:p-7 glow-cyan">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
-                <div class="lg:col-span-2 space-y-2">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-900/40 border border-cyan-700/50 text-cyan-300 text-xs font-semibold">
-                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="lg:col-span-2 space-y-2.5">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-900/40 border border-cyan-700/50 text-cyan-300 text-xs font-bold">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
                         Período Auditado: 9 de octubre al 8 de noviembre · 31 días (Últimos 30 días)
                     </div>
-                    <h2 class="text-2xl font-bold text-white tracking-tight">
+                    <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
                         "Mostrá tu producto argentino, defendé tu trabajo"
                     </h2>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        Iniciativa federal de la <strong>CGERA</strong> (Marcelo Fernández) y la <strong>CSIRA</strong> (34 gremios industriales) convocando a industrias, fábricas, talleres y pymes a visibilizar la producción nacional en las puertas de cada establecimiento.
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
+                        Convocatoria nacional coordinada por la <strong>CGERA</strong> (presidida por Marcelo Fernández) y la <strong>CSIRA</strong> (34 gremios industriales) movilizando a trabajadores, talleres y fábricas a las veredas para defender la producción nacional y el empleo registrado ante la caída del consumo.
                     </p>
                 </div>
                 <div class="grid grid-cols-2 gap-3 text-right">
-                    <div class="p-3 bg-slate-950/70 rounded-xl border border-slate-800">
-                        <span class="text-[11px] text-slate-400 block font-medium">Pico de Menciones</span>
-                        <span class="text-2xl font-black text-cyan-400">230</span>
-                        <span class="text-[10px] text-slate-500 block">Jueves 5 Nov (18.1× media)</span>
+                    <div class="p-3.5 bg-slate-950/80 rounded-xl border border-slate-800/90 shadow-sm">
+                        <span class="text-[11px] font-medium text-slate-400 block uppercase tracking-wider">Pico de Menciones</span>
+                        <span class="text-3xl font-black text-cyan-400">230</span>
+                        <span class="text-[10px] text-slate-500 block mt-0.5">Jueves 5 Nov (18.1× media)</span>
                     </div>
-                    <div class="p-3 bg-slate-950/70 rounded-xl border border-slate-800">
-                        <span class="text-[11px] text-slate-400 block font-medium">Alcance Global (Reach)</span>
-                        <span class="text-2xl font-black text-emerald-400">9,5M</span>
-                        <span class="text-[10px] text-slate-500 block">personas expuestas</span>
+                    <div class="p-3.5 bg-slate-950/80 rounded-xl border border-slate-800/90 shadow-sm">
+                        <span class="text-[11px] font-medium text-slate-400 block uppercase tracking-wider">Alcance Global</span>
+                        <span class="text-3xl font-black text-emerald-400">9,5M</span>
+                        <span class="text-[10px] text-slate-500 block mt-0.5">Personas alcanzadas</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Metric KPI Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm">
-                <p class="text-xs text-slate-400 font-medium">Menciones Totales</p>
+        <!-- 5 Big KPI Hero Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
+            <div class="glass-card rounded-xl p-4 shadow-sm">
+                <span class="text-xs font-semibold text-slate-400 block">🗣️ Menciones Totales</span>
                 <p class="text-3xl font-extrabold text-white mt-1">356</p>
-                <p class="text-[11px] text-cyan-400 mt-1">Pico 5N: 230 posts</p>
+                <span class="text-[11px] font-medium text-cyan-400 block mt-1">Pico 5N: 230 menciones</span>
             </div>
-            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm">
-                <p class="text-xs text-slate-400 font-medium">Alcance Global (Reach)</p>
-                <p class="text-3xl font-extrabold text-white mt-1">9,5 Millones</p>
-                <p class="text-[11px] text-emerald-400 mt-1">8.9M diario</p>
+            <div class="glass-card rounded-xl p-4 shadow-sm">
+                <span class="text-xs font-semibold text-slate-400 block">🌐 Alcance Global (Reach)</span>
+                <p class="text-3xl font-extrabold text-white mt-1">9,5M</p>
+                <span class="text-[11px] font-medium text-emerald-400 block mt-1">8.9M promedio diario</span>
             </div>
-            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm">
-                <p class="text-xs text-slate-400 font-medium">Interacciones Totales</p>
+            <div class="glass-card rounded-xl p-4 shadow-sm">
+                <span class="text-xs font-semibold text-slate-400 block">⚡ Interacciones Totales</span>
                 <p class="text-3xl font-extrabold text-white mt-1">101.5K</p>
-                <p class="text-[11px] text-indigo-400 mt-1">Likes + RTs + Comms</p>
+                <span class="text-[11px] font-medium text-indigo-400 block mt-1">Likes + RTs + Comms</span>
             </div>
-            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm">
-                <p class="text-xs text-slate-400 font-medium">Sentimiento Expresado</p>
+            <div class="glass-card rounded-xl p-4 shadow-sm">
+                <span class="text-xs font-semibold text-slate-400 block">👍 Sentimiento Expresado</span>
                 <p class="text-3xl font-extrabold text-emerald-400 mt-1">52%</p>
-                <p class="text-[11px] text-slate-400 mt-1">Positivo vs 48% Reclamo (1.1:1)</p>
+                <span class="text-[11px] font-medium text-slate-400 block mt-1">1.1 : 1 vs 48% Reclamo</span>
             </div>
-            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 shadow-sm">
-                <p class="text-xs text-slate-400 font-medium">Emoción Dominante</p>
+            <div class="glass-card rounded-xl p-4 shadow-sm">
+                <span class="text-xs font-semibold text-slate-400 block">❤️ Emoción Dominante</span>
                 <p class="text-3xl font-extrabold text-amber-400 mt-1">48%</p>
-                <p class="text-[11px] text-slate-400 mt-1">Alegría (91% con Enojo/Ira)</p>
+                <span class="text-[11px] font-medium text-slate-400 block mt-1">Alegría (91% con Enojo/Ira)</span>
             </div>
         </div>
 
-        <!-- Charts Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <!-- Sentiment Donut Chart -->
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-sm flex flex-col justify-between">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-sm font-semibold text-slate-200">Desglose de Sentimiento</h3>
-                    <span class="text-xs text-slate-400">Total: 356 menciones</span>
-                </div>
-                <div class="h-64 flex items-center justify-center">
-                    <canvas id="sentimentChart"></canvas>
-                </div>
-                <div class="mt-4 pt-4 border-t border-slate-800 grid grid-cols-3 gap-2 text-center text-xs">
-                    <div class="p-2 rounded-lg bg-emerald-950/40 border border-emerald-900">
-                        <span class="text-emerald-400 font-bold">Positivo</span>
-                        <p class="text-base font-extrabold text-white mt-0.5">100</p>
-                        <span class="text-slate-400">28% total</span>
-                    </div>
-                    <div class="p-2 rounded-lg bg-rose-950/40 border border-rose-900">
-                        <span class="text-rose-400 font-bold">Negativo / Reclamo</span>
-                        <p class="text-base font-extrabold text-white mt-0.5">93</p>
-                        <span class="text-slate-400">26% total</span>
-                    </div>
-                    <div class="p-2 rounded-lg bg-slate-950/60 border border-slate-800">
-                        <span class="text-slate-300 font-bold">Neutral</span>
-                        <p class="text-base font-extrabold text-white mt-0.5">163</p>
-                        <span class="text-slate-400">46% total</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Media Types Bar Chart -->
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-sm flex flex-col justify-between">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-sm font-semibold text-slate-200">Menciones por Tipo de Medio</h3>
-                    <span class="text-xs text-slate-400">Canales de difusión</span>
-                </div>
-                <div class="h-64">
-                    <canvas id="mediaChart"></canvas>
-                </div>
-                <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                    <span>Video (TikTok/Reels): <strong>52% positivo</strong></span>
-                    <span>Web: <strong>44% crítico económico</strong></span>
-                </div>
-            </div>
+        <!-- Navigation Tabs Bar -->
+        <div class="border-b border-slate-800 flex overflow-x-auto gap-2 pb-1 no-scrollbar">
+            <button onclick="switchTab('resumen')" id="btn-resumen" class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition whitespace-nowrap text-slate-300 hover:text-white">
+                📊 Resumen Social Listening
+            </button>
+            <button onclick="switchTab('medios')" id="btn-medios" class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition whitespace-nowrap text-slate-300 hover:text-white">
+                📰 Medios, Portales & Influencers
+            </button>
+            <button onclick="switchTab('hashtags')" id="btn-hashtags" class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition whitespace-nowrap text-slate-300 hover:text-white">
+                🏷️ Top 40 Trending Hashtags
+            </button>
+            <button onclick="switchTab('topicos')" id="btn-topicos" class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition whitespace-nowrap text-slate-300 hover:text-white">
+                💬 Top 35 Frases Clave
+            </button>
+            <button onclick="switchTab('tweetbinder')" id="btn-tweetbinder" class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition whitespace-nowrap text-slate-300 hover:text-white">
+                🐦 Auditoría X (TweetBinder)
+            </button>
         </div>
 
-        <!-- Portales Web & Influencers Tables -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <!-- Portales Web -->
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-sm space-y-4">
+        <!-- TAB 1: RESUMEN SOCIAL LISTENING -->
+        <section id="tab-resumen" class="tab-content space-y-6">
+            <!-- Charts Row 1 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Sentimiento Donut -->
+                <div class="glass-card rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-2">
+                        <div>
+                            <h3 class="text-sm font-bold text-white">Desglose de Sentimiento</h3>
+                            <p class="text-xs text-slate-400">Total: 356 menciones analizadas lingüísticamente</p>
+                        </div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-400 font-bold border border-emerald-800">
+                            52% Positivo
+                        </span>
+                    </div>
+                    <div class="h-64 flex items-center justify-center my-2">
+                        <canvas id="chartSentiment"></canvas>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-center text-xs pt-3 border-t border-slate-800">
+                        <div class="p-2 rounded-xl bg-emerald-950/40 border border-emerald-900/60">
+                            <span class="text-emerald-400 font-bold block">Positivo</span>
+                            <span class="text-lg font-black text-white">100</span>
+                            <span class="text-[10px] text-slate-400 block">28% total</span>
+                        </div>
+                        <div class="p-2 rounded-xl bg-rose-950/40 border border-rose-900/60">
+                            <span class="text-rose-400 font-bold block">Negativo / Reclamo</span>
+                            <span class="text-lg font-black text-white">93</span>
+                            <span class="text-[10px] text-slate-400 block">26% total</span>
+                        </div>
+                        <div class="p-2 rounded-xl bg-slate-950/60 border border-slate-800">
+                            <span class="text-slate-300 font-bold block">Neutral</span>
+                            <span class="text-lg font-black text-white">163</span>
+                            <span class="text-[10px] text-slate-400 block">46% total</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emociones Horizontal Bar -->
+                <div class="glass-card rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-2">
+                        <div>
+                            <h3 class="text-sm font-bold text-white">Colapso Emocional</h3>
+                            <p class="text-xs text-slate-400">Tono detectado en 143 menciones expresivas</p>
+                        </div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-amber-950 text-amber-400 font-bold border border-amber-800">
+                            Alegría 48% &bull; Enojo 43%
+                        </span>
+                    </div>
+                    <div class="h-64 flex items-center justify-center my-2">
+                        <canvas id="chartEmotions"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-400 pt-3 border-t border-slate-800 leading-relaxed">
+                        La <strong>alegría</strong> lidera reflejando orgullo por lo fabricado en el país. El <strong>enojo/reclamo</strong> tuvo su pico el 5N (56× media diaria) alertando sobre despidos y caída de ventas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Charts Row 2 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Media Types -->
+                <div class="glass-card rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-2">
+                        <div>
+                            <h3 class="text-sm font-bold text-white">Menciones por Tipo de Medio</h3>
+                            <p class="text-xs text-slate-400">Canales de viralización de la campaña</p>
+                        </div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-blue-950 text-blue-400 font-bold border border-blue-800">
+                            Social 48.6% &bull; Video 28.9%
+                        </span>
+                    </div>
+                    <div class="h-64 my-2">
+                        <canvas id="chartMedia"></canvas>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-slate-400 pt-3 border-t border-slate-800">
+                        <span>Video (Reels/TikTok): <strong class="text-emerald-400">52% positivo</strong></span>
+                        <span>Web / Portales: <strong class="text-rose-400">44% crítico económico</strong></span>
+                    </div>
+                </div>
+
+                <!-- Best Time to Post -->
+                <div class="glass-card rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+                    <div class="flex items-center justify-between mb-2">
+                        <div>
+                            <h3 class="text-sm font-bold text-white">Mejor Momento para Publicar</h3>
+                            <p class="text-xs text-slate-400">Picos de actividad horaria en la semana</p>
+                        </div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-400 font-bold border border-cyan-800">
+                            Jueves 5N Pico Máximo
+                        </span>
+                    </div>
+                    <div class="space-y-3 my-auto py-2">
+                        <div class="p-3 rounded-xl bg-slate-950/70 border border-cyan-900/60 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-cyan-400 block">1. Jueves de 10:00 a 12:00 HS</span>
+                                <span class="text-[11px] text-slate-400">Pico de convocatoria antes de salir a la vereda</span>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-cyan-500 text-slate-950 font-black text-xs">22,5× media</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-white block">2. Jueves de 12:00 a 14:00 HS</span>
+                                <span class="text-[11px] text-slate-400">Horario central de la salida a las puertas de las fábricas</span>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-blue-600 text-white font-black text-xs">12,5× media</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-slate-300 block">3. Jueves de 09:00 a 11:00 HS</span>
+                                <span class="text-[11px] text-slate-400">Preparación de kits y difusión en redes</span>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-200 font-bold text-xs">8,2× media</span>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-500 pt-3 border-t border-slate-800 text-center">
+                        Momento más tranquilo: domingos de 22:00 a 24:00 (0.1× de actividad).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Emojis Grid -->
+            <div class="glass-card rounded-2xl p-5 shadow-sm space-y-3">
+                <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                    <span>😀 Emojis más Usados en las Menciones</span>
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-2.5 text-center">
+                    <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-2xl block mb-1">🇦🇷</span>
+                        <span class="text-sm font-black text-white block">92</span>
+                        <span class="text-[10px] text-slate-400 block truncate">Identidad</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-2xl block mb-1">💪</span>
+                        <span class="text-sm font-black text-white block">69</span>
+                        <span class="text-[10px] text-slate-400 block truncate">Fuerza</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-2xl block mb-1">💚</span>
+                        <span class="text-sm font-black text-white block">62</span>
+                        <span class="text-[10px] text-slate-400 block truncate">Industria</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-2xl block mb-1">🏭</span>
+                        <span class="text-sm font-black text-white block">9</span>
+                        <span class="text-[10px] text-slate-400 block truncate">Fábrica</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-2xl block mb-1">📲</span>
+                        <span class="text-sm font-black text-white block">8</span>
+                        <span class="text-[10px] text-slate-400 block truncate">Difusión</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-2xl block mb-1">🌐</span>
+                        <span class="text-sm font-black text-white block">4</span>
+                        <span class="text-[10px] text-slate-400 block truncate">Web/Crisis</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-2xl block mb-1">🎥</span>
+                        <span class="text-sm font-black text-white block">4</span>
+                        <span class="text-[10px] text-slate-400 block truncate">Video</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-2xl block mb-1">📱</span>
+                        <span class="text-sm font-black text-white block">3</span>
+                        <span class="text-[10px] text-slate-400 block truncate">Móvil</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-2xl block mb-1">✊</span>
+                        <span class="text-sm font-black text-white block">3</span>
+                        <span class="text-[10px] text-slate-400 block truncate">Lucha</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-2xl block mb-1">🥛</span>
+                        <span class="text-sm font-black text-white block">3</span>
+                        <span class="text-[10px] text-slate-400 block truncate">Lácteos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: MEDIOS, PORTALES & INFLUENCERS -->
+        <section id="tab-medios" class="tab-content hidden space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Portales Web -->
+                <div class="glass-card rounded-2xl p-5 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm font-bold text-white">🌐 Sitios Web Líderes por Visitas Mensuales</h3>
+                            <p class="text-xs text-slate-400">Portales que cubrieron y amplificaron el reclamo</p>
+                        </div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-400 font-bold border border-cyan-800">
+                            Mayor alcance
+                        </span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left">
+                            <thead class="text-slate-400 uppercase bg-slate-950/70 border-b border-slate-800 font-bold">
+                                <tr>
+                                    <th class="py-2.5 px-3">Portal Web</th>
+                                    <th class="py-2.5 px-3 text-right">Visitas / Mes</th>
+                                    <th class="py-2.5 px-3 text-center">Menciones</th>
+                                    <th class="py-2.5 px-3">Rol / Cobertura</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800 text-slate-200">
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2.5 px-3 font-bold text-white">mundogremial.com</td>
+                                    <td class="py-2.5 px-3 text-right text-emerald-400 font-bold font-mono">1.3M</td>
+                                    <td class="py-2.5 px-3 text-center font-bold">1</td>
+                                    <td class="py-2.5 px-3 text-slate-400">Líder en alcance gremial</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2.5 px-3 font-bold text-white">noticiasargentinas.com</td>
+                                    <td class="py-2.5 px-3 text-right text-emerald-400 font-bold font-mono">720.1K</td>
+                                    <td class="py-2.5 px-3 text-center font-bold">1</td>
+                                    <td class="py-2.5 px-3 text-slate-400">Agencia nacional de noticias</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2.5 px-3 font-bold text-white">primerplanoonline.com.ar</td>
+                                    <td class="py-2.5 px-3 text-right text-emerald-400 font-bold font-mono">487.3K</td>
+                                    <td class="py-2.5 px-3 text-center font-bold">1</td>
+                                    <td class="py-2.5 px-3 text-slate-400">Oeste bonaerense e industrial</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2.5 px-3 font-bold text-white">gestionsindical.com</td>
+                                    <td class="py-2.5 px-3 text-right text-emerald-400 font-bold font-mono">353.9K</td>
+                                    <td class="py-2.5 px-3 text-center font-bold">1</td>
+                                    <td class="py-2.5 px-3 text-slate-400">Portal de empleo y gremios</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2.5 px-3 font-bold text-white">conclusion.com.ar</td>
+                                    <td class="py-2.5 px-3 text-right text-emerald-400 font-bold font-mono">327.4K</td>
+                                    <td class="py-2.5 px-3 text-center font-bold text-cyan-400">2</td>
+                                    <td class="py-2.5 px-3 text-slate-400">Mayor cantidad de notas web</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2.5 px-3 font-bold text-white">noticiastornquist.com.ar</td>
+                                    <td class="py-2.5 px-3 text-right text-emerald-400 font-bold font-mono">271.0K</td>
+                                    <td class="py-2.5 px-3 text-center font-bold">1</td>
+                                    <td class="py-2.5 px-3 text-slate-400">Interior bonaerense</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2.5 px-3 font-bold text-white">datagremial.com</td>
+                                    <td class="py-2.5 px-3 text-right text-emerald-400 font-bold font-mono">252.5K</td>
+                                    <td class="py-2.5 px-3 text-center font-bold text-cyan-400">2</td>
+                                    <td class="py-2.5 px-3 text-slate-400">Cobertura federal pyme</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2.5 px-3 font-bold text-white">opisantacruz.com.ar</td>
+                                    <td class="py-2.5 px-3 text-right text-emerald-400 font-bold font-mono">197.5K</td>
+                                    <td class="py-2.5 px-3 text-center font-bold">1</td>
+                                    <td class="py-2.5 px-3 text-slate-400">Región patagónica</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Top Influencers -->
+                <div class="glass-card rounded-2xl p-5 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm font-bold text-white">📢 Top Influencers & Cuota de Voz</h3>
+                            <p class="text-xs text-slate-400">Cuentas con mayor impacto y porcentaje de voz</p>
+                        </div>
+                        <span class="text-xs px-2.5 py-1 rounded-full bg-amber-950 text-amber-400 font-bold border border-amber-800">
+                            InfoGremiales 19.8%
+                        </span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left">
+                            <thead class="text-slate-400 uppercase bg-slate-950/70 border-b border-slate-800 font-bold">
+                                <tr>
+                                    <th class="py-2.5 px-3">Referente / Medio</th>
+                                    <th class="py-2.5 px-3">Usuario</th>
+                                    <th class="py-2.5 px-3 text-right">% Cuota de Voz</th>
+                                    <th class="py-2.5 px-3 text-center">Menciones</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800 text-slate-200">
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2 px-3 font-bold text-white">InfoGremiales</td>
+                                    <td class="py-2 px-3 text-cyan-400 font-mono">@infogremiales</td>
+                                    <td class="py-2 px-3 text-right text-amber-400 font-black">19.8%</td>
+                                    <td class="py-2 px-3 text-center font-bold">6</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2 px-3 font-bold text-white">Mundo Gremial</td>
+                                    <td class="py-2 px-3 text-cyan-400 font-mono">@mundogremial</td>
+                                    <td class="py-2 px-3 text-right text-amber-400 font-black">12.4%</td>
+                                    <td class="py-2 px-3 text-center font-bold">2</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2 px-3 font-bold text-white">Zapala 8340</td>
+                                    <td class="py-2 px-3 text-cyan-400 font-mono">@zapala8340</td>
+                                    <td class="py-2 px-3 text-right text-amber-400 font-black">11.4%</td>
+                                    <td class="py-2 px-3 text-center font-bold">1</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2 px-3 font-bold text-white">Data Gremial</td>
+                                    <td class="py-2 px-3 text-cyan-400 font-mono">@datagremial</td>
+                                    <td class="py-2 px-3 text-right text-amber-400 font-black">11.4%</td>
+                                    <td class="py-2 px-3 text-center font-bold">2</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2 px-3 font-bold text-white">Ferrazzi Competición</td>
+                                    <td class="py-2 px-3 text-cyan-400 font-mono">@ferrazzicompeticion</td>
+                                    <td class="py-2 px-3 text-right text-amber-400 font-black">9.3%</td>
+                                    <td class="py-2 px-3 text-center font-bold">1</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2 px-3 font-bold text-white">Gestión Sindical</td>
+                                    <td class="py-2 px-3 text-cyan-400 font-mono">@gestionsindical</td>
+                                    <td class="py-2 px-3 text-right text-slate-300 font-bold">5.8%</td>
+                                    <td class="py-2 px-3 text-center font-bold">1</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2 px-3 font-bold text-white">MendoVoz</td>
+                                    <td class="py-2 px-3 text-cyan-400 font-mono">@mendovozweb</td>
+                                    <td class="py-2 px-3 text-right text-slate-300 font-bold">5.0%</td>
+                                    <td class="py-2 px-3 text-center font-bold">2</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/40">
+                                    <td class="py-2 px-3 font-bold text-white">Revista 8340</td>
+                                    <td class="py-2 px-3 text-cyan-400 font-mono">@revista8340</td>
+                                    <td class="py-2 px-3 text-right text-slate-300 font-bold">4.7%</td>
+                                    <td class="py-2 px-3 text-center font-bold">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Geografía -->
+            <div class="glass-card rounded-2xl p-5 shadow-sm space-y-3">
+                <h3 class="text-sm font-bold text-white">🗺️ Procedencia Territorial Identificada</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                    <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-xs text-slate-400 block font-semibold">🇦🇷 Argentina</span>
+                        <span class="text-2xl font-black text-cyan-400 block mt-1">69.1%</span>
+                        <span class="text-[11px] text-slate-500 block">246 menciones directas</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-xs text-slate-400 block font-semibold">🇺🇸 Estados Unidos</span>
+                        <span class="text-2xl font-black text-slate-200 block mt-1">7.3%</span>
+                        <span class="text-[11px] text-slate-500 block">26 menciones en el exterior</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-xs text-slate-400 block font-semibold">🌎 Otros Países</span>
+                        <span class="text-2xl font-black text-slate-200 block mt-1">1.8%</span>
+                        <span class="text-[11px] text-slate-500 block">Chile, España, Alemania, México</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800">
+                        <span class="text-xs text-slate-400 block font-semibold">📍 Cobertura Localizada</span>
+                        <span class="text-2xl font-black text-emerald-400 block mt-1">78.0%</span>
+                        <span class="text-[11px] text-slate-500 block">Geolocalización confirmada</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: TOP 40 HASHTAGS -->
+        <section id="tab-hashtags" class="tab-content hidden space-y-4">
+            <div class="glass-card rounded-2xl p-5 shadow-sm space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div>
+                        <h3 class="text-base font-bold text-white">🏷️ Ranking de Trending Hashtags (Top 40 Oficial)</h3>
+                        <p class="text-xs text-slate-400">Etiquetas co-ocurrentes más utilizadas durante el período</p>
+                    </div>
+                    <input type="text" id="search-hashtags" onkeyup="filterTable('search-hashtags', 'table-hashtags')"
+                           placeholder="Buscar hashtag..."
+                           class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-white focus:outline-none focus:border-cyan-500 w-full sm:w-64">
+                </div>
+                <div class="overflow-x-auto max-h-[550px]">
+                    <table id="table-hashtags" class="w-full text-xs text-left">
+                        <thead class="text-slate-400 uppercase bg-slate-950/90 border-b border-slate-800 sticky top-0 font-bold">
+                            <tr>
+                                <th class="py-2.5 px-3 text-center">#</th>
+                                <th class="py-2.5 px-3">Hashtag</th>
+                                <th class="py-2.5 px-3 text-right">Frecuencia / Usos</th>
+                                <th class="py-2.5 px-3">Tono / Enfoque</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 text-slate-200">
+                            <!-- 40 Hashtags inserted dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: TOP 35 FRASES CLAVE -->
+        <section id="tab-topicos" class="tab-content hidden space-y-4">
+            <div class="glass-card rounded-2xl p-5 shadow-sm space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div>
+                        <h3 class="text-base font-bold text-white">💬 Frases y Tópicos más Discutidos (Top 35 Oficial)</h3>
+                        <p class="text-xs text-slate-400">Conceptos y consignas con mayor tracción en la conversación digital</p>
+                    </div>
+                    <input type="text" id="search-topics" onkeyup="filterTable('search-topics', 'table-topics')"
+                           placeholder="Buscar frase o concepto..."
+                           class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs text-white focus:outline-none focus:border-cyan-500 w-full sm:w-64">
+                </div>
+                <div class="overflow-x-auto max-h-[550px]">
+                    <table id="table-topics" class="w-full text-xs text-left">
+                        <thead class="text-slate-400 uppercase bg-slate-950/90 border-b border-slate-800 sticky top-0 font-bold">
+                            <tr>
+                                <th class="py-2.5 px-3 text-center">#</th>
+                                <th class="py-2.5 px-3">Frase Clave / Tópico</th>
+                                <th class="py-2.5 px-3 text-right">Frecuencia</th>
+                                <th class="py-2.5 px-3">Enfoque Semántico</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 text-slate-200">
+                            <!-- 35 Topics inserted dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: TWEETBINDER AUDIT -->
+        <section id="tab-tweetbinder" class="tab-content hidden space-y-6">
+            <div class="glass-card rounded-2xl p-5 shadow-sm border border-slate-800 space-y-4">
                 <div class="flex items-center justify-between">
-                    <h3 class="text-sm font-bold text-white">🌐 Sitios Web Líderes por Visitas Mensuales</h3>
-                    <span class="text-xs text-cyan-400">Mayor alcance</span>
+                    <div>
+                        <h3 class="text-base font-bold text-white">Auditoría Oficial TweetBinder by Audiense (X / Twitter)</h3>
+                        <p class="text-xs text-slate-400">Datos certificados del reporte analítico de X para el hashtag #queremostrabajar (02/11/2026 - 06/11/2026)</p>
+                    </div>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-bold border border-slate-700">
+                        177 Posts Auditados
+                    </span>
                 </div>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-xs text-left">
-                        <thead class="text-slate-400 uppercase bg-slate-950/60 border-b border-slate-800">
-                            <tr>
-                                <th class="py-2.5 px-3">Portal Web</th>
-                                <th class="py-2.5 px-3 text-right">Visitas / Mes</th>
-                                <th class="py-2.5 px-3 text-center">Menciones</th>
-                                <th class="py-2.5 px-3">Rol</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-800 text-slate-200">
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">mundogremial.com</td>
-                                <td class="py-2 px-3 text-right text-emerald-400 font-bold">1.3M</td>
-                                <td class="py-2 px-3 text-center">1</td>
-                                <td class="py-2 px-3 text-slate-400">Líder en alcance</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">noticiasargentinas.com</td>
-                                <td class="py-2 px-3 text-right text-emerald-400 font-bold">720.1K</td>
-                                <td class="py-2 px-3 text-center">1</td>
-                                <td class="py-2 px-3 text-slate-400">Agencia de noticias</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">primerplanoonline.com.ar</td>
-                                <td class="py-2 px-3 text-right text-emerald-400 font-bold">487.3K</td>
-                                <td class="py-2 px-3 text-center">1</td>
-                                <td class="py-2 px-3 text-slate-400">Portal regional oeste GBA</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">gestionsindical.com</td>
-                                <td class="py-2 px-3 text-right text-emerald-400 font-bold">353.9K</td>
-                                <td class="py-2 px-3 text-center">1</td>
-                                <td class="py-2 px-3 text-slate-400">Portal laboral y pyme</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">conclusion.com.ar</td>
-                                <td class="py-2 px-3 text-right text-emerald-400 font-bold">327.4K</td>
-                                <td class="py-2 px-3 text-center">2</td>
-                                <td class="py-2 px-3 text-slate-400">Mayor cantidad de menciones</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">noticiastornquist.com.ar</td>
-                                <td class="py-2 px-3 text-right text-emerald-400 font-bold">271.0K</td>
-                                <td class="py-2 px-3 text-center">1</td>
-                                <td class="py-2 px-3 text-slate-400">Interior bonaerense</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">datagremial.com</td>
-                                <td class="py-2 px-3 text-right text-emerald-400 font-bold">252.5K</td>
-                                <td class="py-2 px-3 text-center">2</td>
-                                <td class="py-2 px-3 text-slate-400">Cobertura sindical y productiva</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">opisantacruz.com.ar</td>
-                                <td class="py-2 px-3 text-right text-emerald-400 font-bold">197.5K</td>
-                                <td class="py-2 px-3 text-center">1</td>
-                                <td class="py-2 px-3 text-slate-400">Portal patagónico</td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
-            <!-- Top Influencers -->
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-sm space-y-4">
-                <div class="flex items-center justify-between">
-                    <h3 class="text-sm font-bold text-white">📢 Top Influencers & Cuota de Voz (% Voice Share)</h3>
-                    <span class="text-xs text-cyan-400">Líderes de opinión</span>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+                    <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                        <span class="text-xs text-slate-400 block font-semibold">Valor Económico en X</span>
+                        <span class="text-2xl font-black text-emerald-400 block mt-1">$4,558.30 USD</span>
+                        <span class="text-[11px] text-slate-500 block">Economic Value</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                        <span class="text-xs text-slate-400 block font-semibold">Impresiones Potenciales</span>
+                        <span class="text-2xl font-black text-white block mt-1">1,476,488</span>
+                        <span class="text-[11px] text-slate-500 block">Alcance Potencial: 325,954</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                        <span class="text-xs text-slate-400 block font-semibold">Impresiones Directas</span>
+                        <span class="text-2xl font-black text-cyan-400 block mt-1">12,585</span>
+                        <span class="text-[11px] text-slate-500 block">288 Likes &bull; 138 Reposts</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                        <span class="text-xs text-slate-400 block font-semibold">Cuentas Contribuidoras</span>
+                        <span class="text-2xl font-black text-amber-400 block mt-1">44</span>
+                        <span class="text-[11px] text-slate-500 block">4.02 posts / usuario</span>
+                    </div>
                 </div>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-xs text-left">
-                        <thead class="text-slate-400 uppercase bg-slate-950/60 border-b border-slate-800">
-                            <tr>
-                                <th class="py-2.5 px-3">Referente / Medio</th>
-                                <th class="py-2.5 px-3">Usuario</th>
-                                <th class="py-2.5 px-3 text-right">% Cuota de Voz</th>
-                                <th class="py-2.5 px-3 text-center">Menciones</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-800 text-slate-200">
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">InfoGremiales</td>
-                                <td class="py-2 px-3 text-cyan-400 font-mono">@infogremiales</td>
-                                <td class="py-2 px-3 text-right text-amber-400 font-bold">19.8%</td>
-                                <td class="py-2 px-3 text-center">6</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">Mundo Gremial</td>
-                                <td class="py-2 px-3 text-cyan-400 font-mono">@mundogremial</td>
-                                <td class="py-2 px-3 text-right text-amber-400 font-bold">12.4%</td>
-                                <td class="py-2 px-3 text-center">2</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">Zapala ocho mil tres cuarenta</td>
-                                <td class="py-2 px-3 text-cyan-400 font-mono">@zapala8340</td>
-                                <td class="py-2 px-3 text-right text-amber-400 font-bold">11.4%</td>
-                                <td class="py-2 px-3 text-center">1</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">Data Gremial</td>
-                                <td class="py-2 px-3 text-cyan-400 font-mono">@datagremial</td>
-                                <td class="py-2 px-3 text-right text-amber-400 font-bold">11.4%</td>
-                                <td class="py-2 px-3 text-center">2</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">Ferrazzi Competición</td>
-                                <td class="py-2 px-3 text-cyan-400 font-mono">@ferrazzicompeticion</td>
-                                <td class="py-2 px-3 text-right text-amber-400 font-bold">9.3%</td>
-                                <td class="py-2 px-3 text-center">1</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">Gestión Sindical</td>
-                                <td class="py-2 px-3 text-cyan-400 font-mono">@gestionsindical</td>
-                                <td class="py-2 px-3 text-right text-amber-400 font-bold">5.8%</td>
-                                <td class="py-2 px-3 text-center">1</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">MendoVoz</td>
-                                <td class="py-2 px-3 text-cyan-400 font-mono">@mendovozweb</td>
-                                <td class="py-2 px-3 text-right text-amber-400 font-bold">5.0%</td>
-                                <td class="py-2 px-3 text-center">2</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-2 px-3 font-semibold text-white">Revista 8340</td>
-                                <td class="py-2 px-3 text-cyan-400 font-mono">@revista8340</td>
-                                <td class="py-2 px-3 text-right text-amber-400 font-bold">4.7%</td>
-                                <td class="py-2 px-3 text-center">1</td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
 
-        <!-- Top Trending Hashtags & Topics -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <!-- Hashtags -->
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-sm space-y-4">
-                <h3 class="text-sm font-bold text-white">🏷️ Top Trending Hashtags (Primeros 15 de 40)</h3>
-                <div class="overflow-x-auto max-h-96">
-                    <table class="w-full text-xs text-left">
-                        <thead class="text-slate-400 uppercase bg-slate-950/60 border-b border-slate-800 sticky top-0">
-                            <tr>
-                                <th class="py-2 px-3 text-center">#</th>
-                                <th class="py-2 px-3">Hashtag</th>
-                                <th class="py-2 px-3 text-right">Usos</th>
-                                <th class="py-2 px-3">Tono</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-800 text-slate-200">
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">1</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#industrianacional</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">88</td>
-                                <td class="py-1.5 px-3 text-slate-400">Mayormente positivo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">2</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#trabajoargentino</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">77</td>
-                                <td class="py-1.5 px-3 text-slate-400">Positivo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">3</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#atilra</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">67</td>
-                                <td class="py-1.5 px-3 text-slate-400">Reivindicativo (Lácteos)</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">4</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#mostrátuproducto</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">44</td>
-                                <td class="py-1.5 px-3 text-slate-400">Oficial CGERA</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">5</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#argentina</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">29</td>
-                                <td class="py-1.5 px-3 text-slate-400">Negativo (crítica económica)</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">6</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#industria</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">26</td>
-                                <td class="py-1.5 px-3 text-slate-400">Productivo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">7</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#trabajo</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">26</td>
-                                <td class="py-1.5 px-3 text-slate-400">Productivo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">8</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#empresa</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">22</td>
-                                <td class="py-1.5 px-3 text-slate-400">Productivo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">9</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#industriaargentina</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">19</td>
-                                <td class="py-1.5 px-3 text-slate-400">Positivo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">10</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#csira</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">11</td>
-                                <td class="py-1.5 px-3 text-slate-400">Gremios industriales</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">11</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#smata</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">8</td>
-                                <td class="py-1.5 px-3 text-slate-400">Automotriz</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">12</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#quierotrabajar</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">7</td>
-                                <td class="py-1.5 px-3 text-slate-400">Reclamo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">13</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#queremostrabajar</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">6</td>
-                                <td class="py-1.5 px-3 text-slate-400">Eje central</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">14</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#chimagro</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">6</td>
-                                <td class="py-1.5 px-3 text-slate-400">Agroindustria</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">15</td>
-                                <td class="py-1.5 px-3 font-bold text-cyan-300 font-mono">#infogremiales</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-white">6</td>
-                                <td class="py-1.5 px-3 text-slate-400">Medios</td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
+                    <!-- Top Influencers X -->
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-3">
+                        <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider">🏆 Top Cuentas más Influyentes (Seguidores)</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-xs text-left">
+                                <thead class="text-slate-400 uppercase border-b border-slate-800">
+                                    <tr>
+                                        <th class="py-2 px-2">Usuario</th>
+                                        <th class="py-2 px-2 text-right">Seguidores</th>
+                                        <th class="py-2 px-2 text-right">Valor USD</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-800 text-slate-200">
+                                    <tr>
+                                        <td class="py-1.5 px-2 font-bold text-white">@marianoobarrio</td>
+                                        <td class="py-1.5 px-2 text-right font-mono font-bold text-cyan-400">145,040</td>
+                                        <td class="py-1.5 px-2 text-right text-emerald-400 font-mono font-bold">$3,537.30</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-1.5 px-2 font-bold text-white">@MundoGremial</td>
+                                        <td class="py-1.5 px-2 text-right font-mono font-bold text-cyan-400">40,536</td>
+                                        <td class="py-1.5 px-2 text-right text-emerald-400 font-mono font-bold">$130.78</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-1.5 px-2 font-bold text-white">@ConclusionRos</td>
+                                        <td class="py-1.5 px-2 text-right font-mono font-bold text-cyan-400">32,038</td>
+                                        <td class="py-1.5 px-2 text-right text-emerald-400 font-mono font-bold">$106.42</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-1.5 px-2 font-bold text-white">@DataGremialCom</td>
+                                        <td class="py-1.5 px-2 text-right font-mono font-bold text-cyan-400">26,886</td>
+                                        <td class="py-1.5 px-2 text-right text-emerald-400 font-mono font-bold">$91.11</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-1.5 px-2 font-bold text-white">@InfoGremiales</td>
+                                        <td class="py-1.5 px-2 text-right font-mono font-bold text-cyan-400">24,679</td>
+                                        <td class="py-1.5 px-2 text-right text-emerald-400 font-mono font-bold">$504.59</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-            <!-- Topics -->
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-sm space-y-4">
-                <h3 class="text-sm font-bold text-white">💬 Frases y Tópicos más Discutidos (Primeros 15 de 35)</h3>
-                <div class="overflow-x-auto max-h-96">
-                    <table class="w-full text-xs text-left">
-                        <thead class="text-slate-400 uppercase bg-slate-950/60 border-b border-slate-800 sticky top-0">
-                            <tr>
-                                <th class="py-2 px-3 text-center">#</th>
-                                <th class="py-2 px-3">Frase Clave</th>
-                                <th class="py-2 px-3 text-right">Frecuencia</th>
-                                <th class="py-2 px-3">Enfoque</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-800 text-slate-200">
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">1</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">industria argentina</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">95</td>
-                                <td class="py-1.5 px-3 text-slate-400">Mayormente positivo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">2</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">producción argentina</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">79</td>
-                                <td class="py-1.5 px-3 text-slate-400">Positivo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">3</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">argentina defender</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">72</td>
-                                <td class="py-1.5 px-3 text-slate-400">Reclamo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">4</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">defender industria</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">72</td>
-                                <td class="py-1.5 px-3 text-slate-400">Reclamo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">5</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">defender puestos</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">67</td>
-                                <td class="py-1.5 px-3 text-slate-400">Empleo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">6</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">producción nacional</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">66</td>
-                                <td class="py-1.5 px-3 text-slate-400">Positivo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">7</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">trabajadores trabajadoras</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">66</td>
-                                <td class="py-1.5 px-3 text-slate-400">Social</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">8</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">puestos familias</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">64</td>
-                                <td class="py-1.5 px-3 text-slate-400">Social</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">9</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">hacemos días</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">64</td>
-                                <td class="py-1.5 px-3 text-slate-400">Campaña</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">10</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">familias futuro</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">63</td>
-                                <td class="py-1.5 px-3 text-slate-400">Social</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">11</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">futuro país</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">63</td>
-                                <td class="py-1.5 px-3 text-slate-400">Social</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">12</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">país industria</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">63</td>
-                                <td class="py-1.5 px-3 text-slate-400">Productivo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">13</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">orgullo hacemos</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">63</td>
-                                <td class="py-1.5 px-3 text-slate-400">Positivo</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">14</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">visibilizar valor</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">63</td>
-                                <td class="py-1.5 px-3 text-slate-400">Campaña CGERA</td>
-                            </tr>
-                            
-                            <tr class="hover:bg-slate-800/40">
-                                <td class="py-1.5 px-3 text-center text-slate-500 font-mono">15</td>
-                                <td class="py-1.5 px-3 font-semibold text-white">valor producción</td>
-                                <td class="py-1.5 px-3 text-right font-bold text-emerald-400">63</td>
-                                <td class="py-1.5 px-3 text-slate-400">Campaña CGERA</td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
+                    <!-- Top Actividad X -->
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-3">
+                        <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider">📢 Cuentas con Mayor Actividad (Posts)</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-xs text-left">
+                                <thead class="text-slate-400 uppercase border-b border-slate-800">
+                                    <tr>
+                                        <th class="py-2 px-2">Usuario</th>
+                                        <th class="py-2 px-2 text-center">Posts</th>
+                                        <th class="py-2 px-2">Rol / Sector</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-800 text-slate-200">
+                                    <tr>
+                                        <td class="py-1.5 px-2 font-bold text-white">@MdpSmata</td>
+                                        <td class="py-1.5 px-2 text-center font-bold text-amber-400">49</td>
+                                        <td class="py-1.5 px-2 text-slate-400">SMATA Mar del Plata (Automotriz)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-1.5 px-2 font-bold text-white">@itacarri</td>
+                                        <td class="py-1.5 px-2 text-center font-bold text-amber-400">33</td>
+                                        <td class="py-1.5 px-2 text-slate-400">Ítalo Carrizo (Militancia Industrial)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-1.5 px-2 font-bold text-white">@Smatamdp28</td>
+                                        <td class="py-1.5 px-2 text-center font-bold text-amber-400">22</td>
+                                        <td class="py-1.5 px-2 text-slate-400">Smata Gremiales</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-1.5 px-2 font-bold text-white">@marianoobarrio</td>
+                                        <td class="py-1.5 px-2 text-center font-bold text-slate-300">8</td>
+                                        <td class="py-1.5 px-2 text-slate-400">Mariano Obarrio (Periodista)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-1.5 px-2 font-bold text-white">@ivanahbogado</td>
+                                        <td class="py-1.5 px-2 text-center font-bold text-slate-300">8</td>
+                                        <td class="py-1.5 px-2 text-slate-400">Ivana H. Bogado (Activismo Pyme)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 bg-slate-900/60 py-6 mt-12 text-center text-xs text-slate-400">
-        <p>Campaña #queremostrabajar &bull; Confederación General Empresaria de la República Argentina (CGERA) &bull; CSIRA</p>
-        <p class="mt-1 text-slate-500">Monitor Oficial 100% Basado en Datos Verificados de Social Listening & Auditoría de Redes.</p>
+    <footer class="border-t border-slate-800/80 bg-[#0B0F19] py-6 text-center text-xs text-slate-500">
+        <p>Campaña Federal #queremostrabajar &bull; Confederación General Empresaria de la República Argentina (CGERA) &bull; CSIRA</p>
+        <p class="mt-1 text-slate-600">Monitor Oficial 100% Basado en Datos Verificados de Social Listening & Auditoría de Redes.</p>
     </footer>
 
+    <!-- Interactive Data Scripts -->
     <script>
-        // Sentiment Chart
-        const ctxSent = document.getElementById('sentimentChart').getContext('2d');
+        // Tab Switching
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            const target = document.getElementById('tab-' + tabId);
+            const btn = document.getElementById('btn-' + tabId);
+            if (target) target.classList.remove('hidden');
+            if (btn) btn.classList.add('active');
+        }
+
+        // Table Search Filter
+        function filterTable(inputId, tableId) {
+            const input = document.getElementById(inputId);
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById(tableId);
+            const tr = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < tr.length; i++) {
+                const tdText = tr[i].textContent || tr[i].innerText;
+                if (tdText.toLowerCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+
+        // Chart.js Default Dark Theme Setup
+        Chart.defaults.color = '#94A3B8';
+        Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+
+        // 1. Sentiment Donut
+        const ctxSent = document.getElementById('chartSentiment').getContext('2d');
         new Chart(ctxSent, {
             type: 'doughnut',
             data: {
-                labels: ['Neutral', 'Positivo', 'Negativo / Reclamo'],
+                labels: ['Neutral (163)', 'Positivo (100)', 'Negativo / Reclamo (93)'],
                 datasets: [{
                     data: [163, 100, 93],
                     backgroundColor: ['#64748B', '#10B981', '#EF4444'],
-                    borderWidth: 0
+                    hoverBackgroundColor: ['#94A3B8', '#34D399', '#F87171'],
+                    borderWidth: 0,
+                    borderRadius: 4
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#CBD5E1' } } }
+                cutout: '68%',
+                plugins: {
+                    legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15, color: '#CBD5E1' } }
+                }
             }
         });
 
-        // Media Types Chart
-        const ctxMedia = document.getElementById('mediaChart').getContext('2d');
+        // 2. Emotions Horizontal Bar
+        const ctxEmo = document.getElementById('chartEmotions').getContext('2d');
+        new Chart(ctxEmo, {
+            type: 'bar',
+            data: {
+                labels: ['Alegría (Joy)', 'Enojo / Reclamo', 'Miedo (Fear)', 'Tristeza (Sadness)', 'Amor (Love)'],
+                datasets: [{
+                    data: [48, 43, 6, 2, 1],
+                    backgroundColor: ['#10B981', '#EF4444', '#F59E0B', '#64748B', '#EC4899'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { callback: v => v + '%' } },
+                    y: { grid: { display: false } }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        // 3. Media Types Bar
+        const ctxMedia = document.getElementById('chartMedia').getContext('2d');
         new Chart(ctxMedia, {
             type: 'bar',
             data: {
-                labels: ["Redes Sociales (Social)", "Video (Reels / TikTok)", "Web / Portales", "Debates / Foros", "Noticias de Prensa"],
+                labels: ['Redes Sociales', 'Video (TikTok/Reels)', 'Web / Portales', 'Debates / Foros', 'Noticias'],
                 datasets: [{
-                    label: 'Menciones',
                     data: [173, 103, 48, 25, 7],
                     backgroundColor: '#0284C7',
                     borderRadius: 6
@@ -621,11 +833,120 @@
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    y: { grid: { color: '#1E293B' }, ticks: { color: '#94A3B8' } },
-                    x: { grid: { display: false }, ticks: { color: '#94A3B8' } }
+                    y: { grid: { color: 'rgba(255,255,255,0.05)' } },
+                    x: { grid: { display: false } }
                 },
                 plugins: { legend: { display: false } }
             }
+        });
+
+        // Populate Top 40 Hashtags
+        const hashtagsData = [
+            { rank: 1, tag: "#industrianacional", count: 88, tone: "Mayormente positivo" },
+            { rank: 2, tag: "#trabajoargentino", count: 77, tone: "Positivo" },
+            { rank: 3, tag: "#atilra", count: 67, tone: "Reivindicativo (Lácteos)" },
+            { rank: 4, tag: "#mostrátuproducto", count: 44, tone: "Oficial CGERA" },
+            { rank: 5, tag: "#argentina", count: 29, tone: "100% Crítica económica" },
+            { rank: 6, tag: "#industria", count: 26, tone: "Productivo" },
+            { rank: 7, tag: "#trabajo", count: 26, tone: "Productivo" },
+            { rank: 8, tag: "#empresa", count: 22, tone: "Productivo" },
+            { rank: 9, tag: "#industriaargentina", count: 19, tone: "Positivo" },
+            { rank: 10, tag: "#csira", count: 11, tone: "Gremios industriales" },
+            { rank: 11, tag: "#smata", count: 8, tone: "Automotriz" },
+            { rank: 12, tag: "#quierotrabajar", count: 7, tone: "Reclamo" },
+            { rank: 13, tag: "#queremostrabajar", count: 6, tone: "Eje central" },
+            { rank: 14, tag: "#chimagro", count: 6, tone: "Agroindustria" },
+            { rank: 15, tag: "#infogremiales", count: 6, tone: "Medios" },
+            { rank: 16, tag: "#periodismosindical", count: 6, tone: "Medios" },
+            { rank: 17, tag: "#surcos", count: 5, tone: "Agroquímica" },
+            { rank: 18, tag: "#cgera", count: 5, tone: "Convocante" },
+            { rank: 19, tag: "#defendamoslaindustrianacional", count: 5, tone: "Lema" },
+            { rank: 20, tag: "#defendétutrabajo", count: 4, tone: "Lema" },
+            { rank: 21, tag: "#aomaneuquén", count: 4, tone: "Minería" },
+            { rank: 22, tag: "#mineríaargentina", count: 4, tone: "Minería" },
+            { rank: 23, tag: "#mundogremial", count: 4, tone: "Medios" },
+            { rank: 24, tag: "#argentina🇦🇷", count: 3, tone: "Identidad" },
+            { rank: 25, tag: "#defendamoseltrabajo", count: 3, tone: "Lema" },
+            { rank: 26, tag: "#stia", count: 3, tone: "Alimentación" },
+            { rank: 27, tag: "#laverde", count: 3, tone: "Gremial" },
+            { rank: 28, tag: "#alimentación", count: 3, tone: "Rubro" },
+            { rank: 29, tag: "#derechoslaborales", count: 2, tone: "Gremial" },
+            { rank: 30, tag: "#deavellanedaalmundo", count: 2, tone: "Exportación Pyme" },
+            { rank: 31, tag: "#viral", count: 2, tone: "Social" },
+            { rank: 32, tag: "#industriaautomotriz", count: 2, tone: "Rubro" },
+            { rank: 33, tag: "#hechoenargentina", count: 2, tone: "Sello" },
+            { rank: 34, tag: "#calzadoargentino", count: 2, tone: "Rubro UTICRA" },
+            { rank: 35, tag: "#indústrianacional", count: 2, tone: "Identidad" },
+            { rank: 36, tag: "#industrianacional🇦🇷", count: 2, tone: "Identidad" },
+            { rank: 37, tag: "#pyme", count: 2, tone: "Sector" },
+            { rank: 38, tag: "#economía", count: 2, tone: "Contexto" },
+            { rank: 39, tag: "#defandamoseltrabajo", count: 2, tone: "Lema" },
+            { rank: 40, tag: "#mostratuproducto", count: 2, tone: "Oficial" }
+        ];
+
+        const hashTbody = document.querySelector('#table-hashtags tbody');
+        hashtagsData.forEach(h => {
+            const tr = document.createElement('tr');
+            tr.className = "hover:bg-slate-800/40 transition";
+            tr.innerHTML = `
+                <td class="py-2 px-3 text-center text-slate-500 font-mono">${h.rank}</td>
+                <td class="py-2 px-3 font-bold text-cyan-300 font-mono">${h.tag}</td>
+                <td class="py-2 px-3 text-right font-black text-white font-mono">${h.count}</td>
+                <td class="py-2 px-3 text-slate-400">${h.tone}</td>
+            `;
+            hashTbody.appendChild(tr);
+        });
+
+        // Populate Top 35 Topics
+        const topicsData = [
+            { rank: 1, topic: "industria argentina", count: 95, tone: "Mayormente positivo" },
+            { rank: 2, topic: "producción argentina", count: 79, tone: "Positivo" },
+            { rank: 3, topic: "argentina defender", count: 72, tone: "Reclamo" },
+            { rank: 4, topic: "defender industria", count: 72, tone: "Reclamo" },
+            { rank: 5, topic: "defender puestos", count: 67, tone: "Empleo" },
+            { rank: 6, topic: "producción nacional", count: 66, tone: "Positivo" },
+            { rank: 7, topic: "trabajadores trabajadoras", count: 66, tone: "Social" },
+            { rank: 8, topic: "puestos familias", count: 64, tone: "Social" },
+            { rank: 9, topic: "hacemos días", count: 64, tone: "Campaña" },
+            { rank: 10, topic: "familias futuro", count: 63, tone: "Social" },
+            { rank: 11, topic: "futuro país", count: 63, tone: "Social" },
+            { rank: 12, topic: "país industria", count: 63, tone: "Productivo" },
+            { rank: 13, topic: "orgullo hacemos", count: 63, tone: "Positivo" },
+            { rank: 14, topic: "visibilizar valor", count: 63, tone: "Campaña CGERA" },
+            { rank: 15, topic: "valor producción", count: 63, tone: "Campaña CGERA" },
+            { rank: 16, topic: "cgera videos", count: 62, tone: "Formato Video" },
+            { rank: 17, topic: "videos trabajadores", count: 62, tone: "Testimonios" },
+            { rank: 18, topic: "trabajadoras industria", count: 62, tone: "Testimonios" },
+            { rank: 19, topic: "industria láctea", count: 62, tone: "ATILRA" },
+            { rank: 20, topic: "láctea muestran", count: 62, tone: "ATILRA" },
+            { rank: 21, topic: "muestran orgullo", count: 62, tone: "Positivo" },
+            { rank: 22, topic: "días suman", count: 62, tone: "Campaña" },
+            { rank: 23, topic: "suman iniciativa", count: 62, tone: "Campaña" },
+            { rank: 24, topic: "iniciativa visibilizar", count: 62, tone: "Campaña" },
+            { rank: 25, topic: "talleres comercios", count: 48, tone: "100% Crítico / Alerta" },
+            { rank: 26, topic: "república argentina", count: 40, tone: "Federal" },
+            { rank: 27, topic: "industria nacional", count: 40, tone: "Productivo" },
+            { rank: 28, topic: "sindicatos industriales", count: 38, tone: "CSIRA" },
+            { rank: 29, topic: "argentina cgera", count: 38, tone: "Institucional" },
+            { rank: 30, topic: "santa cruz", count: 38, tone: "Patagonia" },
+            { rank: 31, topic: "confederación empresaria", count: 35, tone: "CGERA" },
+            { rank: 32, topic: "emprendedores empresarios", count: 34, tone: "Pymes" },
+            { rank: 33, topic: "fábricas talleres", count: 34, tone: "Productivo" },
+            { rank: 34, topic: "entendemos modificaciones", count: 34, tone: "Debate legal" },
+            { rank: 35, topic: "modificaciones significan", count: 34, tone: "Retroceso laboral" }
+        ];
+
+        const topicTbody = document.querySelector('#table-topics tbody');
+        topicsData.forEach(t => {
+            const tr = document.createElement('tr');
+            tr.className = "hover:bg-slate-800/40 transition";
+            tr.innerHTML = `
+                <td class="py-2 px-3 text-center text-slate-500 font-mono">${t.rank}</td>
+                <td class="py-2 px-3 font-semibold text-white">${t.topic}</td>
+                <td class="py-2 px-3 text-right font-black text-emerald-400 font-mono">${t.count}</td>
+                <td class="py-2 px-3 text-slate-400">${t.tone}</td>
+            `;
+            topicTbody.appendChild(tr);
         });
     </script>
 </body>

@@ -137,13 +137,12 @@ with m5:
 st.markdown("---")
 
 # 6. Main Navigation Tabs
-tab_sl, tab_media, tab_hashtags, tab_topics, tab_tb, tab_update = st.tabs([
+tab_sl, tab_media, tab_hashtags, tab_topics, tab_tb = st.tabs([
     "🌐 Resumen Social Listening",
     "📰 Medios, Portales & Influencers",
     "🏷️ Top 40 Trending Hashtags",
     "💬 Top 35 Frases Clave",
-    "🐦 Auditoría X (TweetBinder)",
-    "📝 Carga y Actualización Manual"
+    "🐦 Auditoría X (TweetBinder)"
 ])
 
 # ==========================================
@@ -438,30 +437,5 @@ with tab_tb:
         ])
         st.dataframe(top_act_x, use_container_width=True, hide_index=True)
 
-
-# ==========================================
-# TAB 6: MANUAL DATA UPDATE & INGESTION
-# ==========================================
-with tab_update:
-    st.subheader("📝 Módulo de Actualización Manual de Datos")
-    st.markdown("""
-    Cada vez que obtengas nuevas métricas de tu herramienta de Social Listening, podés copiarlas en el chat o pegarlas directamente acá abajo en formato JSON y hacer clic en **Guardar y Actualizar Dashboard**.
-    """)
-
-    json_str = json.dumps(sl, indent=2, ensure_ascii=False)
-    updated_json = st.text_area("Dataset JSON de Social Listening:", value=json_str, height=350)
-
-    if st.button("💾 Guardar y Actualizar Dashboard Ahora", use_container_width=True):
-        try:
-            parsed = json.loads(updated_json)
-            with open("data/social_listening.json", "w", encoding="utf-8") as f:
-                json.dump(parsed, f, indent=2, ensure_ascii=False)
-            import subprocess
-            subprocess.run(["python", "export_verified_data.py"])
-            st.success("¡Datos guardados y datasets actualizados exitosamente!")
-            st.cache_data.clear()
-            st.rerun()
-        except Exception as e:
-            st.error(f"Error al procesar el JSON: {e}")
 
 st.caption("Campaña CGERA & CSIRA &bull; #queremostrabajar &bull; Monitor Oficial 100% Basado en Datos Verificados.")
