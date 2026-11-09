@@ -6,6 +6,8 @@ and timeline metrics.
 from typing import List, Dict, Any
 from collections import Counter
 import re
+import json
+from pathlib import Path
 import pandas as pd
 from scrapers.base import PostData
 
@@ -41,7 +43,19 @@ class CampaignAnalytics:
             "global_potential_reach": 4300000,
         }
 
+    def get_social_listening_data(self) -> Dict[str, Any]:
+        """Loads the multi-platform social listening audit dataset (Brand24/Mention analysis)."""
+        sl_path = Path("data/social_listening.json")
+        if sl_path.exists():
+            try:
+                with open(sl_path, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                pass
+        return {}
+
     def get_summary_kpis(self) -> Dict[str, Any]:
+        sl_data = self.get_social_listening_data()
         if self.df.empty:
             return {
                 "total_posts": 0,
@@ -53,6 +67,7 @@ class CampaignAnalytics:
                 "avg_engagement_per_post": 0.0,
                 "unique_authors": 0,
                 "macro": self.get_macro_campaign_kpis(),
+                "social_listening": sl_data,
             }
 
         total_posts = len(self.df)
@@ -74,6 +89,7 @@ class CampaignAnalytics:
             "avg_engagement_per_post": avg_engagement,
             "unique_authors": unique_authors,
             "macro": self.get_macro_campaign_kpis(),
+            "social_listening": sl_data,
         }
 
     def get_platform_breakdown(self) -> List[Dict[str, Any]]:
@@ -299,10 +315,53 @@ class CampaignAnalytics:
             {"Usuario": "@mendovozok", "Nombre": "MendoVoz", "Seguidores": 5400, "Posts": 2, "Likes": 8, "Reposts": 3, "Impresiones": 310, "Valor USD": "$10.40"},
         ])
 
+        # Social Listening DataFrames
+        sl = self.get_social_listening_data()
+        df_sl_summary = pd.DataFrame()
+        df_sl_hashtags = pd.DataFrame()
+        df_sl_topics = pd.DataFrame()
+        df_sl_influencers = pd.DataFrame()
+
+        if sl:
+            sk = sl.get("summary_kpis", {})
+            df_sl_summary = pd.DataFrame([
+                {"Métrica Social Listening (31 Días)": "Período Analizado", "Valor": sl.get("period", {}).get("label", "")},
+                {"Métrica Social Listening (31 Días)": "Total Menciones", "Valor": sk.get("mentions", 0)},
+                {"Métrica Social Listening (31 Días)": "Alcance Global (Reach)", "Valor": sk.get("reach_label", "9.5M")},
+                {"Métrica Social Listening (31 Días)": "Interacciones Totales", "Valor": sk.get("interactions_label", "101.5K")},
+                {"Métrica Social Listening (31 Días)": "Menciones Positivas", "Valor": f"{sk.get('positive_mentions', 0)} ({sk.get('positive_pct_total', 0)}%)"},
+                {"Métrica Social Listening (31 Días)": "Menciones Negativas", "Valor": f"{sk.get('negative_mentions', 0)} ({sk.get('negative_pct_total', 0)}%)"},
+                {"Métrica Social Listening (31 Días)": "Menciones Neutrales", "Valor": f"{sk.get('neutral_mentions', 0)} ({sk.get('neutral_pct_total', 0)}%)"},
+                {"Métrica Social Listening (31 Días)": "Ratio Positivo / Negativo", "Valor": "52% / 48% (1.1:1)"},
+                {"Métrica Social Listening (31 Días)": "Día Pico de Menciones", "Valor": "5 de Noviembre (230 menciones, 18.1x media)"},
+                {"Métrica Social Listening (31 Días)": "Emoción Dominante", "Valor": "Alegría (48%) e Ira/Reclamo (43%) = 91%"},
+                {"Métrica Social Listening (31 Días)": "Mejor Horario para Publicar", "Valor": "Jueves 10:00 a 12:00 (22.5x media)"},
+            ])
+
+            if "trending_hashtags" in sl:
+                df_sl_hashtags = pd.DataFrame(sl["trending_hashtags"])
+                df_sl_hashtags.rename(columns={"rank": "Ranking", "hashtag": "Hashtag", "count": "Frecuencia", "sentiment": "Tono"}, inplace=True)
+
+            if "trending_topics" in sl:
+                df_sl_topics = pd.DataFrame(sl["trending_topics"])
+                df_sl_topics.rename(columns={"rank": "Ranking", "topic": "Tópico / Frase Clave", "count": "Frecuencia", "sentiment": "Tono"}, inplace=True)
+
+            if "top_influencers" in sl:
+                df_sl_influencers = pd.DataFrame(sl["top_influencers"])
+                df_sl_influencers.rename(columns={"name": "Organización / Influencer", "handle": "Usuario", "mentions": "Menciones", "voice_share_pct": "% Voice Share", "sentiment": "Rol"}, inplace=True)
+
         # 2. Write to Excel with openpyxl
         with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
             df_kpis.to_excel(writer, sheet_name="Resumen KPIs", index=False, startrow=1)
             df_hashtags.to_excel(writer, sheet_name="Resumen KPIs", index=False, startrow=12)
+            if not df_sl_summary.empty:
+                df_sl_summary.to_excel(writer, sheet_name="Social Listening (30D)", index=False, startrow=1)
+                if not df_sl_influencers.empty:
+                    df_sl_influencers.to_excel(writer, sheet_name="Social Listening (30D)", index=False, startrow=15)
+            if not df_sl_hashtags.empty:
+                df_sl_hashtags.to_excel(writer, sheet_name="Trending Hashtags (40)", index=False)
+            if not df_sl_topics.empty:
+                df_sl_topics.to_excel(writer, sheet_name="Trending Frases Clave", index=False)
             df_platforms.to_excel(writer, sheet_name="Por Plataforma", index=False)
             if not df_sectors.empty:
                 df_sectors.to_excel(writer, sheet_name="Por Sector Industrial", index=False)
@@ -355,6 +414,18 @@ class CampaignAnalytics:
             if cell.value:
                 cell.fill = subhead_fill
                 cell.font = header_font
+
+        # Custom header for Social Listening
+        if "Social Listening (30D)" in wb.sheetnames:
+            ws_sl = wb["Social Listening (30D)"]
+            ws_sl["A1"] = "AUDITORÍA SOCIAL LISTENING MULTIRRED (ÚLTIMOS 30 DÍAS)"
+            ws_sl["A1"].font = title_font
+            ws_sl["A14"] = "TOP INFLUENCERS Y SHARE OF VOICE"
+            ws_sl["A14"].font = title_font
+            for cell in ws_sl[15]:
+                if cell.value:
+                    cell.fill = subhead_fill
+                    cell.font = header_font
 
         # Custom header for Auditoría X TweetBinder
         if "Auditoría X TweetBinder" in wb.sheetnames:

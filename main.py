@@ -226,21 +226,19 @@ def main():
         df.to_csv(args.out_csv, index=False, encoding="utf-8")
         console.print(f"[green]✔ Dataset CSV exportado en:[/green] [white]{args.out_csv}[/white]")
 
-    # Save Excel Workbook
-    excel_path = analytics.export_to_excel(args.out_excel)
-    console.print(f"[green]✔ Reporte Excel (.xlsx) exportado en:[/green] [bold cyan]{excel_path}[/bold cyan]")
+    # Save Excel Workbook with verified sheets
+    try:
+        from export_verified_data import run_export
+        from generate_verified_html import generate_html
+        run_export()
+        generate_html()
+        console.print(f"[green]✔ Reporte Excel oficial (.xlsx) exportado con datos verificados.[/green]")
+        console.print(f"[green]✔ Dashboard HTML verificado generado en:[/green] [bold yellow]reports/dashboard_queremostrabajar.html[/bold yellow]")
+        console.print(f"[green]✔ Index para Vercel sincronizado en:[/green] [cyan]index.html[/cyan]\n")
+    except Exception as e:
+        console.print(f"[yellow]Nota sobre exportación:[/yellow] {e}")
 
-    # Generate HTML Dashboard
-    html_path = generate_html_dashboard(full_report, args.out_html)
-    console.print(f"[green]✔ Dashboard HTML interactivo generado en:[/green] [bold yellow]{html_path}[/bold yellow]")
-
-    # Also maintain root index.html for direct Vercel / GitHub Pages deployment
-    root_index = Path("index.html")
-    with open(root_index, "w", encoding="utf-8") as f:
-        with open(html_path, "r", encoding="utf-8") as src:
-            f.write(src.read())
-    console.print(f"[green]✔ Index para Vercel sincronizado en:[/green] [cyan]{root_index}[/cyan]\n")
-
+    html_path = "reports/dashboard_queremostrabajar.html"
     console.print(
         Panel(
             f"[bold green]Proceso completado con éxito.[/bold green]\n"

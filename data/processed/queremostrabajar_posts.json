@@ -1,1913 +1,801 @@
 {
-  "kpis": {
-    "total_posts": 50,
-    "total_engagement": 84087,
-    "total_likes": 59317,
-    "total_comments": 4687,
-    "total_shares": 20083,
-    "total_views": 805306,
-    "avg_engagement_per_post": 1681.74,
-    "unique_authors": 47,
-    "macro": {
-      "total_global_posts": 16621,
-      "instagram_total_posts": 11400,
-      "tiktok_total_posts": 1594,
-      "facebook_total_posts": 3450,
-      "x_total_posts": 177,
-      "x_economic_value_usd": 4558.3,
-      "x_direct_impressions": 12585,
-      "x_potential_impressions": 1476488,
-      "x_potential_reach": 325954,
-      "x_total_likes": 288,
-      "x_total_reposts": 138,
-      "x_contributors": 44,
-      "global_potential_reach": 4300000
+  "period": {
+    "start_date": "2026-10-09",
+    "end_date": "2026-11-08",
+    "days": 31,
+    "label": "9 de octubre - 8 de noviembre · 31 días (Últimos 30 días)"
+  },
+  "summary_kpis": {
+    "mentions": 356,
+    "reach": 9500000,
+    "reach_label": "9,5 Millones",
+    "interactions": 101500,
+    "interactions_label": "101.5K",
+    "positive_mentions": 100,
+    "positive_pct_total": 28.0,
+    "negative_mentions": 93,
+    "negative_pct_total": 26.0,
+    "neutral_mentions": 163,
+    "neutral_pct_total": 46.0,
+    "sentiment_expressed": {
+      "positive_pct": 52.0,
+      "negative_pct": 48.0,
+      "ratio": "1.1:1"
+    },
+    "peak_day": "2026-11-05",
+    "peak_mentions": 230,
+    "peak_multiplier": 18.1,
+    "peak_positive": 78,
+    "peak_negative": 47
+  },
+  "emotions": {
+    "detected_mentions_count": 143,
+    "breakdown": [
+      {
+        "emotion": "Alegría (Joy)",
+        "pct": 48.0,
+        "color": "#10B981",
+        "is_dominant": true
+      },
+      {
+        "emotion": "Enojo / Reclamo (Anger)",
+        "pct": 43.0,
+        "color": "#EF4444",
+        "is_dominant": false
+      },
+      {
+        "emotion": "Miedo (Fear)",
+        "pct": 6.0,
+        "color": "#F59E0B",
+        "is_dominant": false
+      },
+      {
+        "emotion": "Tristeza (Sadness)",
+        "pct": 2.0,
+        "color": "#6B7280",
+        "is_dominant": false
+      },
+      {
+        "emotion": "Amor / Solidaridad (Love)",
+        "pct": 1.0,
+        "color": "#EC4899",
+        "is_dominant": false
+      }
+    ],
+    "notes": "La alegría y el reclamo gremial cubren el 91% del tono emocional. El enojo alcanzó su pico el 5 de noviembre (56x media diaria) alertando sobre la caída de la producción."
+  },
+  "media_types": [
+    {
+      "type": "Redes Sociales (Social)",
+      "count": 173,
+      "pct": 48.6,
+      "sentiment": {
+        "positive": 28,
+        "negative": 26,
+        "neutral": 46
+      }
+    },
+    {
+      "type": "Video (Reels / TikTok)",
+      "count": 103,
+      "pct": 28.9,
+      "sentiment": {
+        "positive": 52,
+        "negative": 16,
+        "neutral": 32
+      }
+    },
+    {
+      "type": "Web / Portales",
+      "count": 48,
+      "pct": 13.5,
+      "sentiment": {
+        "positive": 25,
+        "negative": 44,
+        "neutral": 31
+      }
+    },
+    {
+      "type": "Debates / Foros",
+      "count": 25,
+      "pct": 7.0,
+      "sentiment": {
+        "positive": 29,
+        "negative": 42,
+        "neutral": 29
+      }
+    },
+    {
+      "type": "Noticias de Prensa",
+      "count": 7,
+      "pct": 2.0,
+      "sentiment": {
+        "positive": 44,
+        "negative": 0,
+        "neutral": 56
+      }
+    }
+  ],
+  "geography": {
+    "location_identified_pct": 78.0,
+    "countries": [
+      {
+        "country": "Argentina",
+        "mentions": 246,
+        "pct": 69.1
+      },
+      {
+        "country": "Estados Unidos",
+        "mentions": 26,
+        "pct": 7.3
+      },
+      {
+        "country": "Australia",
+        "mentions": 1,
+        "pct": 0.3
+      },
+      {
+        "country": "Chile",
+        "mentions": 1,
+        "pct": 0.3
+      },
+      {
+        "country": "Alemania",
+        "mentions": 1,
+        "pct": 0.3
+      },
+      {
+        "country": "España",
+        "mentions": 1,
+        "pct": 0.3
+      },
+      {
+        "country": "México",
+        "mentions": 1,
+        "pct": 0.3
+      },
+      {
+        "country": "Venezuela",
+        "mentions": 1,
+        "pct": 0.3
+      }
+    ],
+    "unknown_location_pct": 22.0
+  },
+  "top_sites": [
+    {
+      "site": "mundogremial.com",
+      "mentions": 1,
+      "monthly_visits": "1.3M",
+      "visits_num": 1300000,
+      "role": "Líder en alcance"
+    },
+    {
+      "site": "noticiasargentinas.com",
+      "mentions": 1,
+      "monthly_visits": "720.1K",
+      "visits_num": 720100,
+      "role": "Agencia de noticias"
+    },
+    {
+      "site": "primerplanoonline.com.ar",
+      "mentions": 1,
+      "monthly_visits": "487.3K",
+      "visits_num": 487300,
+      "role": "Portal regional oeste GBA"
+    },
+    {
+      "site": "gestionsindical.com",
+      "mentions": 1,
+      "monthly_visits": "353.9K",
+      "visits_num": 353900,
+      "role": "Portal laboral y pyme"
+    },
+    {
+      "site": "conclusion.com.ar",
+      "mentions": 2,
+      "monthly_visits": "327.4K",
+      "visits_num": 327400,
+      "role": "Mayor cantidad de menciones"
+    },
+    {
+      "site": "noticiastornquist.com.ar",
+      "mentions": 1,
+      "monthly_visits": "271.0K",
+      "visits_num": 271000,
+      "role": "Interior bonaerense"
+    },
+    {
+      "site": "datagremial.com",
+      "mentions": 2,
+      "monthly_visits": "252.5K",
+      "visits_num": 252500,
+      "role": "Cobertura sindical y productiva"
+    },
+    {
+      "site": "opisantacruz.com.ar",
+      "mentions": 1,
+      "monthly_visits": "197.5K",
+      "visits_num": 197500,
+      "role": "Portal patagónico"
+    }
+  ],
+  "top_influencers": [
+    {
+      "name": "InfoGremiales",
+      "handle": "@infogremiales",
+      "mentions": 6,
+      "voice_share_pct": 19.8,
+      "sentiment": "Neutral/Reivindicativo"
+    },
+    {
+      "name": "Mundo Gremial",
+      "handle": "@mundogremial",
+      "mentions": 2,
+      "voice_share_pct": 12.4,
+      "sentiment": "Informativo"
+    },
+    {
+      "name": "Zapala ocho mil tres cuarenta",
+      "handle": "@zapala8340",
+      "mentions": 1,
+      "voice_share_pct": 11.4,
+      "sentiment": "Regional Neuquén"
+    },
+    {
+      "name": "Data Gremial",
+      "handle": "@datagremial",
+      "mentions": 2,
+      "voice_share_pct": 11.4,
+      "sentiment": "Informativo"
+    },
+    {
+      "name": "Ferrazzi Competición",
+      "handle": "@ferrazzicompeticion",
+      "mentions": 1,
+      "voice_share_pct": 9.3,
+      "sentiment": "Fabricante Autopartista"
+    },
+    {
+      "name": "Gestión Sindical",
+      "handle": "@gestionsindical",
+      "mentions": 1,
+      "voice_share_pct": 5.8,
+      "sentiment": "Prensa Gremial"
+    },
+    {
+      "name": "MendoVoz",
+      "handle": "@mendovozweb",
+      "mentions": 2,
+      "voice_share_pct": 5.0,
+      "sentiment": "Prensa Cuyo / Mendoza"
+    },
+    {
+      "name": "Revista 8340",
+      "handle": "@revista8340",
+      "mentions": 1,
+      "voice_share_pct": 4.7,
+      "sentiment": "Medio Regional"
+    }
+  ],
+  "trending_hashtags": [
+    {
+      "rank": 1,
+      "hashtag": "#industrianacional",
+      "count": 88,
+      "sentiment": "Mayormente positivo"
+    },
+    {
+      "rank": 2,
+      "hashtag": "#trabajoargentino",
+      "count": 77,
+      "sentiment": "Positivo"
+    },
+    {
+      "rank": 3,
+      "hashtag": "#atilra",
+      "count": 67,
+      "sentiment": "Reivindicativo (Lácteos)"
+    },
+    {
+      "rank": 4,
+      "hashtag": "#mostrátuproducto",
+      "count": 44,
+      "sentiment": "Oficial CGERA"
+    },
+    {
+      "rank": 5,
+      "hashtag": "#argentina",
+      "count": 29,
+      "sentiment": "Negativo (crítica económica)"
+    },
+    {
+      "rank": 6,
+      "hashtag": "#industria",
+      "count": 26,
+      "sentiment": "Productivo"
+    },
+    {
+      "rank": 7,
+      "hashtag": "#trabajo",
+      "count": 26,
+      "sentiment": "Productivo"
+    },
+    {
+      "rank": 8,
+      "hashtag": "#empresa",
+      "count": 22,
+      "sentiment": "Productivo"
+    },
+    {
+      "rank": 9,
+      "hashtag": "#industriaargentina",
+      "count": 19,
+      "sentiment": "Positivo"
+    },
+    {
+      "rank": 10,
+      "hashtag": "#csira",
+      "count": 11,
+      "sentiment": "Gremios industriales"
+    },
+    {
+      "rank": 11,
+      "hashtag": "#smata",
+      "count": 8,
+      "sentiment": "Automotriz"
+    },
+    {
+      "rank": 12,
+      "hashtag": "#quierotrabajar",
+      "count": 7,
+      "sentiment": "Reclamo"
+    },
+    {
+      "rank": 13,
+      "hashtag": "#queremostrabajar",
+      "count": 6,
+      "sentiment": "Eje central"
+    },
+    {
+      "rank": 14,
+      "hashtag": "#chimagro",
+      "count": 6,
+      "sentiment": "Agroindustria"
+    },
+    {
+      "rank": 15,
+      "hashtag": "#infogremiales",
+      "count": 6,
+      "sentiment": "Medios"
+    },
+    {
+      "rank": 16,
+      "hashtag": "#periodismosindical",
+      "count": 6,
+      "sentiment": "Medios"
+    },
+    {
+      "rank": 17,
+      "hashtag": "#surcos",
+      "count": 5,
+      "sentiment": "Agroquímica"
+    },
+    {
+      "rank": 18,
+      "hashtag": "#cgera",
+      "count": 5,
+      "sentiment": "Convocante"
+    },
+    {
+      "rank": 19,
+      "hashtag": "#defendamoslaindustrianacional",
+      "count": 5,
+      "sentiment": "Lema"
+    },
+    {
+      "rank": 20,
+      "hashtag": "#defendétutrabajo",
+      "count": 4,
+      "sentiment": "Lema"
+    },
+    {
+      "rank": 21,
+      "hashtag": "#aomaneuquén",
+      "count": 4,
+      "sentiment": "Minería"
+    },
+    {
+      "rank": 22,
+      "hashtag": "#mineríaargentina",
+      "count": 4,
+      "sentiment": "Minería"
+    },
+    {
+      "rank": 23,
+      "hashtag": "#mundogremial",
+      "count": 4,
+      "sentiment": "Medios"
+    },
+    {
+      "rank": 24,
+      "hashtag": "#argentina🇦🇷",
+      "count": 3,
+      "sentiment": "Identidad"
+    },
+    {
+      "rank": 25,
+      "hashtag": "#defendamoseltrabajo",
+      "count": 3,
+      "sentiment": "Lema"
+    },
+    {
+      "rank": 26,
+      "hashtag": "#stia",
+      "count": 3,
+      "sentiment": "Alimentación"
+    },
+    {
+      "rank": 27,
+      "hashtag": "#laverde",
+      "count": 3,
+      "sentiment": "Gremial"
+    },
+    {
+      "rank": 28,
+      "hashtag": "#alimentación",
+      "count": 3,
+      "sentiment": "Rubro"
+    },
+    {
+      "rank": 29,
+      "hashtag": "#derechoslaborales",
+      "count": 2,
+      "sentiment": "Gremial"
+    },
+    {
+      "rank": 30,
+      "hashtag": "#deavellanedaalmundo",
+      "count": 2,
+      "sentiment": "Exportación Pyme"
+    },
+    {
+      "rank": 31,
+      "hashtag": "#viral",
+      "count": 2,
+      "sentiment": "Social"
+    },
+    {
+      "rank": 32,
+      "hashtag": "#industriaautomotriz",
+      "count": 2,
+      "sentiment": "Rubro"
+    },
+    {
+      "rank": 33,
+      "hashtag": "#hechoenargentina",
+      "count": 2,
+      "sentiment": "Sello"
+    },
+    {
+      "rank": 34,
+      "hashtag": "#calzadoargentino",
+      "count": 2,
+      "sentiment": "Rubro (UTICRA)"
+    },
+    {
+      "rank": 35,
+      "hashtag": "#indústrianacional",
+      "count": 2,
+      "sentiment": "Identidad"
+    },
+    {
+      "rank": 36,
+      "hashtag": "#industrianacional🇦🇷",
+      "count": 2,
+      "sentiment": "Identidad"
+    },
+    {
+      "rank": 37,
+      "hashtag": "#pyme",
+      "count": 2,
+      "sentiment": "Sector"
+    },
+    {
+      "rank": 38,
+      "hashtag": "#economía",
+      "count": 2,
+      "sentiment": "Contexto"
+    },
+    {
+      "rank": 39,
+      "hashtag": "#defandamoseltrabajo",
+      "count": 2,
+      "sentiment": "Lema"
+    }
+  ],
+  "trending_topics": [
+    {
+      "rank": 1,
+      "topic": "industria argentina",
+      "count": 95,
+      "sentiment": "Mayormente positivo"
+    },
+    {
+      "rank": 2,
+      "topic": "producción argentina",
+      "count": 79,
+      "sentiment": "Positivo"
+    },
+    {
+      "rank": 3,
+      "topic": "argentina defender",
+      "count": 72,
+      "sentiment": "Reclamo"
+    },
+    {
+      "rank": 4,
+      "topic": "defender industria",
+      "count": 72,
+      "sentiment": "Reclamo"
+    },
+    {
+      "rank": 5,
+      "topic": "defender puestos",
+      "count": 67,
+      "sentiment": "Empleo"
+    },
+    {
+      "rank": 6,
+      "topic": "producción nacional",
+      "count": 66,
+      "sentiment": "Positivo"
+    },
+    {
+      "rank": 7,
+      "topic": "trabajadores trabajadoras",
+      "count": 66,
+      "sentiment": "Social"
+    },
+    {
+      "rank": 8,
+      "topic": "puestos familias",
+      "count": 64,
+      "sentiment": "Social"
+    },
+    {
+      "rank": 9,
+      "topic": "hacemos días",
+      "count": 64,
+      "sentiment": "Campaña"
+    },
+    {
+      "rank": 10,
+      "topic": "familias futuro",
+      "count": 63,
+      "sentiment": "Social"
+    },
+    {
+      "rank": 11,
+      "topic": "futuro país",
+      "count": 63,
+      "sentiment": "Social"
+    },
+    {
+      "rank": 12,
+      "topic": "país industria",
+      "count": 63,
+      "sentiment": "Productivo"
+    },
+    {
+      "rank": 13,
+      "topic": "orgullo hacemos",
+      "count": 63,
+      "sentiment": "Positivo"
+    },
+    {
+      "rank": 14,
+      "topic": "visibilizar valor",
+      "count": 63,
+      "sentiment": "Campaña CGERA"
+    },
+    {
+      "rank": 15,
+      "topic": "valor producción",
+      "count": 63,
+      "sentiment": "Campaña CGERA"
+    },
+    {
+      "rank": 16,
+      "topic": "cgera videos",
+      "count": 62,
+      "sentiment": "Formato Reels/TikTok"
+    },
+    {
+      "rank": 17,
+      "topic": "videos trabajadores",
+      "count": 62,
+      "sentiment": "Testimonios"
+    },
+    {
+      "rank": 18,
+      "topic": "trabajadoras industria",
+      "count": 62,
+      "sentiment": "Testimonios"
+    },
+    {
+      "rank": 19,
+      "topic": "industria láctea",
+      "count": 62,
+      "sentiment": "ATILRA"
+    },
+    {
+      "rank": 20,
+      "topic": "láctea muestran",
+      "count": 62,
+      "sentiment": "ATILRA"
+    },
+    {
+      "rank": 21,
+      "topic": "muestran orgullo",
+      "count": 62,
+      "sentiment": "Positivo"
+    },
+    {
+      "rank": 22,
+      "topic": "días suman",
+      "count": 62,
+      "sentiment": "Campaña"
+    },
+    {
+      "rank": 23,
+      "topic": "suman iniciativa",
+      "count": 62,
+      "sentiment": "Campaña"
+    },
+    {
+      "rank": 24,
+      "topic": "iniciativa visibilizar",
+      "count": 62,
+      "sentiment": "Campaña"
+    },
+    {
+      "rank": 25,
+      "topic": "talleres comercios",
+      "count": 48,
+      "sentiment": "Alerta / 100% crítico"
+    },
+    {
+      "rank": 26,
+      "topic": "república argentina",
+      "count": 40,
+      "sentiment": "Federal"
+    },
+    {
+      "rank": 27,
+      "topic": "industria nacional",
+      "count": 40,
+      "sentiment": "Productivo"
+    },
+    {
+      "rank": 28,
+      "topic": "sindicatos industriales",
+      "count": 38,
+      "sentiment": "CSIRA"
+    },
+    {
+      "rank": 29,
+      "topic": "argentina cgera",
+      "count": 38,
+      "sentiment": "Institucional"
+    },
+    {
+      "rank": 30,
+      "topic": "santa cruz",
+      "count": 38,
+      "sentiment": "Patagonia"
+    },
+    {
+      "rank": 31,
+      "topic": "confederación empresaria",
+      "count": 35,
+      "sentiment": "CGERA"
+    },
+    {
+      "rank": 32,
+      "topic": "emprendedores empresarios",
+      "count": 34,
+      "sentiment": "Pymes"
+    },
+    {
+      "rank": 33,
+      "topic": "fábricas talleres",
+      "count": 34,
+      "sentiment": "Productivo"
+    }
+  ],
+  "best_time_to_post": {
+    "peak_slot_1": {
+      "slot": "Jueves de 10:00 a 12:00",
+      "multiplier": "22.5×",
+      "description": "Convocatoria central CGERA / CSIRA del 5 de Noviembre"
+    },
+    "peak_slot_2": {
+      "slot": "Jueves de 12:00 a 14:00",
+      "multiplier": "12.5×",
+      "description": "Salida a las puertas de las fábricas con productos"
+    },
+    "peak_slot_3": {
+      "slot": "Jueves de 09:00 a 11:00",
+      "multiplier": "8.2×",
+      "description": "Preparación previa en medios y redes"
+    },
+    "quietest_slot": {
+      "slot": "Domingo de 22:00 a 24:00",
+      "multiplier": "0.1×",
+      "description": "Momento de menor actividad"
     }
   },
-  "platforms": [
+  "top_emojis": [
     {
-      "platform": "tiktok",
-      "posts_count": 8,
-      "share_pct": 16.0,
-      "likes": 33050,
-      "comments": 2331,
-      "shares": 10820,
-      "views": 446800,
-      "total_engagement": 46201,
-      "engagement_pct": 54.9
+      "emoji": "🇦🇷",
+      "name": "Bandera Argentina",
+      "count": 92,
+      "sentiment": "Identidad Nacional"
     },
     {
-      "platform": "instagram",
-      "posts_count": 10,
-      "share_pct": 20.0,
-      "likes": 15492,
-      "comments": 1144,
-      "shares": 4030,
-      "views": 211830,
-      "total_engagement": 20666,
-      "engagement_pct": 24.6
+      "emoji": "💪",
+      "name": "Músculo / Fuerza",
+      "count": 69,
+      "sentiment": "Esfuerzo Productivo"
     },
     {
-      "platform": "facebook",
-      "posts_count": 5,
-      "share_pct": 10.0,
-      "likes": 6900,
-      "comments": 695,
-      "shares": 3235,
-      "views": 99500,
-      "total_engagement": 10830,
-      "engagement_pct": 12.9
+      "emoji": "💚",
+      "name": "Corazón Verde",
+      "count": 62,
+      "sentiment": "Industria / Esperanza"
     },
     {
-      "platform": "cgera",
-      "posts_count": 2,
-      "share_pct": 4.0,
-      "likes": 3340,
-      "comments": 397,
-      "shares": 1770,
-      "views": 31000,
-      "total_engagement": 5507,
-      "engagement_pct": 6.5
+      "emoji": "🏭",
+      "name": "Fábrica",
+      "count": 9,
+      "sentiment": "Producción Industrial"
     },
     {
-      "platform": "x",
-      "posts_count": 25,
-      "share_pct": 50.0,
-      "likes": 535,
-      "comments": 120,
-      "shares": 228,
-      "views": 16176,
-      "total_engagement": 883,
-      "engagement_pct": 1.1
-    }
-  ],
-  "sectors": [
-    {
-      "sector": "Gremial e Institucional",
-      "posts_count": 12,
-      "share_pct": 24.0,
-      "total_engagement": 30898,
-      "views": 280169
-    },
-    {
-      "sector": "Metalúrgica y Mecanizado",
-      "posts_count": 2,
-      "share_pct": 4.0,
-      "total_engagement": 10775,
-      "views": 103400
-    },
-    {
-      "sector": "Educación Técnica",
-      "posts_count": 1,
-      "share_pct": 2.0,
-      "total_engagement": 9579,
-      "views": 89400
-    },
-    {
-      "sector": "Industria Nacional",
-      "posts_count": 14,
-      "share_pct": 28.0,
-      "total_engagement": 6973,
-      "views": 74448
-    },
-    {
-      "sector": "Calzado y Cueros",
-      "posts_count": 2,
-      "share_pct": 4.0,
-      "total_engagement": 6269,
-      "views": 60600
-    },
-    {
-      "sector": "Alimentos y Bebidas",
-      "posts_count": 2,
-      "share_pct": 4.0,
-      "total_engagement": 5616,
-      "views": 53500
-    },
-    {
-      "sector": "Textil e Indumentaria",
-      "posts_count": 2,
-      "share_pct": 4.0,
-      "total_engagement": 4810,
-      "views": 47000
-    },
-    {
-      "sector": "Vidrio y Cerámica",
-      "posts_count": 2,
-      "share_pct": 4.0,
-      "total_engagement": 2742,
-      "views": 26500
-    },
-    {
-      "sector": "Tecnología y Robótica",
-      "posts_count": 3,
-      "share_pct": 6.0,
-      "total_engagement": 2473,
-      "views": 23420
-    },
-    {
-      "sector": "Madera y Muebles",
-      "posts_count": 1,
-      "share_pct": 2.0,
-      "total_engagement": 2090,
-      "views": 21800
-    },
-    {
-      "sector": "Gráfica y Editorial",
-      "posts_count": 1,
-      "share_pct": 2.0,
-      "total_engagement": 1465,
-      "views": 15400
-    },
-    {
-      "sector": "Prensa e Influencers",
-      "posts_count": 8,
-      "share_pct": 16.0,
-      "total_engagement": 397,
-      "views": 9669
-    }
-  ],
-  "media_types": {
-    "image": 33,
-    "video": 15,
-    "carousel": 1,
-    "text": 1
-  },
-  "top_hashtags": [
-    {
-      "tag": "#queremostrabajar",
-      "count": 50
-    },
-    {
-      "tag": "#industrianacional",
-      "count": 25
-    },
-    {
-      "tag": "#trabajoargentino",
-      "count": 17
-    },
-    {
-      "tag": "#cgera",
-      "count": 9
-    },
-    {
-      "tag": "#pymes",
-      "count": 7
-    },
-    {
-      "tag": "#csira",
-      "count": 4
-    },
-    {
-      "tag": "#mostratuproducto",
-      "count": 3
-    },
-    {
-      "tag": "#defendetutrabajo",
-      "count": 3
-    },
-    {
-      "tag": "#industriaargentina",
-      "count": 3
-    },
-    {
-      "tag": "#santafe",
-      "count": 3
-    },
-    {
-      "tag": "#avellaneda",
-      "count": 2
-    },
-    {
-      "tag": "#abramoslaspersianas",
-      "count": 2
-    },
-    {
-      "tag": "#sanmartin",
-      "count": 1
-    },
-    {
-      "tag": "#mardelplata",
-      "count": 1
-    },
-    {
-      "tag": "#textilargentino",
-      "count": 1
-    }
-  ],
-  "top_posts": [
-    {
-      "platform": "tiktok",
-      "id": "tt-cgera-spot-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "cgera_oficial",
-      "author_name": "CGERA Argentina",
-      "text_content": "Spot Oficial 5N 🇦🇷 Salí a la puerta a las 12:00 con tus compañeros de trabajo. Mostrá lo que fabricás con orgullo. Sumate al hashtag #queremostrabajar #industrianacional #argentina #pymes",
-      "created_at": "2026-11-04 18:00:00",
-      "likes": 8420,
-      "comments": 612,
-      "shares": 3120,
-      "views": 124000,
-      "media_type": "video",
-      "media_urls": [
-        "https://cgera.net.ar/wp-content/uploads/2026/spot-oficial-5n.mp4"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "argentina",
-        "pymes"
-      ],
-      "is_official_cgera": true,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Gremial e Institucional",
-      "raw_data": {},
-      "total_engagement": 12152
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-tecnica-7-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "escuela_tecnica_7",
-      "author_name": "Estudiantes Técnica N°7",
-      "text_content": "Nos sumamos a la jornada de las pymes y la red de escuelas técnicas. Fabricamos prototipos y soñamos con trabajar en la industria argentina. #queremostrabajar #escuelastecnicas #futuroargentino",
-      "created_at": "2026-11-05 12:22:00",
-      "likes": 6780,
-      "comments": 489,
-      "shares": 2310,
-      "views": 89400,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "escuelastecnicas",
-        "futuroargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Avellaneda, Buenos Aires",
-      "sector": "Educación Técnica",
-      "raw_data": {},
-      "total_engagement": 9579
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-torneria-gonzalez-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "torneria_gonzalez",
-      "author_name": "Tornería y Mecanizados González",
-      "text_content": "12 en punto salimos con el himno de fondo como pidió CGERA. Acá mostramos los cilindros hidráulicos que hacemos para la maquinaria agrícola. ¡No aflojemos! #queremostrabajar #metalurgica #agroargentino #pymes",
-      "created_at": "2026-11-05 12:08:00",
-      "likes": 4310,
-      "comments": 320,
-      "shares": 1420,
-      "views": 58900,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "metalurgica",
-        "agroargentino",
-        "pymes"
-      ],
-      "is_official_cgera": false,
-      "location": "San Francisco, Córdoba",
-      "sector": "Metalúrgica y Mecanizado",
-      "raw_data": {},
-      "total_engagement": 6050
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-mecanizados-rosario-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "mecanizados_rosario",
-      "author_name": "Mecanizados y Engranajes Rosario",
-      "text_content": "Mostramos los engranajes para cosechadoras. 100% industria santafesina. No dejen caer la producción. #queremostrabajar #rosario #agroindustria",
-      "created_at": "2026-11-05 13:25:00",
-      "likes": 3410,
-      "comments": 215,
-      "shares": 1100,
-      "views": 44500,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "rosario",
-        "agroindustria"
-      ],
-      "is_official_cgera": false,
-      "location": "Rosario, Santa Fe",
-      "sector": "Metalúrgica y Mecanizado",
-      "raw_data": {},
-      "total_engagement": 4725
-    },
-    {
-      "platform": "instagram",
-      "id": "ig-DBz94KxM_11",
-      "url": "https://www.instagram.com/p/DBz94KxM_11/",
-      "author_username": "cgera_ok",
-      "author_name": "CGERA Oficial",
-      "text_content": "🇦🇷 JORNADA NACIONAL 5 DE NOVIEMBRE 🇦🇷\nEn cada rincón de la Argentina salimos a mostrar lo que producimos. Nuestras industrias y comercios son el corazón productivo de la patria.\nSubí tu foto o reel con el hashtag #queremostrabajar y etiquetanos.\n#CGERA #MostraTuProducto #DefendeTuTrabajo #IndustriaNacional",
-      "created_at": "2026-11-05 11:15:00",
-      "likes": 3290,
-      "comments": 284,
-      "shares": 1150,
-      "views": 45200,
-      "media_type": "carousel",
-      "media_urls": [
-        "https://instagram.fcor2-1.fna.fbcdn.net/cgera_kit1.jpg",
-        "https://instagram.fcor2-1.fna.fbcdn.net/cgera_kit2.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "CGERA",
-        "MostraTuProducto",
-        "DefendeTuTrabajo",
-        "IndustriaNacional"
-      ],
-      "is_official_cgera": true,
-      "location": "CGERA Sede Central, Av. Rivadavia 1115",
-      "sector": "Gremial e Institucional",
-      "raw_data": {},
-      "total_engagement": 4724
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-pastas-laura-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "pastas_artesanales_laura",
-      "author_name": "Fábrica de Pastas Laura",
-      "text_content": "Somos 12 familias amasando todos los días desde las 5 AM. Hoy a las 12 salimos a la vereda con las bandejas de ravioles y sorrentinos. #queremostrabajar #industriaalimentos #comerciolocal",
-      "created_at": "2026-11-05 12:15:00",
-      "likes": 3150,
-      "comments": 240,
-      "shares": 980,
-      "views": 42300,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industriaalimentos",
-        "comerciolocal"
-      ],
-      "is_official_cgera": false,
-      "location": "Morón, Buenos Aires",
-      "sector": "Alimentos y Bebidas",
-      "raw_data": {},
-      "total_engagement": 4370
-    },
-    {
-      "platform": "facebook",
-      "id": "fb-109283746192837",
-      "url": "https://www.facebook.com/cgera.nacional/posts/109283746192837",
-      "author_username": "cgera.nacional",
-      "author_name": "CGERA - Confederación General Empresaria",
-      "text_content": "HISTÓRICA MOVILIZACIÓN EN TODO EL PAÍS: Cientos de fábricas, talleres y comercios abrieron sus puertas a las 12:00 hs para visibilizar el valor de la producción argentina.\nAcompañamos a Marcelo Fernández y a la mesa directiva en defensa del mercado interno.\n#queremostrabajar #CGERA #MostraTuProducto #IndustriaNacional",
-      "created_at": "2026-11-05 12:45:00",
-      "likes": 2450,
-      "comments": 310,
-      "shares": 1420,
-      "views": 38500,
-      "media_type": "image",
-      "media_urls": [
-        "https://scontent.fcor2-1.fna.fbcdn.net/cgera_fb_5n.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "CGERA",
-        "MostraTuProducto",
-        "IndustriaNacional"
-      ],
-      "is_official_cgera": true,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Gremial e Institucional",
-      "raw_data": {},
-      "total_engagement": 4180
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-calzados-plata-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "calzados_argentinos_ba",
-      "author_name": "Calzados del Plata",
-      "text_content": "Miren la calidad del cuero y la costura argentina. No necesitamos importar lo que sabemos hacer con excelencia acá. #queremostrabajar #industriadelcalzado #hechoenargentina",
-      "created_at": "2026-11-05 12:40:00",
-      "likes": 2940,
-      "comments": 195,
-      "shares": 840,
-      "views": 36700,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industriadelcalzado",
-        "hechoenargentina"
-      ],
-      "is_official_cgera": false,
-      "location": "Lomas de Zamora, Buenos Aires",
-      "sector": "Calzado y Cueros",
-      "raw_data": {},
-      "total_engagement": 3975
-    },
-    {
-      "platform": "cgera",
-      "id": "csira-convocatoria-5n",
-      "url": "https://cgera.net.ar/csira-movilizacion-5n/",
-      "author_username": "csira_industria",
-      "author_name": "CSIRA (Confederación de Sindicatos Industriales)",
-      "text_content": "Los 34 gremios de la producción nacional (UOM, SMATA, UOYEP plásticos, UTICRA calzado, AOT textiles, ASIMRA, Gráficos, Químicos) adherimos en unidad a la jornada 5N junto a CGERA. Sin industria nacional no hay empleo ni soberanía. #queremostrabajar #csira #trabajoargentino",
-      "created_at": "2026-11-04 15:00:00",
-      "likes": 1890,
-      "comments": 215,
-      "shares": 940,
-      "views": 18600,
-      "media_type": "image",
-      "media_urls": [
-        "https://cgera.net.ar/wp-content/uploads/2026/csira_adhesion.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "csira",
-        "trabajoargentino",
-        "industrianacional"
-      ],
-      "is_official_cgera": true,
-      "location": "CABA, Argentina",
-      "sector": "Gremial e Institucional",
-      "raw_data": {},
-      "total_engagement": 3045
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-textil-condor-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "textil_avellaneda",
-      "author_name": "Confecciones El Cóndor",
-      "text_content": "Camperas térmicas y uniformes de trabajo confeccionados con manos argentinas. #queremostrabajar #textil #defendétutrabajo",
-      "created_at": "2026-11-05 13:55:00",
-      "likes": 2190,
-      "comments": 162,
-      "shares": 630,
-      "views": 28700,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "textil",
-        "defendetutrabajo"
-      ],
-      "is_official_cgera": false,
-      "location": "Avellaneda, Buenos Aires",
-      "sector": "Textil e Indumentaria",
-      "raw_data": {},
-      "total_engagement": 2982
-    }
-  ],
-  "geographic_distribution": [
-    {
-      "location": "Buenos Aires, Argentina",
-      "count": 20
-    },
-    {
-      "location": "CABA, Argentina",
-      "count": 6
-    },
-    {
-      "location": "Avellaneda, Buenos Aires",
-      "count": 4
-    },
-    {
-      "location": "Mar del Plata, Buenos Aires",
-      "count": 3
-    },
-    {
-      "location": "Rosario, Santa Fe",
-      "count": 2
-    },
-    {
-      "location": "Argentina",
-      "count": 1
-    },
-    {
-      "location": "Sede Central: Av. Rivadavia 1115 4°, CABA, Argentina",
-      "count": 1
-    },
-    {
-      "location": "CGERA Sede Central, Av. Rivadavia 1115",
-      "count": 1
-    },
-    {
-      "location": "General San Martín, Buenos Aires",
-      "count": 1
-    },
-    {
-      "location": "Ferreyra, Córdoba",
-      "count": 1
-    }
-  ],
-  "posts": [
-    {
-      "platform": "instagram",
-      "id": "in-DfXS03ZRMs4",
-      "url": "https://www.instagram.com/reel/DfXS03ZRMs4",
-      "author_username": "laclasedigital",
-      "author_name": "La Clase Digital Pizarras Digitales Robótica RCP",
-      "text_content": "#queremostrabajar",
-      "created_at": "2026-11-05 12:00:00",
-      "likes": 22,
-      "comments": 1,
-      "shares": 0,
-      "views": 330,
-      "media_type": "video",
-      "media_urls": [
-        "https://instagram.ffma3-1.fna.fbcdn.net/v/t51.82787-15/890464069_18469225147185928_7538130852757242739_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=102&_nc_map=urlgen_bucketless&ig_cache_key=NDAyMzc2NzU4OTgwODU1Njg1NjE4NDY5MjI1MTQ0MTg1OTI4.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEwMjQuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=7lmLdb9NILoQ7kNvwE3PN9E&_nc_oc=Adr2HBGyZGyrwMBrf3HlkkNzR2D9gNrX5Ax7tYzRPL9HZ8QyzFynPEFTND55QysORrc&_nc_zt=23&_nc_ht=instagram.ffma3-1.fna&_nc_gid=OXCKveki-7Ktu_n3ACst9w&_nc_ss=70a8c&oh=00_AQTMRbJzCwXteEcYcdiin96S7kXjMbxtL2fnD5dKK2M2qQ&oe=6AF4FBE9"
-      ],
-      "hashtags": [
-        "queremostrabajar"
-      ],
-      "is_official_cgera": false,
-      "location": "Argentina",
-      "sector": "Tecnología y Robótica",
-      "raw_data": {
-        "yt_dlp_extracted": true,
-        "title": "Video by laclasedigital"
-      },
-      "total_engagement": 23
-    },
-    {
-      "platform": "cgera",
-      "id": "cgera-convocatoria-5n",
-      "url": "https://cgera.net.ar/mostra-tu-producto/",
-      "author_username": "cgera_nacional",
-      "author_name": "CGERA (Confederación General Empresaria de la R.A.)",
-      "text_content": "📢 CONVOCATORIA NACIONAL CGERA: 'Mostrá tu producto Argentino, Defendé tu trabajo'. El 5 de noviembre a las 12:00 hs salí a la puerta de tu fábrica, taller o comercio. “Queremos que cada empresario junto a sus trabajadores, independientemente de su pensamiento político, salga a la puerta de su industria o comercio mostrando el producto que fabrica o vende, que cada uno haga una foto o un video contando qué puede significar la pérdida de esa fábrica, local y de empleo para cada uno, y que quiere seguir trabajando y produciendo en la Argentina.” #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-01 10:00:00",
-      "likes": 1450,
-      "comments": 182,
-      "shares": 830,
-      "views": 12400,
-      "media_type": "video",
-      "media_urls": [
-        "https://cgera.net.ar/wp-content/uploads/2026/spot-oficial-5n.mp4",
-        "https://cgera.net.ar/wp-content/uploads/2026/kit-visual-5n.zip"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino",
-        "pymes"
-      ],
-      "is_official_cgera": true,
-      "location": "Sede Central: Av. Rivadavia 1115 4°, CABA, Argentina",
-      "sector": "Gremial e Institucional",
-      "raw_data": {
-        "visitas_registradas": "+2.393",
-        "descargas_kit": "+304",
-        "evento_fecha": "5 de Noviembre 12:00 HS",
-        "presidente_cgera": "Marcelo Fernández"
-      },
-      "total_engagement": 2462
-    },
-    {
-      "platform": "cgera",
-      "id": "csira-convocatoria-5n",
-      "url": "https://cgera.net.ar/csira-movilizacion-5n/",
-      "author_username": "csira_industria",
-      "author_name": "CSIRA (Confederación de Sindicatos Industriales)",
-      "text_content": "Los 34 gremios de la producción nacional (UOM, SMATA, UOYEP plásticos, UTICRA calzado, AOT textiles, ASIMRA, Gráficos, Químicos) adherimos en unidad a la jornada 5N junto a CGERA. Sin industria nacional no hay empleo ni soberanía. #queremostrabajar #csira #trabajoargentino",
-      "created_at": "2026-11-04 15:00:00",
-      "likes": 1890,
-      "comments": 215,
-      "shares": 940,
-      "views": 18600,
-      "media_type": "image",
-      "media_urls": [
-        "https://cgera.net.ar/wp-content/uploads/2026/csira_adhesion.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "csira",
-        "trabajoargentino",
-        "industrianacional"
-      ],
-      "is_official_cgera": true,
-      "location": "CABA, Argentina",
-      "sector": "Gremial e Institucional",
-      "raw_data": {},
-      "total_engagement": 3045
-    },
-    {
-      "platform": "instagram",
-      "id": "ig-DBz94KxM_11",
-      "url": "https://www.instagram.com/p/DBz94KxM_11/",
-      "author_username": "cgera_ok",
-      "author_name": "CGERA Oficial",
-      "text_content": "🇦🇷 JORNADA NACIONAL 5 DE NOVIEMBRE 🇦🇷\nEn cada rincón de la Argentina salimos a mostrar lo que producimos. Nuestras industrias y comercios son el corazón productivo de la patria.\nSubí tu foto o reel con el hashtag #queremostrabajar y etiquetanos.\n#CGERA #MostraTuProducto #DefendeTuTrabajo #IndustriaNacional",
-      "created_at": "2026-11-05 11:15:00",
-      "likes": 3290,
-      "comments": 284,
-      "shares": 1150,
-      "views": 45200,
-      "media_type": "carousel",
-      "media_urls": [
-        "https://instagram.fcor2-1.fna.fbcdn.net/cgera_kit1.jpg",
-        "https://instagram.fcor2-1.fna.fbcdn.net/cgera_kit2.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "CGERA",
-        "MostraTuProducto",
-        "DefendeTuTrabajo",
-        "IndustriaNacional"
-      ],
-      "is_official_cgera": true,
-      "location": "CGERA Sede Central, Av. Rivadavia 1115",
-      "sector": "Gremial e Institucional",
-      "raw_data": {},
-      "total_engagement": 4724
-    },
-    {
-      "platform": "instagram",
-      "id": "ig-DB0AbC3O_22",
-      "url": "https://www.instagram.com/reel/DB0AbC3O_22/",
-      "author_username": "metalurgica_vargas",
-      "author_name": "Metalúrgica Vargas & Hijos",
-      "text_content": "Reel desde San Martín, capital de la industria 🔧🔩\nParamos las máquinas 10 minutos a las 12 hs para salir a la puerta con todo el equipo. Fabricamos piezas para transformadores eléctricos. #queremostrabajar #sanmartin #industriaargentina #pymes",
-      "created_at": "2026-11-05 12:10:00",
-      "likes": 1840,
-      "comments": 112,
-      "shares": 420,
-      "views": 26700,
-      "media_type": "video",
-      "media_urls": [
-        "https://instagram.fcor2-1.fna.fbcdn.net/vargas_reel.mp4"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "sanmartin",
-        "industriaargentina",
-        "pymes"
-      ],
-      "is_official_cgera": false,
-      "location": "General San Martín, Buenos Aires",
-      "sector": "Industria Nacional",
-      "raw_data": {},
-      "total_engagement": 2372
-    },
-    {
-      "platform": "instagram",
-      "id": "ig-DB0CdEFG_33",
-      "url": "https://www.instagram.com/p/DB0CdEFG_33/",
-      "author_username": "indumentaria_marpla",
-      "author_name": "Tejidos Mar del Plata",
-      "text_content": "Defendamos el tejido nacional frente a la apertura indiscriminada. Acá estamos dueños, diseñadores y costureras mostrando las prendas de la nueva temporada. #queremostrabajar #mardelplata #textilargentino #cgera",
-      "created_at": "2026-11-05 12:18:00",
-      "likes": 1420,
-      "comments": 98,
-      "shares": 310,
-      "views": 18300,
-      "media_type": "image",
-      "media_urls": [
-        "https://instagram.fcor2-1.fna.fbcdn.net/marpla_post.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "mardelplata",
-        "textilargentino",
-        "cgera"
-      ],
-      "is_official_cgera": false,
-      "location": "Mar del Plata, Buenos Aires",
-      "sector": "Textil e Indumentaria",
-      "raw_data": {},
-      "total_engagement": 1828
-    },
-    {
-      "platform": "instagram",
-      "id": "ig-DB0EfHIJ_44",
-      "url": "https://www.instagram.com/reel/DB0EfHIJ_44/",
-      "author_username": "autopartes_cordoba",
-      "author_name": "Autopartes Centro SRL",
-      "text_content": "El cluster autopartista presente. Desde Ferreyra, Córdoba, le decimos sí al trabajo argentino. #queremostrabajar #cordobaindustrial #autopartes #pymes",
-      "created_at": "2026-11-05 12:25:00",
-      "likes": 2150,
-      "comments": 145,
-      "shares": 580,
-      "views": 31400,
-      "media_type": "video",
-      "media_urls": [
-        "https://instagram.fcor2-1.fna.fbcdn.net/cordoba_reel.mp4"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "cordobaindustrial",
-        "autopartes",
-        "pymes"
-      ],
-      "is_official_cgera": false,
-      "location": "Ferreyra, Córdoba",
-      "sector": "Industria Nacional",
-      "raw_data": {},
-      "total_engagement": 2875
-    },
-    {
-      "platform": "instagram",
-      "id": "ig-DB0GhKLM_55",
-      "url": "https://www.instagram.com/p/DB0GhKLM_55/",
-      "author_username": "panificadora_quilmes",
-      "author_name": "Panificadora La Unión",
-      "text_content": "Con el delantal puesto y las bandejas en la mano. Gracias a nuestros vecinos que nos compran día a día. Sumate al reclamo de CGERA. #queremostrabajar #comerciodeproximidad #quilmes",
-      "created_at": "2026-11-05 12:35:00",
-      "likes": 980,
-      "comments": 76,
-      "shares": 190,
-      "views": 11200,
-      "media_type": "image",
-      "media_urls": [
-        "https://instagram.fcor2-1.fna.fbcdn.net/panificadora.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "comerciodeproximidad",
-        "quilmes"
-      ],
-      "is_official_cgera": false,
-      "location": "Quilmes, Buenos Aires",
-      "sector": "Alimentos y Bebidas",
-      "raw_data": {},
-      "total_engagement": 1246
-    },
-    {
-      "platform": "instagram",
-      "id": "ig-DB0IlNOP_66",
-      "url": "https://www.instagram.com/reel/DB0IlNOP_66/",
-      "author_username": "grafica_avellaneda",
-      "author_name": "Imprenta Gráfica del Sur",
-      "text_content": "La industria gráfica presente en la jornada 5N. Salimos al mediodía con las bobinas y pliegos impresos. El trabajo nacional es orgullo y futuro. #queremostrabajar #industriagrafica #avellaneda",
-      "created_at": "2026-11-05 13:10:00",
-      "likes": 1120,
-      "comments": 85,
-      "shares": 260,
-      "views": 15400,
-      "media_type": "video",
-      "media_urls": [
-        "https://instagram.fcor2-1.fna.fbcdn.net/grafica.mp4"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "industriagrafica",
-        "avellaneda"
-      ],
-      "is_official_cgera": false,
-      "location": "Avellaneda, Buenos Aires",
-      "sector": "Gráfica y Editorial",
-      "raw_data": {},
-      "total_engagement": 1465
-    },
-    {
-      "platform": "instagram",
-      "id": "ig-DB0KnPQR_77",
-      "url": "https://www.instagram.com/reel/DB0KnPQR_77/",
-      "author_username": "muebles_canadadegomez",
-      "author_name": "Carpintería & Muebles Cañada",
-      "text_content": "Desde la capital del mueble en Santa Fe. Acá se fabrica con madera argentina y oficio de generaciones. #queremostrabajar #mueblesargentinos #cgera #santafe",
-      "created_at": "2026-11-05 13:45:00",
-      "likes": 1580,
-      "comments": 120,
-      "shares": 390,
-      "views": 21800,
-      "media_type": "video",
-      "media_urls": [
-        "https://instagram.fcor2-1.fna.fbcdn.net/muebles.mp4"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "mueblesargentinos",
-        "cgera",
-        "santafe"
-      ],
-      "is_official_cgera": false,
-      "location": "Cañada de Gómez, Santa Fe",
-      "sector": "Madera y Muebles",
-      "raw_data": {},
-      "total_engagement": 2090
-    },
-    {
-      "platform": "instagram",
-      "id": "ig-DB0MpSTU_88",
-      "url": "https://www.instagram.com/p/DB0MpSTU_88/",
-      "author_username": "calzados_lamatanza",
-      "author_name": "Calzados San Justo",
-      "text_content": "Más de 60 operarios en la puerta de la fábrica mostrando botines y calzado de seguridad. Industria 100% matancera. #queremostrabajar #lamatanza #industrianacional",
-      "created_at": "2026-11-05 14:15:00",
-      "likes": 1750,
-      "comments": 134,
-      "shares": 410,
-      "views": 23900,
-      "media_type": "image",
-      "media_urls": [
-        "https://instagram.fcor2-1.fna.fbcdn.net/sanjusto.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "lamatanza",
-        "industrianacional"
-      ],
-      "is_official_cgera": false,
-      "location": "San Justo, La Matanza",
-      "sector": "Calzado y Cueros",
-      "raw_data": {},
-      "total_engagement": 2294
-    },
-    {
-      "platform": "instagram",
-      "id": "ig-DB0OrUVW_99",
-      "url": "https://www.instagram.com/reel/DB0OrUVW_99/",
-      "author_username": "cristaleria_berazategui",
-      "author_name": "Vidrios y Cristales del Sur",
-      "text_content": "Berazategui, capital del vidrio. Mostramos nuestras botellas y frascos para laboratorios y conserveras. #queremostrabajar #berazategui #industriadelvidrio",
-      "created_at": "2026-11-05 14:40:00",
-      "likes": 1340,
-      "comments": 89,
-      "shares": 320,
-      "views": 17600,
-      "media_type": "video",
-      "media_urls": [
-        "https://instagram.fcor2-1.fna.fbcdn.net/cristal.mp4"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "berazategui",
-        "industriadelvidrio"
-      ],
-      "is_official_cgera": false,
-      "location": "Berazategui, Buenos Aires",
-      "sector": "Vidrio y Cerámica",
-      "raw_data": {},
-      "total_engagement": 1749
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-cgera-spot-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "cgera_oficial",
-      "author_name": "CGERA Argentina",
-      "text_content": "Spot Oficial 5N 🇦🇷 Salí a la puerta a las 12:00 con tus compañeros de trabajo. Mostrá lo que fabricás con orgullo. Sumate al hashtag #queremostrabajar #industrianacional #argentina #pymes",
-      "created_at": "2026-11-04 18:00:00",
-      "likes": 8420,
-      "comments": 612,
-      "shares": 3120,
-      "views": 124000,
-      "media_type": "video",
-      "media_urls": [
-        "https://cgera.net.ar/wp-content/uploads/2026/spot-oficial-5n.mp4"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "argentina",
-        "pymes"
-      ],
-      "is_official_cgera": true,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Gremial e Institucional",
-      "raw_data": {},
-      "total_engagement": 12152
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-torneria-gonzalez-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "torneria_gonzalez",
-      "author_name": "Tornería y Mecanizados González",
-      "text_content": "12 en punto salimos con el himno de fondo como pidió CGERA. Acá mostramos los cilindros hidráulicos que hacemos para la maquinaria agrícola. ¡No aflojemos! #queremostrabajar #metalurgica #agroargentino #pymes",
-      "created_at": "2026-11-05 12:08:00",
-      "likes": 4310,
-      "comments": 320,
-      "shares": 1420,
-      "views": 58900,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "metalurgica",
-        "agroargentino",
-        "pymes"
-      ],
-      "is_official_cgera": false,
-      "location": "San Francisco, Córdoba",
-      "sector": "Metalúrgica y Mecanizado",
-      "raw_data": {},
-      "total_engagement": 6050
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-pastas-laura-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "pastas_artesanales_laura",
-      "author_name": "Fábrica de Pastas Laura",
-      "text_content": "Somos 12 familias amasando todos los días desde las 5 AM. Hoy a las 12 salimos a la vereda con las bandejas de ravioles y sorrentinos. #queremostrabajar #industriaalimentos #comerciolocal",
-      "created_at": "2026-11-05 12:15:00",
-      "likes": 3150,
-      "comments": 240,
-      "shares": 980,
-      "views": 42300,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industriaalimentos",
-        "comerciolocal"
-      ],
-      "is_official_cgera": false,
-      "location": "Morón, Buenos Aires",
-      "sector": "Alimentos y Bebidas",
-      "raw_data": {},
-      "total_engagement": 4370
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-tecnica-7-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "escuela_tecnica_7",
-      "author_name": "Estudiantes Técnica N°7",
-      "text_content": "Nos sumamos a la jornada de las pymes y la red de escuelas técnicas. Fabricamos prototipos y soñamos con trabajar en la industria argentina. #queremostrabajar #escuelastecnicas #futuroargentino",
-      "created_at": "2026-11-05 12:22:00",
-      "likes": 6780,
-      "comments": 489,
-      "shares": 2310,
-      "views": 89400,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "escuelastecnicas",
-        "futuroargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Avellaneda, Buenos Aires",
-      "sector": "Educación Técnica",
-      "raw_data": {},
-      "total_engagement": 9579
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-calzados-plata-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "calzados_argentinos_ba",
-      "author_name": "Calzados del Plata",
-      "text_content": "Miren la calidad del cuero y la costura argentina. No necesitamos importar lo que sabemos hacer con excelencia acá. #queremostrabajar #industriadelcalzado #hechoenargentina",
-      "created_at": "2026-11-05 12:40:00",
-      "likes": 2940,
-      "comments": 195,
-      "shares": 840,
-      "views": 36700,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industriadelcalzado",
-        "hechoenargentina"
-      ],
-      "is_official_cgera": false,
-      "location": "Lomas de Zamora, Buenos Aires",
-      "sector": "Calzado y Cueros",
-      "raw_data": {},
-      "total_engagement": 3975
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-laclasedigital-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "laclasedigital",
-      "author_name": "La Clase Digital - Robótica & Pizarras",
-      "text_content": "En La Clase Digital fabricamos tecnología educativa y robótica para escuelas argentinas 🤖🇦🇷 Salimos a visibilizar el esfuerzo y la innovación de nuestra industria. #queremostrabajar #robotica #educacion #pymes",
-      "created_at": "2026-11-05 12:50:00",
-      "likes": 1850,
-      "comments": 98,
-      "shares": 420,
-      "views": 22300,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "robotica",
-        "educacion",
-        "pymes"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Tecnología y Robótica",
-      "raw_data": {},
-      "total_engagement": 2368
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-mecanizados-rosario-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "mecanizados_rosario",
-      "author_name": "Mecanizados y Engranajes Rosario",
-      "text_content": "Mostramos los engranajes para cosechadoras. 100% industria santafesina. No dejen caer la producción. #queremostrabajar #rosario #agroindustria",
-      "created_at": "2026-11-05 13:25:00",
-      "likes": 3410,
-      "comments": 215,
-      "shares": 1100,
-      "views": 44500,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "rosario",
-        "agroindustria"
-      ],
-      "is_official_cgera": false,
-      "location": "Rosario, Santa Fe",
-      "sector": "Metalúrgica y Mecanizado",
-      "raw_data": {},
-      "total_engagement": 4725
-    },
-    {
-      "platform": "tiktok",
-      "id": "tt-textil-condor-5n",
-      "url": "https://www.tiktok.com/tag/queremostrabajar",
-      "author_username": "textil_avellaneda",
-      "author_name": "Confecciones El Cóndor",
-      "text_content": "Camperas térmicas y uniformes de trabajo confeccionados con manos argentinas. #queremostrabajar #textil #defendétutrabajo",
-      "created_at": "2026-11-05 13:55:00",
-      "likes": 2190,
-      "comments": 162,
-      "shares": 630,
-      "views": 28700,
-      "media_type": "video",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "textil",
-        "defendetutrabajo"
-      ],
-      "is_official_cgera": false,
-      "location": "Avellaneda, Buenos Aires",
-      "sector": "Textil e Indumentaria",
-      "raw_data": {},
-      "total_engagement": 2982
-    },
-    {
-      "platform": "x",
-      "id": "x-obarrio-5n-1",
-      "url": "https://x.com/marianoobarrio/status/18538201948201",
-      "author_username": "marianoobarrio",
-      "author_name": "Mariano Obarrio",
-      "text_content": "Importante convocatoria de las pymes y los sindicatos industriales (CGERA y CSIRA). Salieron a las 12 hs a las puertas de las fábricas a mostrar lo que producen ante la caída del consumo. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:15:00",
-      "likes": 95,
-      "comments": 24,
-      "shares": 50,
-      "views": 3917,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "CABA, Argentina",
-      "sector": "Prensa e Influencers",
-      "raw_data": {
-        "followers": 145040,
-        "economic_value_usd": 382.83,
-        "verified": true
-      },
-      "total_engagement": 169
-    },
-    {
-      "platform": "x",
-      "id": "x-infogremiales-5n-1",
-      "url": "https://x.com/InfoGremiales/status/18538240192837",
-      "author_username": "InfoGremiales",
-      "author_name": "InfoGremiales",
-      "text_content": "EN VIVO: Jornada nacional #queremostrabajar. Convocada por CGERA y CSIRA. Empresarios y trabajadores de 34 gremios industriales pararon a las 12 para visibilizar el empleo. #industrianacional #trabajoargentino #csira #cgera",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 70,
-      "comments": 18,
-      "shares": 28,
-      "views": 2840,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino",
-        "csira",
-        "cgera"
-      ],
-      "is_official_cgera": true,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Prensa e Influencers",
-      "raw_data": {
-        "followers": 24679,
-        "economic_value_usd": 76.45,
-        "verified": true
-      },
-      "total_engagement": 116
-    },
-    {
-      "platform": "x",
-      "id": "x-mdpsmata-5n-1",
-      "url": "https://x.com/MdpSmata/status/18538290192847",
-      "author_username": "MdpSmata",
-      "author_name": "SMATA MDP",
-      "text_content": "Toda la seccional Mar del Plata en la calle junto a los talleres autopartistas y mecánicos. La industria automotriz y el empleo no se tocan. #queremostrabajar #SMATA #IndustriaNacional",
-      "created_at": "2026-11-05 12:05:00",
-      "likes": 18,
-      "comments": 6,
-      "shares": 8,
-      "views": 450,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "SMATA",
-        "IndustriaNacional"
-      ],
-      "is_official_cgera": false,
-      "location": "Mar del Plata, Buenos Aires",
-      "sector": "Gremial e Institucional",
-      "raw_data": {
-        "total_contributions": 49,
-        "most_active_rank": 1
-      },
-      "total_engagement": 32
-    },
-    {
-      "platform": "x",
-      "id": "x-itacarri-5n-1",
-      "url": "https://x.com/itacarri/status/18538310293847",
-      "author_username": "itacarri",
-      "author_name": "Italo Carrizo",
-      "text_content": "En cada taller, en cada tornería, mostrando con orgullo las piezas producidas acá. Argentina sale adelante trabajando y produciendo. #queremostrabajar #pymes #cgera",
-      "created_at": "2026-11-05 12:10:00",
-      "likes": 13,
-      "comments": 4,
-      "shares": 7,
-      "views": 380,
-      "media_type": "text",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "pymes",
-        "cgera"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Gremial e Institucional",
-      "raw_data": {
-        "total_contributions": 33,
-        "most_active_rank": 2
-      },
-      "total_engagement": 24
-    },
-    {
-      "platform": "x",
-      "id": "x-smatamdp28-5n-1",
-      "url": "https://x.com/Smatamdp28/status/18538330192847",
-      "author_username": "Smatamdp28",
-      "author_name": "Smata Gremiales",
-      "text_content": "Fábricas de autopartes abiertas y en la vereda. Convocatoria multitudinaria junto a CGERA. #queremostrabajar #defendétutrabajo #abramoslaspersianas",
-      "created_at": "2026-11-05 12:12:00",
-      "likes": 11,
-      "comments": 3,
-      "shares": 6,
-      "views": 310,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "defendetutrabajo",
-        "abramoslaspersianas"
-      ],
-      "is_official_cgera": false,
-      "location": "Mar del Plata, Buenos Aires",
-      "sector": "Gremial e Institucional",
-      "raw_data": {
-        "total_contributions": 22,
-        "most_active_rank": 3
-      },
-      "total_engagement": 20
-    },
-    {
-      "platform": "x",
-      "id": "x-datagremial-5n-1",
-      "url": "https://x.com/DataGremialCom/status/18538350192847",
-      "author_username": "DataGremialCom",
-      "author_name": "Data Gremial",
-      "text_content": "Jornada Federal 5N: Pymes y trabajadores paralizaron 10 minutos la actividad para salir con su producción. El reclamo por el mercado interno llegó a todo el país. #queremostrabajar #industrianacional",
-      "created_at": "2026-11-05 12:25:00",
-      "likes": 13,
-      "comments": 5,
-      "shares": 4,
-      "views": 609,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Prensa e Influencers",
-      "raw_data": {
-        "followers": 26886,
-        "economic_value_usd": 82.83
-      },
-      "total_engagement": 22
-    },
-    {
-      "platform": "x",
-      "id": "x-mundogremial-5n-1",
-      "url": "https://x.com/MundoGremial/status/18538370192847",
-      "author_username": "MundoGremial",
-      "author_name": "Mundo Gremial",
-      "text_content": "Contundente respaldo de los 34 gremios de CSIRA a la campaña de CGERA. Marcelo Fernández: 'Necesitamos que se defienda la producción y el empleo'. #queremostrabajar #cgera #csira",
-      "created_at": "2026-11-05 12:30:00",
-      "likes": 12,
-      "comments": 4,
-      "shares": 7,
-      "views": 563,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "cgera",
-        "csira"
-      ],
-      "is_official_cgera": false,
-      "location": "CABA, Argentina",
-      "sector": "Prensa e Influencers",
-      "raw_data": {
-        "followers": 40536,
-        "economic_value_usd": 118.89
-      },
-      "total_engagement": 23
-    },
-    {
-      "platform": "x",
-      "id": "x-conclusionros-5n-1",
-      "url": "https://x.com/ConclusionRos/status/18538390192847",
-      "author_username": "ConclusionRos",
-      "author_name": "Conclusión",
-      "text_content": "Desde Rosario y el cordón industrial santafesino: Pymes metalúrgicas, del calzado y textiles se sumaron al reclamo. #queremostrabajar #SantaFe #IndustriaArgentina",
-      "created_at": "2026-11-05 12:35:00",
-      "likes": 15,
-      "comments": 3,
-      "shares": 6,
-      "views": 620,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "SantaFe",
-        "IndustriaArgentina"
-      ],
-      "is_official_cgera": false,
-      "location": "Rosario, Santa Fe",
-      "sector": "Prensa e Influencers",
-      "raw_data": {
-        "followers": 32038,
-        "economic_value_usd": 96.74
-      },
-      "total_engagement": 24
-    },
-    {
-      "platform": "x",
-      "id": "x-ivanahbogado-5n-1",
-      "url": "https://x.com/ivanahbogado/status/18538410293847",
-      "author_username": "ivanahbogado",
-      "author_name": "Ivana Bogado",
-      "text_content": "Defendiendo el trabajo argentino. Fábricas con sus banderas y sus trabajadores en la puerta. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:40:00",
-      "likes": 14,
-      "comments": 2,
-      "shares": 9,
-      "views": 589,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Gremial e Institucional",
-      "raw_data": {
-        "total_contributions": 8
-      },
-      "total_engagement": 25
-    },
-    {
-      "platform": "x",
-      "id": "x-gsindical-5n-1",
-      "url": "https://x.com/GSindical/status/18538430192847",
-      "author_username": "GSindical",
-      "author_name": "Gestión Sindical",
-      "text_content": "Crónica de una jornada inédita: pymes y gremios unidos bajo la consigna 'Mostrá tu producto argentino, defendé tu trabajo'. #queremostrabajar #cgera #periodismosindical",
-      "created_at": "2026-11-05 12:50:00",
-      "likes": 10,
-      "comments": 2,
-      "shares": 5,
-      "views": 420,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "cgera",
-        "periodismosindical"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Prensa e Influencers",
-      "raw_data": {
-        "economic_value_usd": 30.05
-      },
-      "total_engagement": 17
-    },
-    {
-      "platform": "x",
-      "id": "x-sitiogremial-5n-1",
-      "url": "https://x.com/SitioGremial/status/18538450192847",
-      "author_username": "SitioGremial",
-      "author_name": "Sitio Gremial",
-      "text_content": "Amplia repercusión en parques industriales de todo el país por la campaña #queremostrabajar. Las fotos y videos se multiplican en redes. #abramoslaspersianas #trabajoargentino",
-      "created_at": "2026-11-05 13:00:00",
-      "likes": 9,
-      "comments": 1,
-      "shares": 4,
-      "views": 390,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "abramoslaspersianas",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Prensa e Influencers",
-      "raw_data": {
-        "economic_value_usd": 20.61
-      },
-      "total_engagement": 14
-    },
-    {
-      "platform": "x",
-      "id": "x-mendovoz-5n-1",
-      "url": "https://x.com/mendovozok/status/18538470192847",
-      "author_username": "mendovozok",
-      "author_name": "MendoVoz",
-      "text_content": "Industrias y talleres de Cuyo se sumaron a la convocatoria federal de CGERA a las 12 hs. #queremostrabajar #Mendoza #IndustriaNacional",
-      "created_at": "2026-11-05 13:10:00",
-      "likes": 8,
-      "comments": 1,
-      "shares": 3,
-      "views": 310,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "Mendoza",
-        "IndustriaNacional"
-      ],
-      "is_official_cgera": false,
-      "location": "Mendoza Capital",
-      "sector": "Prensa e Influencers",
-      "raw_data": {
-        "economic_value_usd": 10.43
-      },
-      "total_engagement": 12
-    },
-    {
-      "platform": "x",
-      "id": "x-cgera-oficial-x-1",
-      "url": "https://x.com/cgera_nacional/status/18538180192837",
-      "author_username": "cgera_nacional",
-      "author_name": "CGERA",
-      "text_content": "Hoy a las 12:00 salimos todos a la puerta de nuestras industrias y talleres. Mostramos con orgullo lo que fabricamos en el país. El trabajo argentino no se negocia. #queremostrabajar #MostraTuProducto #IndustriaNacional",
-      "created_at": "2026-11-05 11:30:00",
-      "likes": 184,
-      "comments": 35,
-      "shares": 62,
-      "views": 3240,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "MostraTuProducto",
-        "IndustriaNacional"
-      ],
-      "is_official_cgera": true,
-      "location": "CABA, Argentina",
-      "sector": "Gremial e Institucional",
-      "raw_data": {},
-      "total_engagement": 281
-    },
-    {
-      "platform": "x",
-      "id": "x-laclasedigital-x-1",
-      "url": "https://x.com/laclasedigital/status/18538629102938",
-      "author_username": "laclasedigital",
-      "author_name": "La Clase Digital",
-      "text_content": "La tecnología y la educación se defienden produciendo en el país. Salimos a la puerta con nuestras pizarras interactivas y kits de robótica educativa. #queremostrabajar #IndustriaNacional #EducacionTecnica #CGERA",
-      "created_at": "2026-11-05 12:45:00",
-      "likes": 52,
-      "comments": 12,
-      "shares": 18,
-      "views": 790,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "IndustriaNacional",
-        "EducacionTecnica",
-        "CGERA"
-      ],
-      "is_official_cgera": false,
-      "location": "CABA, Argentina",
-      "sector": "Tecnología y Robótica",
-      "raw_data": {},
-      "total_engagement": 82
-    },
-    {
-      "platform": "x",
-      "id": "x-tb-contributor-15",
-      "url": "https://x.com/search?q=%23queremostrabajar",
-      "author_username": "adherente_pyme_15",
-      "author_name": "Pyme / Taller Adherente #15",
-      "text_content": "Fábrica y taller presente en la convocatoria 5N mostrando lo que hacemos. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 1,
-      "comments": 0,
-      "shares": 1,
-      "views": 68,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Industria Nacional",
-      "raw_data": {
-        "tweetbinder_post_index": 15
-      },
-      "total_engagement": 2
-    },
-    {
-      "platform": "x",
-      "id": "x-tb-contributor-16",
-      "url": "https://x.com/search?q=%23queremostrabajar",
-      "author_username": "adherente_pyme_16",
-      "author_name": "Pyme / Taller Adherente #16",
-      "text_content": "Fábrica y taller presente en la convocatoria 5N mostrando lo que hacemos. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 1,
-      "comments": 0,
-      "shares": 1,
-      "views": 68,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Industria Nacional",
-      "raw_data": {
-        "tweetbinder_post_index": 16
-      },
-      "total_engagement": 2
-    },
-    {
-      "platform": "x",
-      "id": "x-tb-contributor-17",
-      "url": "https://x.com/search?q=%23queremostrabajar",
-      "author_username": "adherente_pyme_17",
-      "author_name": "Pyme / Taller Adherente #17",
-      "text_content": "Fábrica y taller presente en la convocatoria 5N mostrando lo que hacemos. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 1,
-      "comments": 0,
-      "shares": 1,
-      "views": 68,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Industria Nacional",
-      "raw_data": {
-        "tweetbinder_post_index": 17
-      },
-      "total_engagement": 2
-    },
-    {
-      "platform": "x",
-      "id": "x-tb-contributor-18",
-      "url": "https://x.com/search?q=%23queremostrabajar",
-      "author_username": "adherente_pyme_18",
-      "author_name": "Pyme / Taller Adherente #18",
-      "text_content": "Fábrica y taller presente en la convocatoria 5N mostrando lo que hacemos. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 1,
-      "comments": 0,
-      "shares": 1,
-      "views": 68,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Industria Nacional",
-      "raw_data": {
-        "tweetbinder_post_index": 18
-      },
-      "total_engagement": 2
-    },
-    {
-      "platform": "x",
-      "id": "x-tb-contributor-19",
-      "url": "https://x.com/search?q=%23queremostrabajar",
-      "author_username": "adherente_pyme_19",
-      "author_name": "Pyme / Taller Adherente #19",
-      "text_content": "Fábrica y taller presente en la convocatoria 5N mostrando lo que hacemos. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 1,
-      "comments": 0,
-      "shares": 1,
-      "views": 68,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Industria Nacional",
-      "raw_data": {
-        "tweetbinder_post_index": 19
-      },
-      "total_engagement": 2
-    },
-    {
-      "platform": "x",
-      "id": "x-tb-contributor-20",
-      "url": "https://x.com/search?q=%23queremostrabajar",
-      "author_username": "adherente_pyme_20",
-      "author_name": "Pyme / Taller Adherente #20",
-      "text_content": "Fábrica y taller presente en la convocatoria 5N mostrando lo que hacemos. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 1,
-      "comments": 0,
-      "shares": 1,
-      "views": 68,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Industria Nacional",
-      "raw_data": {
-        "tweetbinder_post_index": 20
-      },
-      "total_engagement": 2
-    },
-    {
-      "platform": "x",
-      "id": "x-tb-contributor-21",
-      "url": "https://x.com/search?q=%23queremostrabajar",
-      "author_username": "adherente_pyme_21",
-      "author_name": "Pyme / Taller Adherente #21",
-      "text_content": "Fábrica y taller presente en la convocatoria 5N mostrando lo que hacemos. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 1,
-      "comments": 0,
-      "shares": 1,
-      "views": 68,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Industria Nacional",
-      "raw_data": {
-        "tweetbinder_post_index": 21
-      },
-      "total_engagement": 2
-    },
-    {
-      "platform": "x",
-      "id": "x-tb-contributor-22",
-      "url": "https://x.com/search?q=%23queremostrabajar",
-      "author_username": "adherente_pyme_22",
-      "author_name": "Pyme / Taller Adherente #22",
-      "text_content": "Fábrica y taller presente en la convocatoria 5N mostrando lo que hacemos. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 1,
-      "comments": 0,
-      "shares": 1,
-      "views": 68,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Industria Nacional",
-      "raw_data": {
-        "tweetbinder_post_index": 22
-      },
-      "total_engagement": 2
-    },
-    {
-      "platform": "x",
-      "id": "x-tb-contributor-23",
-      "url": "https://x.com/search?q=%23queremostrabajar",
-      "author_username": "adherente_pyme_23",
-      "author_name": "Pyme / Taller Adherente #23",
-      "text_content": "Fábrica y taller presente en la convocatoria 5N mostrando lo que hacemos. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 1,
-      "comments": 0,
-      "shares": 1,
-      "views": 68,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Industria Nacional",
-      "raw_data": {
-        "tweetbinder_post_index": 23
-      },
-      "total_engagement": 2
-    },
-    {
-      "platform": "x",
-      "id": "x-tb-contributor-24",
-      "url": "https://x.com/search?q=%23queremostrabajar",
-      "author_username": "adherente_pyme_24",
-      "author_name": "Pyme / Taller Adherente #24",
-      "text_content": "Fábrica y taller presente en la convocatoria 5N mostrando lo que hacemos. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 1,
-      "comments": 0,
-      "shares": 1,
-      "views": 68,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Industria Nacional",
-      "raw_data": {
-        "tweetbinder_post_index": 24
-      },
-      "total_engagement": 2
-    },
-    {
-      "platform": "x",
-      "id": "x-tb-contributor-25",
-      "url": "https://x.com/search?q=%23queremostrabajar",
-      "author_username": "adherente_pyme_25",
-      "author_name": "Pyme / Taller Adherente #25",
-      "text_content": "Fábrica y taller presente en la convocatoria 5N mostrando lo que hacemos. #queremostrabajar #industrianacional #trabajoargentino",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 1,
-      "comments": 0,
-      "shares": 1,
-      "views": 68,
-      "media_type": "image",
-      "media_urls": [],
-      "hashtags": [
-        "queremostrabajar",
-        "industrianacional",
-        "trabajoargentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Industria Nacional",
-      "raw_data": {
-        "tweetbinder_post_index": 25
-      },
-      "total_engagement": 2
+      "emoji": "📲",
+      "name": "Teléfono Móvil",
+      "count": 8,
+      "sentiment": "Viralización"
     },
     {
-      "platform": "facebook",
-      "id": "fb-109283746192837",
-      "url": "https://www.facebook.com/cgera.nacional/posts/109283746192837",
-      "author_username": "cgera.nacional",
-      "author_name": "CGERA - Confederación General Empresaria",
-      "text_content": "HISTÓRICA MOVILIZACIÓN EN TODO EL PAÍS: Cientos de fábricas, talleres y comercios abrieron sus puertas a las 12:00 hs para visibilizar el valor de la producción argentina.\nAcompañamos a Marcelo Fernández y a la mesa directiva en defensa del mercado interno.\n#queremostrabajar #CGERA #MostraTuProducto #IndustriaNacional",
-      "created_at": "2026-11-05 12:45:00",
-      "likes": 2450,
-      "comments": 310,
-      "shares": 1420,
-      "views": 38500,
-      "media_type": "image",
-      "media_urls": [
-        "https://scontent.fcor2-1.fna.fbcdn.net/cgera_fb_5n.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "CGERA",
-        "MostraTuProducto",
-        "IndustriaNacional"
-      ],
-      "is_official_cgera": true,
-      "location": "Buenos Aires, Argentina",
-      "sector": "Gremial e Institucional",
-      "raw_data": {},
-      "total_engagement": 4180
+      "emoji": "🌐",
+      "name": "Globo / Web",
+      "count": 4,
+      "sentiment": "Crítica económica"
     },
     {
-      "platform": "facebook",
-      "id": "fb-109283819283746",
-      "url": "https://www.facebook.com/csira.nacional/posts/109283819283746",
-      "author_username": "csira.nacional",
-      "author_name": "CSIRA - Sindicatos Industriales",
-      "text_content": "Unidad de los trabajadores industriales y las pymes en la jornada 5N. Los 34 gremios industriales acompañamos a empresarios y trabajadores que salieron a la vereda mostrando su trabajo y exigiendo políticas activas para la producción. #queremostrabajar #CSIRA #IndustriaArgentina",
-      "created_at": "2026-11-05 12:50:00",
-      "likes": 1620,
-      "comments": 178,
-      "shares": 890,
-      "views": 24100,
-      "media_type": "image",
-      "media_urls": [
-        "https://scontent.fcor2-1.fna.fbcdn.net/csira_fb.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "CSIRA",
-        "IndustriaArgentina"
-      ],
-      "is_official_cgera": true,
-      "location": "CABA, Argentina",
-      "sector": "Gremial e Institucional",
-      "raw_data": {},
-      "total_engagement": 2688
+      "emoji": "🎥",
+      "name": "Cámara de Video",
+      "count": 4,
+      "sentiment": "Reels / TikToks"
     },
     {
-      "platform": "facebook",
-      "id": "fb-109283948571928",
-      "url": "https://www.facebook.com/camara.industria.tresdefebrero/posts/109283948571928",
-      "author_username": "camara.industria.tresdefebrero",
-      "author_name": "Unión Industrial de Tres de Febrero",
-      "text_content": "En Tres de Febrero salieron más de 40 industrias pymes a las 12 del mediodía. Desde autopartes hasta inyección plástica. Queremos seguir produciendo y manteniendo a nuestros operarios. #queremostrabajar #TresDeFebrero #PymesArgentinas",
-      "created_at": "2026-11-05 12:20:00",
-      "likes": 1180,
-      "comments": 94,
-      "shares": 430,
-      "views": 15600,
-      "media_type": "image",
-      "media_urls": [
-        "https://scontent.fcor2-1.fna.fbcdn.net/3defebrero.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "TresDeFebrero",
-        "PymesArgentinas"
-      ],
-      "is_official_cgera": false,
-      "location": "Caseros, Buenos Aires",
-      "sector": "Industria Nacional",
-      "raw_data": {},
-      "total_engagement": 1704
+      "emoji": "📱",
+      "name": "Smartphone",
+      "count": 3,
+      "sentiment": "Redes Sociales"
     },
     {
-      "platform": "facebook",
-      "id": "fb-109284102938475",
-      "url": "https://www.facebook.com/federacion.comercio.santafe/posts/109284102938475",
-      "author_username": "federacion.comercio.santafe",
-      "author_name": "Federación de Centros Comerciales de Santa Fe (FECECO)",
-      "text_content": "Los centros comerciales a cielo abierto de toda la provincia se plegaron a la campaña de CGERA. Un comercio cerrado es una persiana que no vuelve a subir. Defendamos el trabajo santafesino. #queremostrabajar #SantaFe #ComercioArgentino",
-      "created_at": "2026-11-05 12:28:00",
-      "likes": 890,
-      "comments": 65,
-      "shares": 310,
-      "views": 12400,
-      "media_type": "image",
-      "media_urls": [
-        "https://scontent.fcor2-1.fna.fbcdn.net/fececo.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "SantaFe",
-        "ComercioArgentino"
-      ],
-      "is_official_cgera": false,
-      "location": "Santa Fe Capital",
-      "sector": "Gremial e Institucional",
-      "raw_data": {},
-      "total_engagement": 1265
+      "emoji": "✊",
+      "name": "Puño en Alto",
+      "count": 3,
+      "sentiment": "Gremial / Lucha"
     },
     {
-      "platform": "facebook",
-      "id": "fb-109284391029482",
-      "url": "https://www.facebook.com/ceramicas.avellaneda/posts/109284391029482",
-      "author_username": "ceramicas.avellaneda",
-      "author_name": "Cerámica Industrial del Sur",
-      "text_content": "En nuestro horno continuo trabajan tres turnos de familias de Avellaneda. Hoy nos sumamos a la bandera argentina en la puerta de la fábrica. #queremostrabajar #avellaneda #ceramica",
-      "created_at": "2026-11-05 12:35:00",
-      "likes": 760,
-      "comments": 48,
-      "shares": 185,
-      "views": 8900,
-      "media_type": "image",
-      "media_urls": [
-        "https://scontent.fcor2-1.fna.fbcdn.net/ceramica.jpg"
-      ],
-      "hashtags": [
-        "queremostrabajar",
-        "avellaneda",
-        "ceramica"
-      ],
-      "is_official_cgera": false,
-      "location": "Avellaneda, Buenos Aires",
-      "sector": "Vidrio y Cerámica",
-      "raw_data": {},
-      "total_engagement": 993
+      "emoji": "🥛",
+      "name": "Vaso de Leche",
+      "count": 3,
+      "sentiment": "Sector Lácteo ATILRA"
     }
   ]
 }
