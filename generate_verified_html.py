@@ -63,10 +63,6 @@ def generate_html():
                    class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 border border-emerald-800 rounded-lg text-xs font-semibold shadow-sm transition">
                     📗 Descargar Excel (.xlsx)
                 </a>
-                <a href="data/social_listening.json" download
-                   class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg text-xs font-semibold transition">
-                    📦 JSON Verificado
-                </a>
                 <button onclick="window.print()"
                    class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-cyan-950 hover:bg-cyan-900 text-cyan-300 border border-cyan-800 rounded-lg text-xs font-semibold transition">
                     🖨️ Imprimir / PDF

@@ -85,17 +85,6 @@ with st.sidebar:
                 use_container_width=True
             )
 
-    sl_path = Path("data/social_listening.json")
-    if sl_path.exists():
-        with open(sl_path, "rb") as f:
-            st.download_button(
-                label="🌐 Descargar JSON Verificado",
-                data=f,
-                file_name="social_listening.json",
-                mime="application/json",
-                use_container_width=True
-            )
-
     csv_path = Path("data/processed/queremostrabajar_posts.csv")
     if csv_path.exists():
         with open(csv_path, "rb") as f:
